@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://pjyuitpmmpe2"]
+
+[ext_resource type="Script" path="res://scenes/game_ui.gd" id="1_jsp6e"]
+[ext_resource type="Script" path="res://scenes/fps.gd" id="2_kvn7c"]
+
+[node name="GameUi" type="CanvasLayer"]
+script = ExtResource("1_jsp6e")
+
+[node name="fps" type="Label" parent="."]
+offset_left = 1077.0
+offset_top = 7.0
+offset_right = 1117.0
+offset_bottom = 30.0
+script = ExtResource("2_kvn7c")

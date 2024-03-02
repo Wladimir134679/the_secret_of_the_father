@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://rwsgejo7gadn"]
+
+[ext_resource type="PackedScene" uid="uid://pjyuitpmmpe2" path="res://scenes/game_ui.tscn" id="1_meqbs"]
+[ext_resource type="PackedScene" uid="uid://s544lb1641wa" path="res://scenes/test_world.tscn" id="2_mjov5"]
+
+[sub_resource type="GDScript" id="GDScript_f625g"]
+script/source = "extends Node2D
+
+var last_world = null
+
+func to_world(world_scene):
+	var ins = world_scene.instantiate()
+	last_world = change_world([ins])
+	
+func to_last():
+	change_world(last_world)
+	last_world = null
+
+func change_world(new_nodes) -> Array:
+	var scene_w = get_node(\"World\")
+	var old = scene_w.get_children()
+	for sn in new_nodes:
+		scene_w.add_child(sn)
+	for s in old:
+		scene_w.remove_child(s)
+	return old
+	
+"
+
+[node name="MainGame" type="Node2D"]
+script = SubResource("GDScript_f625g")
+
+[node name="GameUi" parent="." instance=ExtResource("1_meqbs")]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="TestWorld" parent="World" instance=ExtResource("2_mjov5")]
