@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
 
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
 [input]
 
 move_left={
