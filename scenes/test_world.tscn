@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://s544lb1641wa"]
+[gd_scene load_steps=29 format=3 uid="uid://s544lb1641wa"]
 
 [ext_resource type="PackedScene" uid="uid://csbidcltw6m7" path="res://player/player.tscn" id="1_tgeqe"]
 [ext_resource type="Script" path="res://scenes/test_world.gd" id="1_w11tl"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bmnr43ywebt5k" path="res://assets/Podzem/candleB_02.png" id="12_8m2o3"]
 [ext_resource type="Texture2D" uid="uid://be200viyylsb5" path="res://assets/Podzem/torch_2.png" id="13_ur3ff"]
 [ext_resource type="Texture2D" uid="uid://cibc8pnhwcbbs" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Knights/Buildings/Castle/Castle_Blue.png" id="16_j1wpe"]
+[ext_resource type="PackedScene" uid="uid://m7u0ttgypccf" path="res://Mobs/goblin.tscn" id="17_hs785"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i3igm"]
 resource_name = "Дороги"
@@ -21316,6 +21317,9 @@ texture = ExtResource("16_j1wpe")
 position = Vector2(-3, 13)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_eajxv")
+
+[node name="Goblin" parent="." instance=ExtResource("17_hs785")]
+position = Vector2(1176, 1366)
 
 [node name="Player" parent="." instance=ExtResource("1_tgeqe")]
 position = Vector2(1312, 1341)
