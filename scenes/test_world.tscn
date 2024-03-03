@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://s544lb1641wa"]
+[gd_scene load_steps=22 format=3 uid="uid://s544lb1641wa"]
 
 [ext_resource type="PackedScene" uid="uid://csbidcltw6m7" path="res://player/player.tscn" id="1_tgeqe"]
 [ext_resource type="Script" path="res://scenes/test_world.gd" id="1_w11tl"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bvgj2hh1jkl8v" path="res://assets/1/example.png" id="5_hyov4"]
 [ext_resource type="Texture2D" uid="uid://dr2aljussm02w" path="res://assets/Dom/grasssheet_labeled.png" id="6_lfqk2"]
 [ext_resource type="PackedScene" uid="uid://pjyuitpmmpe2" path="res://scenes/game_ui.tscn" id="7_xquyi"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="9_rrewu"]
+[ext_resource type="Texture2D" uid="uid://bmnr43ywebt5k" path="res://assets/Podzem/candleB_02.png" id="12_8m2o3"]
+[ext_resource type="Texture2D" uid="uid://be200viyylsb5" path="res://assets/Podzem/torch_2.png" id="13_ur3ff"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i3igm"]
 resource_name = "Дороги"
@@ -18361,6 +18364,9 @@ sources/7 = SubResource("TileSetAtlasSource_ug4mr")
 sources/1 = SubResource("TileSetAtlasSource_rfje1")
 sources/4 = SubResource("TileSetAtlasSource_vyy56")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6bc7j"]
+radius = 33.0151
+
 [node name="TestWorld" type="Node2D"]
 script = ExtResource("1_w11tl")
 
@@ -18377,7 +18383,7 @@ layer_1/tile_data = PackedInt32Array(-393172, 1114114, 2, -327636, 1114114, 3, -
 layer_2/tile_data = PackedInt32Array(-458717, 851969, 25, -393181, 851969, 26, -327645, 851969, 27, -458716, 917505, 25, -393180, 917505, 26, -327644, 917505, 27, -458715, 983041, 25, -393179, 983041, 26, -327643, 983041, 27, -458714, 1048577, 25, -393178, 1048577, 26, -327642, 1048577, 27, -458713, 1114113, 25, -393177, 1114113, 26, -327641, 1114113, 27, -458712, 1179649, 25, -393176, 1179649, 26, -327640, 1179649, 27, -458711, 1245185, 25, -393175, 1245185, 26, -327639, 1245185, 27, -262109, 1900545, 52, -196573, 1900545, 53, -131037, 1900545, 54, -262103, 2031617, 52, -196567, 2031617, 53, -131031, 2031617, 54, -262107, 3014657, 52, -196571, 3014657, 53, -131035, 3014657, 54, -262106, 3080193, 52, -196570, 3080193, 53, -131034, 3080193, 54, -262105, 3145729, 52, -196569, 3145729, 53, -131033, 3145729, 54, -262104, 5111809, 51, -196568, 5111809, 52, -131032, 5111809, 53, -262108, 5111809, 51, -196572, 5111809, 52, -131036, 5111809, 53, -589789, 851969, 6, -524253, 851969, 7, -589788, 917505, 6, -524252, 917505, 7, -589787, 983041, 6, -524251, 983041, 7, -589786, 1048577, 6, -524250, 1048577, 7, -589785, 1114113, 6, -524249, 1114113, 7, -589784, 1179649, 6, -524248, 1179649, 7, -589783, 1245185, 6, -524247, 1245185, 7, -720861, 851969, 3, -655325, 851969, 4, -786396, 917505, 2, -720860, 917505, 3, -655324, 917505, 4, -851931, 983041, 1, -786395, 983041, 2, -720859, 983041, 3, -655323, 983041, 4, -851930, 1048577, 1, -786394, 1048577, 2, -720858, 1048577, 3, -655322, 1048577, 4, -851929, 1114113, 1, -786393, 1114113, 2, -720857, 1114113, 3, -655321, 1114113, 4, -786392, 1179649, 2, -720856, 1179649, 3, -655320, 1179649, 4, -720855, 1245185, 3, -655319, 1245185, 4)
 
 [node name="InteractObj" parent="." instance=ExtResource("5_316g0")]
-position = Vector2(627, -30)
+position = Vector2(596, 68)
 scale = Vector2(0.5, 0.5)
 
 [node name="Player" parent="." instance=ExtResource("1_tgeqe")]
@@ -18385,4 +18391,38 @@ position = Vector2(728, -24)
 
 [node name="GameUi" parent="." instance=ExtResource("7_xquyi")]
 
+[node name="item_test" type="Node2D" parent="."]
+position = Vector2(697, 70)
+script = ExtResource("9_rrewu")
+id = 1
+texture = ExtResource("12_8m2o3")
+
+[node name="Sprite2D" type="Sprite2D" parent="item_test"]
+texture = ExtResource("13_ur3ff")
+
+[node name="Area2D" type="Area2D" parent="item_test"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="item_test/Area2D"]
+shape = SubResource("CircleShape2D_6bc7j")
+
+[node name="item_test2" type="Node2D" parent="."]
+position = Vector2(697, 70)
+script = ExtResource("9_rrewu")
+id = 1
+texture = ExtResource("12_8m2o3")
+
+[node name="Sprite2D" type="Sprite2D" parent="item_test2"]
+texture = ExtResource("13_ur3ff")
+
+[node name="Area2D" type="Area2D" parent="item_test2"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="item_test2/Area2D"]
+shape = SubResource("CircleShape2D_6bc7j")
+
 [connection signal="press_e" from="InteractObj" to="." method="_on_interact_obj_press_e"]
+[connection signal="area_entered" from="item_test/Area2D" to="item_test" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="item_test2/Area2D" to="item_test2" method="_on_area_2d_area_entered"]
