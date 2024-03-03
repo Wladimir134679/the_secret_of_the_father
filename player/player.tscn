@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://csbidcltw6m7"]
+[gd_scene load_steps=45 format=3 uid="uid://csbidcltw6m7"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_vww4f"]
 [ext_resource type="Texture2D" uid="uid://btabycwgjoqxa" path="res://player/Pers/_down idle.png" id="2_f5g2s"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c3ed2a00is3h7" path="res://player/Pers/_side walk.png" id="5_vps71"]
 [ext_resource type="Texture2D" uid="uid://i37odoqunsmn" path="res://player/Pers/_up idle.png" id="6_5tfyl"]
 [ext_resource type="Texture2D" uid="uid://chul1ikxny7yc" path="res://player/Pers/_up walk.png" id="7_ialcx"]
+[ext_resource type="Script" path="res://player/SensorItem.gd" id="8_krhvt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_33hf5"]
 height = 24.0
@@ -275,7 +276,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ytwtk"]
+radius = 22.0
+
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 13
 script = ExtResource("1_vww4f")
 metadata/_edit_group_ = true
 
@@ -301,3 +307,15 @@ drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 editor_draw_drag_margin = true
+
+[node name="SensorItem" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("8_krhvt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SensorItem"]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_ytwtk")
+
+[connection signal="area_entered" from="SensorItem" to="SensorItem" method="_on_area_entered"]
+[connection signal="area_exited" from="SensorItem" to="SensorItem" method="_on_area_exited"]
