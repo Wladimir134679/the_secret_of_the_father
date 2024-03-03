@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://d36cdmdymqk1j"]
+
+[ext_resource type="Script" path="res://scenes/ui/item_ui.gd" id="1_ru0cj"]
+
+[node name="Item" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ru0cj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="number" type="Label" parent="."]
+layout_mode = 0
+offset_left = -21.0
+offset_top = 42.0
+offset_right = 19.0
+offset_bottom = 65.0
