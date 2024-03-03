@@ -23,18 +23,16 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 		
 	#Анимация движения
-	if directionY == 1:
-		anim.play("Down walk")
-	elif directionY == -1:
-		anim.play("Up walk")
-	elif directionX == -1:
+	if directionX == 1:
 		$AnimatedSprite2D.flip_h = false
-		anim.play("Side walk")
-	elif directionX == 1:
+		anim.play("Walk")
+	elif directionX == -1:
 		$AnimatedSprite2D.flip_h = true
-		anim.play("Side walk")
+		anim.play("Walk")
+	elif directionY:
+		anim.play("Walk")
 	else:
-		anim.play("Down idle")
+		anim.play("Idle")
 
 	move_and_slide()
 	var size = size_world()
