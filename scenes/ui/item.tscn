@@ -8,6 +8,7 @@ anchors_preset = 0
 script = ExtResource("1_ru0cj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-38, -22)
 
 [node name="number" type="Label" parent="."]
 layout_mode = 0
