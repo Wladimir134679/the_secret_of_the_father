@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://m7u0ttgypccf"]
+[gd_scene load_steps=18 format=3 uid="uid://m7u0ttgypccf"]
 
 [ext_resource type="Script" path="res://Mobs/goblin.gd" id="1_8bbtk"]
 [ext_resource type="Texture2D" uid="uid://cupuknsirc7xq" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Goblins/Troops/Torch/Blue/Torch_Blue.png" id="1_uqmfx"]
@@ -110,9 +110,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fltwn"]
-radius = 178.003
-
 [node name="Goblin" type="CharacterBody2D"]
 script = ExtResource("1_8bbtk")
 
@@ -127,10 +124,6 @@ animation = &"Walk"
 frame = 3
 frame_progress = 0.227818
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Timer" type="Timer" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_fltwn")
-debug_color = Color(0.752941, 0.443137, 0.321569, 0.419608)
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

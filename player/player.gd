@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 200.0
+const SPEED = 160.0
 const MAX_SIZE = Vector2(10000, 10000)
 @onready var camera : Camera2D = $Camera2D
 @onready var anim = $AnimatedSprite2D
