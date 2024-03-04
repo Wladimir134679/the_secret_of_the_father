@@ -21319,7 +21319,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_eajxv")
 
 [node name="Goblin" parent="." instance=ExtResource("17_hs785")]
-position = Vector2(1481, 1791)
+position = Vector2(1413, 1668)
 
 [node name="Player" parent="." instance=ExtResource("1_tgeqe")]
 position = Vector2(1683, 1799)
