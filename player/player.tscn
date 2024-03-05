@@ -115,7 +115,8 @@ script = ExtResource("1_vww4f")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 10)
+position = Vector2(0, 17)
+scale = Vector2(1.33237, 1.11463)
 shape = SubResource("CapsuleShape2D_33hf5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

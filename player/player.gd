@@ -2,9 +2,12 @@ extends CharacterBody2D
 
 
 const SPEED = 160.0
-const MAX_SIZE = Vector2(10000, 10000)
+var tilemap_for_camera: TileMap
 @onready var camera : Camera2D = $Camera2D
 @onready var anim = $AnimatedSprite2D
+
+func _ready() -> void:
+	tilemap_for_camera = get_tree().root.find_child('TileMap', true, false)
 
 func _physics_process(delta: float) -> void:
 
@@ -51,7 +54,6 @@ func update_camera():
 	camera.limit_bottom = max(size.end.y, view_size.end.y)
 	
 func size_world() -> Rect2i:
-	var tilemap_for_camera: TileMap = get_parent().find_child('TileMap')
 	var r = tilemap_for_camera.get_used_rect()
 	var qs = tilemap_for_camera.rendering_quadrant_size
 	return Rect2i(r.position.x * qs, r.position.y * qs, r.size.x * qs, r.size.y * qs)
