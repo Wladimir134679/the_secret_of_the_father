@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cth5ps3mipblo" path="res://assets/Рыцари/Tiny Swords (Update 010)/Resources/Trees/Tree.png" id="1_tpymq"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wuvvf"]
-radius = 27.6586
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xx5r1"]
+height = 34.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3kx4g"]
 atlas = ExtResource("1_tpymq")
@@ -38,7 +38,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 10.0
+"speed": 4.0
 }]
 
 [node name="Tree" type="Node2D"]
@@ -47,12 +47,13 @@ animations = [{
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, -4)
-shape = SubResource("CircleShape2D_wuvvf")
+position = Vector2(2, 4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xx5r1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -63)
 sprite_frames = SubResource("SpriteFrames_3wt2u")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.725732
+frame_progress = 0.0593892
