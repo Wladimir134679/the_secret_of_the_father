@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccuc86th00tv0"]
+
+[ext_resource type="Script" path="res://objs/building/building.gd" id="1_nt8mi"]
+
+[node name="Building" type="Node2D"]
+script = ExtResource("1_nt8mi")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(0, 0.878431, 0.882353, 1)
+offset_left = -75.0
+offset_top = 60.0
+offset_right = 76.0
+offset_bottom = 87.0
+value = 23.0

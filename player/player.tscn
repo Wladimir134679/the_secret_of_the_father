@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://csbidcltw6m7"]
+[gd_scene load_steps=26 format=3 uid="uid://csbidcltw6m7"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_vww4f"]
 [ext_resource type="Texture2D" uid="uid://da8gcvt1xlrej" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="2_6dheu"]
@@ -55,6 +55,30 @@ region = Rect2(768, 192, 192, 192)
 atlas = ExtResource("2_6dheu")
 region = Rect2(960, 192, 192, 192)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2vt7"]
+atlas = ExtResource("2_6dheu")
+region = Rect2(0, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yjws"]
+atlas = ExtResource("2_6dheu")
+region = Rect2(192, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec7yc"]
+atlas = ExtResource("2_6dheu")
+region = Rect2(384, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc6cc"]
+atlas = ExtResource("2_6dheu")
+region = Rect2(576, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1gea"]
+atlas = ExtResource("2_6dheu")
+region = Rect2(768, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyi2q"]
+atlas = ExtResource("2_6dheu")
+region = Rect2(960, 384, 192, 192)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_p2dls"]
 animations = [{
 "frames": [{
@@ -99,32 +123,58 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xvgfy")
 }],
-"loop": false,
+"loop": true,
 "name": &"Walk",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2vt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yjws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ec7yc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lc6cc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1gea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyi2q")
+}],
+"loop": false,
+"name": &"atack",
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ytwtk"]
 radius = 22.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_33sbn"]
+
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(1, -8)
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_vww4f")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 17)
+position = Vector2(0, 1)
 scale = Vector2(1.33237, 1.11463)
 shape = SubResource("CapsuleShape2D_33hf5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-0.999998, 14)
+position = Vector2(-5.96046e-08, -4)
 scale = Vector2(0.541667, 0.5)
 sprite_frames = SubResource("SpriteFrames_p2dls")
-animation = &"Walk"
+animation = &"atack"
 autoplay = "Idle"
+frame = 5
+frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_callback = 0
@@ -140,6 +190,7 @@ drag_bottom_margin = 0.1
 editor_draw_drag_margin = true
 
 [node name="SensorItem" type="Area2D" parent="."]
+scale = Vector2(0.201897, 0.201897)
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("8_krhvt")
@@ -147,6 +198,14 @@ script = ExtResource("8_krhvt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SensorItem"]
 position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_ytwtk")
+
+[node name="AtackZone" type="Area2D" parent="."]
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AtackZone"]
+shape = SubResource("CircleShape2D_33sbn")
 
 [connection signal="area_entered" from="SensorItem" to="SensorItem" method="_on_area_entered"]
 [connection signal="area_exited" from="SensorItem" to="SensorItem" method="_on_area_exited"]

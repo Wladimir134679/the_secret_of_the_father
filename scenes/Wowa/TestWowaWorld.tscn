@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cepnh7jime4fi"]
+[gd_scene load_steps=8 format=3 uid="uid://cepnh7jime4fi"]
 
 [ext_resource type="Texture2D" uid="uid://370poi6n3wu" path="res://assets/Рыцари/Tiny Swords (Update 010)/Terrain/Ground/Tilemap_Flat.png" id="1_3kj3y"]
 [ext_resource type="PackedScene" uid="uid://ct44mxpbtsv33" path="res://objs/tree/tree.tscn" id="2_v8qc0"]
 [ext_resource type="PackedScene" uid="uid://csbidcltw6m7" path="res://player/player.tscn" id="3_oiib2"]
+[ext_resource type="PackedScene" uid="uid://cqq6iph345rdb" path="res://objs/tower/tower.tscn" id="4_wjj3k"]
+[ext_resource type="PackedScene" uid="uid://m7u0ttgypccf" path="res://Mobs/goblin.tscn" id="5_nv4yt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d7lnk"]
 texture = ExtResource("1_3kj3y")
@@ -579,3 +581,9 @@ position = Vector2(1888, 976)
 
 [node name="Player" parent="объекты в мире" instance=ExtResource("3_oiib2")]
 position = Vector2(1234, 708)
+
+[node name="Tower" parent="объекты в мире" instance=ExtResource("4_wjj3k")]
+position = Vector2(904, 644)
+
+[node name="Goblin" parent="объекты в мире" instance=ExtResource("5_nv4yt")]
+position = Vector2(1300, 819)
