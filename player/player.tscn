@@ -166,6 +166,7 @@ metadata/_edit_group_ = true
 position = Vector2(0, 1)
 scale = Vector2(1.33237, 1.11463)
 shape = SubResource("CapsuleShape2D_33hf5")
+debug_color = Color(0.0627451, 0.572549, 0.819608, 0.419608)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-5.96046e-08, -4)
@@ -198,6 +199,7 @@ script = ExtResource("8_krhvt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SensorItem"]
 position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_ytwtk")
+debug_color = Color(0.227451, 0.635294, 0.180392, 0.419608)
 
 [node name="AtackZone" type="Area2D" parent="."]
 scale = Vector2(2, 2)
@@ -206,6 +208,7 @@ collision_mask = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AtackZone"]
 shape = SubResource("CircleShape2D_33sbn")
+debug_color = Color(0.972549, 0.133333, 0.243137, 0.419608)
 
 [connection signal="area_entered" from="SensorItem" to="SensorItem" method="_on_area_entered"]
 [connection signal="area_exited" from="SensorItem" to="SensorItem" method="_on_area_exited"]
