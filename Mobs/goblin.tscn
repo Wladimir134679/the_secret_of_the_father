@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://m7u0ttgypccf"]
 
-[ext_resource type="Script" path="res://Mobs/goblin.gd" id="1_8bbtk"]
+[ext_resource type="Script" path="res://Mobs/goblin_nav.gd" id="1_tt1r8"]
 [ext_resource type="Texture2D" uid="uid://cupuknsirc7xq" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Goblins/Troops/Torch/Blue/Torch_Blue.png" id="1_uqmfx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wihhj"]
@@ -113,7 +113,7 @@ animations = [{
 [node name="Goblin" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 23
-script = ExtResource("1_8bbtk")
+script = ExtResource("1_tt1r8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_wihhj")
@@ -128,4 +128,17 @@ frame_progress = 0.227818
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+navigation_layers = 16
+avoidance_enabled = true
+radius = 65.87
+neighbor_distance = 5084.18
+time_horizon_obstacles = 0.65
+debug_enabled = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.196
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

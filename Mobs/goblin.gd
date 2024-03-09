@@ -6,8 +6,12 @@ var destination = Vector2()
 var prev_pos = Vector2()
 var target = null
 
+var player
+@onready var nav: NavigationAgent2D = $NavigationAgent2D
+
 func _ready():
 	SPEED = 100
+	player = get_tree().root.find_child('Player', true, false)
 
 func _process(delta):
 	if velocity:
@@ -16,7 +20,7 @@ func _process(delta):
 		position.x = clamp(position.x, 0, 10000)
 		position.y = clamp(position.y, 0, 10000)
 	wander()
-	search_for_target()
+	#search_for_target()
 	
 func search_for_target():
 	var pl = $"../Player"
@@ -60,3 +64,9 @@ func wander():
 
 func _on_timer_timeout():
 	stands = true
+
+
+func _on_timer_2_timeout() -> void:
+	nav.target_position = player.global_position
+	var target = nav.get_next_path_position()
+	set_destination(target)
