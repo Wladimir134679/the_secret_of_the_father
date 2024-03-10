@@ -178,6 +178,7 @@ frame = 5
 frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.85, 0.85)
 process_callback = 0
 limit_left = 0
 limit_top = 0
