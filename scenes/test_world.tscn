@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://s544lb1641wa"]
+[gd_scene load_steps=11 format=3 uid="uid://s544lb1641wa"]
 
 [ext_resource type="PackedScene" uid="uid://csbidcltw6m7" path="res://player/player.tscn" id="1_tgeqe"]
 [ext_resource type="Script" path="res://scenes/test_world.gd" id="1_w11tl"]
 [ext_resource type="TileSet" uid="uid://b56nnqtukxxcx" path="res://scenes/tileset_all.tres" id="2_nfy6l"]
 [ext_resource type="PackedScene" uid="uid://bdncyfgr0o4br" path="res://objs/interact_obj.tscn" id="5_316g0"]
 [ext_resource type="PackedScene" uid="uid://pjyuitpmmpe2" path="res://scenes/game_ui.tscn" id="7_xquyi"]
+[ext_resource type="PackedScene" uid="uid://cij2ojyy1v87c" path="res://objs/Mine/Mine.tscn" id="9_r4i5x"]
 [ext_resource type="Texture2D" uid="uid://cibc8pnhwcbbs" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Knights/Buildings/Castle/Castle_Blue.png" id="16_j1wpe"]
 [ext_resource type="PackedScene" uid="uid://ct44mxpbtsv33" path="res://objs/tree/tree.tscn" id="16_perhd"]
 [ext_resource type="PackedScene" uid="uid://m7u0ttgypccf" path="res://Mobs/goblin.tscn" id="17_hs785"]
@@ -33,15 +34,24 @@ layer_2/tile_data = PackedInt32Array()
 position = Vector2(1623, 2144)
 scale = Vector2(0.5, 0.5)
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Bild" type="Node2D" parent="."]
 position = Vector2(1623, 2016)
 
-[node name="CastleBlue" type="Sprite2D" parent="Node2D"]
+[node name="Mine" parent="Bild" instance=ExtResource("9_r4i5x")]
+position = Vector2(-15, -1583)
+
+[node name="Mine2" parent="Bild" instance=ExtResource("9_r4i5x")]
+position = Vector2(-316, -1538)
+
+[node name="Mine3" parent="Bild" instance=ExtResource("9_r4i5x")]
+position = Vector2(326, -1587)
+
+[node name="CastleBlue" type="Sprite2D" parent="Bild"]
 texture = ExtResource("16_j1wpe")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Bild"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bild/StaticBody2D"]
 position = Vector2(3, 2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_eajxv")
@@ -64,7 +74,7 @@ position = Vector2(-560, 1535)
 position = Vector2(-489, 1585)
 
 [node name="Player" parent="." instance=ExtResource("1_tgeqe")]
-position = Vector2(1661, 2274)
+position = Vector2(1584, 754)
 
 [node name="GameUi" parent="." instance=ExtResource("7_xquyi")]
 
