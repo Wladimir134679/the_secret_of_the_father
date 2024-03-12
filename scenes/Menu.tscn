@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://lavnqi2oht0b"]
+
+[ext_resource type="Script" path="res://scenes/Menu.gd" id="1_8iwf2"]
+[ext_resource type="Texture2D" uid="uid://b31armv8b084c" path="res://assets/Рыцари/Tiny Swords (Update 010)/UI/Buttons/Button_Blue_3Slides.png" id="2_b23v5"]
+[ext_resource type="PackedScene" uid="uid://doo3g5scck2d2" path="res://scenes/bg.tscn" id="2_quh5d"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_8iwf2")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 472.0
+offset_top = 458.0
+offset_right = 686.0
+offset_bottom = 546.0
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 45
+flat = true
+icon_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Play"]
+position = Vector2(109, 49.625)
+scale = Vector2(1.15625, 1.54297)
+texture = ExtResource("2_b23v5")
+
+[node name="Label" type="Label" parent="Play"]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 212.0
+offset_bottom = 76.0
+theme_override_font_sizes/font_size = 34
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 480.0
+offset_top = 555.0
+offset_right = 683.0
+offset_bottom = 632.0
+theme_override_font_sizes/font_size = 50
+flat = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Quit"]
+position = Vector2(103, 43)
+scale = Vector2(1.15625, 1.54297)
+texture = ExtResource("2_b23v5")
+
+[node name="Label2" type="Label" parent="Quit"]
+layout_mode = 0
+offset_top = -9.0
+offset_right = 200.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 34
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BG" parent="." instance=ExtResource("2_quh5d")]
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

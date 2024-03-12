@@ -55,7 +55,7 @@ script = ExtResource("1_kyady")
 position = Vector2(-1, 6.5)
 scale = Vector2(1, 1.07031)
 sprite_frames = SubResource("SpriteFrames_5x6gu")
-animation = &"Destroyed"
+animation = &"Idle"
 autoplay = "Destroyed"
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
