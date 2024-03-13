@@ -1,0 +1,14 @@
+res://scenes/test_world.tscn
+res://scenes/tileset_all.tres
+res://scenes/tilemap_world.tres
+res://scenes/game_ui.tscn
+res://scenes/main_game.tscn
+res://scenes/cellar.tscn
+res://player/player.tscn
+res://scenes/ui/item.tscn
+res://objs/interact_obj.tscn
+res://objs/tree/tree.tscn
+res://scenes/Wowa/TestWowaWorld.tscn
+res://objs/building/building.tscn
+res://objs/tower/tower.tscn
+res://Mobs/goblin.tscn
