@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccuc86th00tv0"]
+[gd_scene load_steps=3 format=3 uid="uid://ccuc86th00tv0"]
 
 [ext_resource type="Script" path="res://objs/building/building.gd" id="1_nt8mi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_otl6g"]
+radius = 42.0
 
 [node name="Building" type="Node2D"]
 script = ExtResource("1_nt8mi")
@@ -12,3 +15,10 @@ offset_top = 60.0
 offset_right = 76.0
 offset_bottom = 87.0
 value = 23.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_otl6g")

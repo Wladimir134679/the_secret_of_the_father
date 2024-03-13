@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cij2ojyy1v87c" path="res://objs/Mine/Mine.tscn" id="9_r4i5x"]
 [ext_resource type="Texture2D" uid="uid://cibc8pnhwcbbs" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Knights/Buildings/Castle/Castle_Blue.png" id="16_j1wpe"]
 [ext_resource type="PackedScene" uid="uid://ct44mxpbtsv33" path="res://objs/tree/tree.tscn" id="16_perhd"]
-[ext_resource type="PackedScene" uid="uid://m7u0ttgypccf" path="res://Mobs/goblin.tscn" id="17_hs785"]
+[ext_resource type="PackedScene" uid="uid://m7u0ttgypccf" path="res://Mobs/goblin/goblin.tscn" id="17_hs785"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eajxv"]
 radius = 104.0

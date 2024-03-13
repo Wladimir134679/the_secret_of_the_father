@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cepnh7jime4fi"]
+[gd_scene load_steps=8 format=3 uid="uid://cepnh7jime4fi"]
 
 [ext_resource type="TileSet" uid="uid://b56nnqtukxxcx" path="res://scenes/tileset_all.tres" id="1_0jbc4"]
 [ext_resource type="PackedScene" uid="uid://ct44mxpbtsv33" path="res://objs/tree/tree.tscn" id="2_v8qc0"]
 [ext_resource type="PackedScene" uid="uid://csbidcltw6m7" path="res://player/player.tscn" id="3_oiib2"]
 [ext_resource type="PackedScene" uid="uid://cqq6iph345rdb" path="res://objs/tower/tower.tscn" id="4_wjj3k"]
-[ext_resource type="PackedScene" uid="uid://m7u0ttgypccf" path="res://Mobs/goblin.tscn" id="5_nv4yt"]
+[ext_resource type="PackedScene" uid="uid://m7u0ttgypccf" path="res://Mobs/goblin/goblin.tscn" id="5_nv4yt"]
+[ext_resource type="PackedScene" uid="uid://3kdgtxjy1xbp" path="res://Mobs/spawner/spawner.tscn" id="6_4kjaf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hde8o"]
 vertices = PackedVector2Array(1428, 890, 1435, 803, 1634, 801, 2407, 1411, 1435, 616, 1411, 610, 1421, 600, 1425, 323, 1960, 290, 1796, 458, 1638, 496, 1447, 517, 2072, 423, 2382, 91, 1883, 595, 1669, 658, 1325, 597, 1328, 623, 54, 61, 1330, 332, 54, 1444, 1323, 897)
@@ -69,3 +70,10 @@ position = Vector2(2163, 471)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_hde8o")
 navigation_layers = 16
+
+[node name="Spawner" parent="." node_paths=PackedStringArray("to_node") instance=ExtResource("6_4kjaf")]
+position = Vector2(1229, 345)
+time = 0.5
+time_rnd = 2.0
+spawn_scene = ExtResource("5_nv4yt")
+to_node = NodePath("../объекты в мире")
