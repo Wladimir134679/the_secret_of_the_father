@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const ZONE_DISTANCE = Vector2(30, 0)
 const SPEED = 160.0
+const SPEED_RUN = 360.0
 var tilemap_for_camera: TileMap
 @onready var camera : Camera2D = $Camera2D
 @onready var anim = $AnimatedSprite2D
@@ -28,16 +29,17 @@ func _physics_process(delta: float) -> void:
 	update_camera()
 	
 func move_player(directionX, directionY):
+	var speed = SPEED_RUN if Input.is_action_pressed("run_move") else SPEED
 	#Движение персонажа
 	if directionX:
-		velocity.x = directionX * SPEED
+		velocity.x = directionX * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 		
 	if directionY:
-		velocity.y = directionY * SPEED
+		velocity.y = directionY * speed
 	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		velocity.y = move_toward(velocity.y, 0, speed)
 	
 func update_animation_player(directionX, directionY):
 	# если аниация не атака, то крутим вертим и анимируем движение
