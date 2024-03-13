@@ -2,11 +2,14 @@ extends Node2D
 
 # время через которое нужно заспавнить одного моба
 @export var time: float = 1
+# рандомность для случайности 0 - нет её
 @export var time_rnd: float = 0
+# какую сцену спавнить на это точке
 @export var spawn_scene: PackedScene = null
+# куда её добавить - нода с цены
 @export var to_node : Node2D = null
 
-
+# в какой зоне спавнить, берёт shape, там в зоне радиус менять только
 @onready var zone_spawn: CollisionShape2D = $ZoneSpawn/CollisionShape2D
 @onready var timer: Timer = $Timer
 

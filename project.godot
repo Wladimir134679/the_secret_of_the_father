@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GS="*res://scripts/GlobalScenes.gd"
 Pack="*res://scripts/pack.gd"
+GP="*res://scripts/GlobalPlayer.gd"
 
 [display]
 
@@ -76,6 +77,7 @@ run_move={
 2d_physics/layer_4="item"
 2d_physics/layer_5="building"
 2d_navigation/layer_5="мир"
+2d_physics/layer_6="arrow"
 
 [rendering]
 

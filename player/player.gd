@@ -57,6 +57,10 @@ func update_animation_player(directionX, directionY):
 			anim.play("Idle")
 
 func update_atack_zone():
+	# если анимация атаки, значит атака ещё идёт
+	if anim.animation == 'atack':
+		return
+	
 	var mouse = get_local_mouse_position()
 	var angle = mouse.angle()
 	atack_zone.position = ZONE_DISTANCE.rotated(angle)
@@ -66,8 +70,8 @@ func update_atack_zone():
 	if Input.is_action_just_pressed("atack_mouse"):
 		var objs = atack_zone.get_overlapping_bodies()
 		for o_enemy in objs:
-			to_damage(1, o_enemy)
-			to_damage(1, o_enemy.get_parent())
+			to_damage(GP.damage, o_enemy)
+			to_damage(GP.damage, o_enemy.get_parent())
 		anim.play("atack")
 		$AnimatedSprite2D.flip_h = atack_zone.position.x < 0
 		await anim.animation_finished

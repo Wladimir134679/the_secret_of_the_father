@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqq6iph345rdb"]
+[gd_scene load_steps=9 format=3 uid="uid://cqq6iph345rdb"]
 
 [ext_resource type="PackedScene" uid="uid://ccuc86th00tv0" path="res://objs/building/building.tscn" id="1_doedw"]
 [ext_resource type="Texture2D" uid="uid://bgr5f4btmh1lx" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Knights/Buildings/Tower/Tower_Blue.png" id="2_0736b"]
 [ext_resource type="Texture2D" uid="uid://csypdnx5wbgc" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Knights/Buildings/Tower/Tower_Destroyed.png" id="2_o3jby"]
 [ext_resource type="Script" path="res://objs/tower/tower_anim.gd" id="4_qlyhj"]
+[ext_resource type="Script" path="res://objs/tower/AtackZone.gd" id="5_bqvkp"]
+[ext_resource type="PackedScene" uid="uid://8raoel1ixijo" path="res://objs/arrow/Arrow.tscn" id="6_dveaw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bsjrn"]
 animations = [{
@@ -24,6 +26,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lj5mf"]
+radius = 206.85
+
 [node name="Tower" instance=ExtResource("1_doedw")]
 
 [node name="ProgressBar" parent="." index="0"]
@@ -38,3 +43,18 @@ position = Vector2(0, -75)
 sprite_frames = SubResource("SpriteFrames_bsjrn")
 animation = &"tower"
 script = ExtResource("4_qlyhj")
+
+[node name="AtackZone" type="Area2D" parent="." index="3"]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("5_bqvkp")
+arrow_spawn = ExtResource("6_dveaw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AtackZone" index="0"]
+shape = SubResource("CircleShape2D_lj5mf")
+
+[node name="AtackTimer" type="Timer" parent="." index="4"]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="AtackTimer" to="AtackZone" method="_on_atack_timer_timeout"]

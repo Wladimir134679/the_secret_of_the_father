@@ -18,3 +18,5 @@ func _physics_process(delta: float) -> void:
 
 func _on_timer_2_timeout() -> void:
 	nav.target_position = player.global_position
+	
+
