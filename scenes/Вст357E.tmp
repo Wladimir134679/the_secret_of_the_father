@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://66bb2p3s8j7w"]
+
+[ext_resource type="Texture2D" uid="uid://d33wcvsaqla07" path="res://assets/Рыцари/Tiny Swords (Update 010)/UI/Banners/Carved_3Slides.png" id="1_x3w2j"]
+[ext_resource type="Script" path="res://scenes/Button.gd" id="2_nba08"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xrc3n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m2vwt"]
+
+[node name="Вступление" type="Node2D"]
+
+[node name="Черный фон" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(575.158, 323.152)
+scale = Vector2(-1153.82, 650.301)
+texture = SubResource("CanvasTexture_xrc3n")
+
+[node name="Диалоговое окно" type="Sprite2D" parent="."]
+position = Vector2(575.983, 535.271)
+scale = Vector2(6.05431, 4.00339)
+texture = ExtResource("1_x3w2j")
+
+[node name="Переход текста" type="Button" parent="."]
+offset_left = -6.0
+offset_top = -4.0
+offset_right = 1155.0
+offset_bottom = 654.0
+flat = true
+script = ExtResource("2_nba08")
+
+[node name="Text1" type="Label" parent="Переход текста"]
+offset_left = 115.0
+offset_top = 454.0
+offset_right = 1076.0
+offset_bottom = 621.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "Здесь будет очень много текста и когда-нибудь ахуенные диалоги:)"
+label_settings = SubResource("LabelSettings_m2vwt")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+justification_flags = 3
+clip_text = true
+
+[node name="Text2" type="Label" parent="Переход текста"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 454.0
+offset_right = 1077.0
+offset_bottom = 621.0
+
+[connection signal="pressed" from="Переход текста" to="Переход текста" method="_on_pressed"]
