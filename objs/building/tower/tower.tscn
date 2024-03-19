@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://cqq6iph345rdb"]
 
-[ext_resource type="PackedScene" uid="uid://ccuc86th00tv0" path="res://objs/building/building.tscn" id="1_doedw"]
+[ext_resource type="PackedScene" path="res://objs/building/building.tscn" id="1_doedw"]
 [ext_resource type="Texture2D" uid="uid://bgr5f4btmh1lx" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Knights/Buildings/Tower/Tower_Blue.png" id="2_0736b"]
 [ext_resource type="Texture2D" uid="uid://csypdnx5wbgc" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Knights/Buildings/Tower/Tower_Destroyed.png" id="2_o3jby"]
-[ext_resource type="Script" path="res://objs/tower/tower_anim.gd" id="4_qlyhj"]
-[ext_resource type="Script" path="res://objs/tower/AtackZone.gd" id="5_bqvkp"]
+[ext_resource type="Script" path="res://objs/building/tower/tower_anim.gd" id="4_qlyhj"]
+[ext_resource type="Script" path="res://objs/building/tower/AtackZone.gd" id="5_bqvkp"]
 [ext_resource type="PackedScene" uid="uid://8raoel1ixijo" path="res://objs/arrow/Arrow.tscn" id="6_dveaw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bsjrn"]
@@ -32,8 +32,15 @@ radius = 206.85
 [node name="Tower" instance=ExtResource("1_doedw")]
 
 [node name="ProgressBar" parent="." index="0"]
-offset_top = -186.0
-offset_bottom = -159.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -197.0
+offset_right = 86.0
+offset_bottom = -166.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(0, -18)

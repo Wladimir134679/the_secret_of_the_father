@@ -2,9 +2,11 @@ extends CharacterBody2D
 
 
 const ZONE_DISTANCE = Vector2(30, 0)
-const SPEED = 160.0
-const SPEED_RUN = 360.0
+const SPEED = 180.0
+const SPEED_RUN = 270.0
 var tilemap_for_camera: TileMap
+var max_health = 8
+var health = max_health
 @onready var camera : Camera2D = $Camera2D
 @onready var anim = $AnimatedSprite2D
 @onready var atack_zone: Area2D = $AtackZone
