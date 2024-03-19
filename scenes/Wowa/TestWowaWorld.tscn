@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://b56nnqtukxxcx" path="res://scenes/tileset_all.tres" id="1_0jbc4"]
 [ext_resource type="PackedScene" uid="uid://ct44mxpbtsv33" path="res://objs/tree/tree.tscn" id="2_v8qc0"]
 [ext_resource type="PackedScene" uid="uid://csbidcltw6m7" path="res://player/player.tscn" id="3_oiib2"]
-[ext_resource type="PackedScene" path="res://objs/tower/tower.tscn" id="4_wjj3k"]
+[ext_resource type="PackedScene" uid="uid://cqq6iph345rdb" path="res://objs/building/tower/tower.tscn" id="4_wjj3k"]
 [ext_resource type="PackedScene" uid="uid://m7u0ttgypccf" path="res://Mobs/goblin/goblin.tscn" id="5_nv4yt"]
 [ext_resource type="PackedScene" uid="uid://3kdgtxjy1xbp" path="res://Mobs/spawner/spawner.tscn" id="6_4kjaf"]
 
