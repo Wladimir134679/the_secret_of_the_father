@@ -9,12 +9,12 @@
 radius = 118.0
 height = 326.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g11wb"]
-atlas = ExtResource("2_fjs3i")
-region = Rect2(0, 0, 320, 256)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_i048c"]
 atlas = ExtResource("1_imytl")
+region = Rect2(0, 0, 320, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g11wb"]
+atlas = ExtResource("2_fjs3i")
 region = Rect2(0, 0, 320, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7518i"]
@@ -25,10 +25,10 @@ region = Rect2(0, 0, 320, 256)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g11wb")
+"texture": SubResource("AtlasTexture_i048c")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i048c")
+"texture": SubResource("AtlasTexture_g11wb")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7518i")

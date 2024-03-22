@@ -9,6 +9,10 @@
 radius = 60.0
 height = 180.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdbpf"]
+atlas = ExtResource("1_ejbky")
+region = Rect2(0, 0, 192, 128)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3lom"]
 atlas = ExtResource("3_ge3t5")
 region = Rect2(0, 0, 192, 128)
@@ -17,25 +21,21 @@ region = Rect2(0, 0, 192, 128)
 atlas = ExtResource("2_mmnuy")
 region = Rect2(0, 0, 192, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rdbpf"]
-atlas = ExtResource("1_ejbky")
-region = Rect2(0, 0, 192, 128)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_5x6gu"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdbpf")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d3lom")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0dqy5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rdbpf")
 }],
 "loop": false,
 "name": &"Mine",
-"speed": 1.0
+"speed": 0.0
 }]
 
 [node name="Mine" type="Node2D"]

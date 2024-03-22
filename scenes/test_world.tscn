@@ -1,12 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://s544lb1641wa"]
+[gd_scene load_steps=13 format=3 uid="uid://s544lb1641wa"]
 
 [ext_resource type="PackedScene" uid="uid://csbidcltw6m7" path="res://player/player.tscn" id="1_tgeqe"]
 [ext_resource type="Script" path="res://scenes/test_world.gd" id="1_w11tl"]
 [ext_resource type="TileSet" uid="uid://b56nnqtukxxcx" path="res://scenes/tileset_all.tres" id="2_nfy6l"]
+[ext_resource type="Script" path="res://scenes/Camera №1.gd" id="3_ycw8q"]
 [ext_resource type="PackedScene" uid="uid://cij2ojyy1v87c" path="res://objs/building/Mine/Mine.tscn" id="5_f17jh"]
 [ext_resource type="PackedScene" uid="uid://3kdgtxjy1xbp" path="res://Mobs/spawner/spawner.tscn" id="5_saou6"]
 [ext_resource type="PackedScene" uid="uid://257kqbbl8eo1" path="res://objs/building/Castle/castle.tscn" id="6_nqm0k"]
 [ext_resource type="PackedScene" uid="uid://pjyuitpmmpe2" path="res://scenes/game_ui.tscn" id="7_xquyi"]
+[ext_resource type="LabelSettings" uid="uid://d2lgepsbd2l1o" path="res://scenes/Вступление.tres" id="11_6snja"]
+[ext_resource type="Texture2D" uid="uid://d33wcvsaqla07" path="res://assets/Рыцари/Tiny Swords (Update 010)/UI/Banners/Carved_3Slides.png" id="11_15qeo"]
 [ext_resource type="PackedScene" uid="uid://ct44mxpbtsv33" path="res://objs/tree/tree.tscn" id="16_perhd"]
 [ext_resource type="PackedScene" uid="uid://m7u0ttgypccf" path="res://Mobs/goblin/goblin.tscn" id="17_hs785"]
 
@@ -44,16 +47,16 @@ position = Vector2(-15, -1584)
 position = Vector2(321, -1584)
 
 [node name="Castle" parent="Bild" instance=ExtResource("6_nqm0k")]
+process_mode = 4
+visible = false
 position = Vector2(1, -16)
 
 [node name="Mobs" type="Node2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("1_tgeqe")]
-position = Vector2(-152, 1696)
-
 [node name="GameUi" parent="." instance=ExtResource("7_xquyi")]
 
 [node name="Forest" type="Node2D" parent="."]
+top_level = true
 
 [node name="Tree" parent="Forest" instance=ExtResource("16_perhd")]
 position = Vector2(-84, 2405)
@@ -1647,3 +1650,42 @@ position = Vector2(298, 2282)
 
 [node name="Tree304" parent="Forest" instance=ExtResource("16_perhd")]
 position = Vector2(493, 2245)
+
+[node name="Camera №1" type="Camera2D" parent="."]
+top_level = true
+position = Vector2(1123, 1396)
+script = ExtResource("3_ycw8q")
+
+[node name="Button" type="Button" parent="Camera №1"]
+offset_left = -573.0
+offset_top = -328.0
+offset_right = 579.0
+offset_bottom = 328.0
+flat = true
+
+[node name="Dialog" type="Sprite2D" parent="Camera №1"]
+visible = false
+position = Vector2(2.5, 213)
+scale = Vector2(5.99479, 3.59375)
+texture = ExtResource("11_15qeo")
+
+[node name="Text2" type="Label" parent="Camera №1"]
+offset_left = -477.0
+offset_top = 144.0
+offset_right = 483.0
+offset_bottom = 295.0
+label_settings = ExtResource("11_6snja")
+autowrap_mode = 3
+justification_flags = 3
+clip_text = true
+
+[node name="Timer" type="Timer" parent="Camera №1/Text2"]
+wait_time = 0.05
+autostart = true
+
+[node name="Player" parent="." instance=ExtResource("1_tgeqe")]
+process_mode = 4
+position = Vector2(982, 1562)
+
+[connection signal="pressed" from="Camera №1/Button" to="Camera №1" method="_on_button_pressed"]
+[connection signal="timeout" from="Camera №1/Text2/Timer" to="Camera №1" method="_on_timer_timeout"]

@@ -95,3 +95,4 @@ func size_world() -> Rect2i:
 	var r = tilemap_for_camera.get_used_rect()
 	var qs = tilemap_for_camera.rendering_quadrant_size
 	return Rect2i(r.position.x * qs, r.position.y * qs, r.size.x * qs, r.size.y * qs)
+	
