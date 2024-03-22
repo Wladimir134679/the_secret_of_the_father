@@ -341,9 +341,10 @@ collision_mask = 20
 shape = SubResource("CircleShape2D_33sbn")
 debug_color = Color(0.972549, 0.133333, 0.243137, 0.419608)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="HeroBar" type="CanvasLayer" parent="."]
+visible = false
 
-[node name="Health2" type="AnimatedSprite2D" parent="CanvasLayer"]
+[node name="Health2" type="AnimatedSprite2D" parent="HeroBar"]
 position = Vector2(170.313, 59.875)
 scale = Vector2(4.67773, 4.51562)
 sprite_frames = SubResource("SpriteFrames_ti7or")

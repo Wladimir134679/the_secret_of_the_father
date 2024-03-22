@@ -45,7 +45,6 @@ clip_text = true
 
 [node name="Timer" type="Timer" parent="Text1"]
 wait_time = 0.05
-autostart = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Text1/Timer" to="." method="_on_timer_timeout"]
