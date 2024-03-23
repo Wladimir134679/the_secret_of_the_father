@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var progress = 0
 @onready var my_label = $Text1
-var pc = 0.02
+var pc = 0
 
 	
 func _on_timer_timeout():
@@ -16,6 +16,7 @@ func _ready():
 	$Text1.visible_ratio = 0.0
 	$Text1/Timer.start()
 	my_label.text = "Здесь будет очень много текста и когда-нибудь ахуенные диалоги:)"
+	pc = 1.0/my_label.text.length()
 
 func _process(_delta):
 	if progress == 1:
@@ -37,14 +38,17 @@ func _on_button_pressed():
 		$Text1/Timer.start()
 		$Text1.visible_ratio = 0.0
 		my_label.text = "Если здесь будет другой текст, то я буду ссаться кипятком от радости"
+		pc = 1.0/my_label.text.length()
 	elif progress == 4:
 		$Text1/Timer.start()
 		$Text1.visible_ratio = 0.0
 		my_label.text = "Неужто это работает и у меня получилось..."
+		pc = 1.0/my_label.text.length()
 	elif progress == 6:
 		$Text1/Timer.start()
 		$Text1.visible_ratio = 0.0
 		my_label.text = "Ну раз так, тогда начнем"
+		pc = 1.0/my_label.text.length()
 	elif progress == 8:
 		get_tree().change_scene_to_file("res://scenes/test_world.tscn")
 
