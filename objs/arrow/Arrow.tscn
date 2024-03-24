@@ -1,23 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://8raoel1ixijo"]
+[gd_scene load_steps=6 format=3 uid="uid://8raoel1ixijo"]
 
 [ext_resource type="Script" path="res://objs/arrow/Arrow.gd" id="1_2bf3b"]
 [ext_resource type="Texture2D" uid="uid://vevyy5i0e7j0" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Knights/Troops/Archer/Arrow/Arrow.png" id="2_nshk4"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dwjai"]
-radius = 4.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_7x4pd"]
 atlas = ExtResource("2_nshk4")
 region = Rect2(0, 0, 64, 72)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u1w27"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dwjai"]
+radius = 4.0
 
 [node name="Arrow" type="CharacterBody2D"]
 collision_layer = 32
 collision_mask = 4
 script = ExtResource("1_2bf3b")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_dwjai")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-24, 0)
 texture = SubResource("AtlasTexture_7x4pd")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_u1w27")
+debug_color = Color(0.996078, 0, 0.160784, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dwjai")

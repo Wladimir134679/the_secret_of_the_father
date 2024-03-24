@@ -1,5 +1,4 @@
-extends "res://Mobs/mob_obj.gd"
-
+extends CharacterBody2D
 
 var stands = true
 var SPEED = 130

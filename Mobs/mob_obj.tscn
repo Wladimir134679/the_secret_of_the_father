@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://bkldnsyj7ttcb"]
+
+[ext_resource type="Texture2D" uid="uid://cupuknsirc7xq" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Goblins/Troops/Torch/Blue/Torch_Blue.png" id="1_ecj2k"]
+[ext_resource type="Script" path="res://Mobs/mob_obj.gd" id="1_ikund"]
+[ext_resource type="PackedScene" uid="uid://dhv8pdcy4svl8" path="res://element/health_bar/health_bar.tscn" id="3_lximq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_66hky"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nabet"]
+atlas = ExtResource("1_ecj2k")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfhfh"]
+atlas = ExtResource("1_ecj2k")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et1is"]
+atlas = ExtResource("1_ecj2k")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnj4b"]
+atlas = ExtResource("1_ecj2k")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsvli"]
+atlas = ExtResource("1_ecj2k")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgnfw"]
+atlas = ExtResource("1_ecj2k")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o15lk"]
+atlas = ExtResource("1_ecj2k")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fqohs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nabet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfhfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et1is")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnj4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsvli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgnfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o15lk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="MobObj" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 55
+script = ExtResource("1_ikund")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.61273, 2.61273)
+shape = SubResource("CircleShape2D_66hky")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -20)
+sprite_frames = SubResource("SpriteFrames_fqohs")
+autoplay = "default"
+frame_progress = 0.784693
+
+[node name="HealthBar" parent="." instance=ExtResource("3_lximq")]
+position = Vector2(-62, -116)
+scale = Vector2(0.33227, 0.33227)

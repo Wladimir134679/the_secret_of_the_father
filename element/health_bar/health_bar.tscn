@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://dhv8pdcy4svl8"]
+
+[ext_resource type="Script" path="res://element/health_bar/health_bar.gd" id="1_1uqd7"]
+[ext_resource type="Texture2D" uid="uid://vr5xjw6f0kel" path="res://assets/CrimsonFantasyGUI/AnimationSheets/HealthRegeneration/LifeHealing-Sheet.png" id="2_5t6cp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7u38x"]
+atlas = ExtResource("2_5t6cp")
+region = Rect2(0, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mylrm"]
+atlas = ExtResource("2_5t6cp")
+region = Rect2(0, 16, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b4rx"]
+atlas = ExtResource("2_5t6cp")
+region = Rect2(0, 32, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qiw4c"]
+atlas = ExtResource("2_5t6cp")
+region = Rect2(0, 48, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hlwq"]
+atlas = ExtResource("2_5t6cp")
+region = Rect2(0, 64, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn88y"]
+atlas = ExtResource("2_5t6cp")
+region = Rect2(0, 80, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcfkf"]
+atlas = ExtResource("2_5t6cp")
+region = Rect2(0, 96, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0qgg"]
+atlas = ExtResource("2_5t6cp")
+region = Rect2(0, 112, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1hjn"]
+atlas = ExtResource("2_5t6cp")
+region = Rect2(0, 128, 64, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tx8l2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7u38x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mylrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b4rx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qiw4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hlwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn88y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcfkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0qgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1hjn")
+}],
+"loop": false,
+"name": &"Health",
+"speed": 1.0
+}]
+
+[node name="HealthBar" type="Node2D"]
+script = ExtResource("1_1uqd7")
+
+[node name="SpriteShow" type="AnimatedSprite2D" parent="."]
+position = Vector2(170.313, 59.875)
+scale = Vector2(4.67773, 4.51562)
+sprite_frames = SubResource("SpriteFrames_tx8l2")
+animation = &"Health"
