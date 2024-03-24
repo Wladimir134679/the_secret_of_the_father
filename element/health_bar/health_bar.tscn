@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dhv8pdcy4svl8"]
+[gd_scene load_steps=17 format=3 uid="uid://dhv8pdcy4svl8"]
 
 [ext_resource type="Script" path="res://element/health_bar/health_bar.gd" id="1_1uqd7"]
 [ext_resource type="Texture2D" uid="uid://vr5xjw6f0kel" path="res://assets/CrimsonFantasyGUI/AnimationSheets/HealthRegeneration/LifeHealing-Sheet.png" id="2_5t6cp"]
+[ext_resource type="Texture2D" uid="uid://bftj6ad3h6f28" path="res://assets/CrimsonFantasyGUI/GUISprite.png" id="3_plx24"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7u38x"]
 atlas = ExtResource("2_5t6cp")
@@ -39,6 +40,18 @@ region = Rect2(0, 112, 64, 16)
 atlas = ExtResource("2_5t6cp")
 region = Rect2(0, 128, 64, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4trt6"]
+atlas = ExtResource("3_plx24")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t057l"]
+atlas = ExtResource("3_plx24")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8gl5"]
+atlas = ExtResource("3_plx24")
+region = Rect2(16, 16, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_tx8l2"]
 animations = [{
 "frames": [{
@@ -72,6 +85,20 @@ animations = [{
 "loop": false,
 "name": &"Health",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4trt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t057l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8gl5")
+}],
+"loop": false,
+"name": &"Heart",
+"speed": 5.0
 }]
 
 [node name="HealthBar" type="Node2D"]
@@ -81,4 +108,5 @@ script = ExtResource("1_1uqd7")
 position = Vector2(170.313, 59.875)
 scale = Vector2(4.67773, 4.51562)
 sprite_frames = SubResource("SpriteFrames_tx8l2")
-animation = &"Health"
+animation = &"Heart"
+autoplay = "Heart"

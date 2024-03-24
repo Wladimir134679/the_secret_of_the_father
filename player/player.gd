@@ -5,6 +5,7 @@ const ZONE_DISTANCE = Vector2(30, 0)
 const SPEED = 180.0
 const SPEED_RUN = 270.0
 var tilemap_for_camera: TileMap
+var gold = 0
 var max_health = 8
 var health = max_health
 @onready var camera : Camera2D = $Camera2D

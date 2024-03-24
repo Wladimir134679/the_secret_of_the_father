@@ -1,21 +1,143 @@
-[gd_scene load_steps=3 format=3 uid="uid://pvyn7gdlrx0n"]
+[gd_scene load_steps=18 format=3 uid="uid://pvyn7gdlrx0n"]
 
 [ext_resource type="PackedScene" uid="uid://bkldnsyj7ttcb" path="res://Mobs/mob_obj.tscn" id="1_fj23j"]
 [ext_resource type="Script" path="res://Mobs/goblin/goblin.gd" id="2_gqrvn"]
+[ext_resource type="Texture2D" uid="uid://cupuknsirc7xq" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Goblins/Troops/Torch/Blue/Torch_Blue.png" id="3_t30en"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nabet"]
+atlas = ExtResource("3_t30en")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfhfh"]
+atlas = ExtResource("3_t30en")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et1is"]
+atlas = ExtResource("3_t30en")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnj4b"]
+atlas = ExtResource("3_t30en")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsvli"]
+atlas = ExtResource("3_t30en")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgnfw"]
+atlas = ExtResource("3_t30en")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o15lk"]
+atlas = ExtResource("3_t30en")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxw2j"]
+atlas = ExtResource("3_t30en")
+region = Rect2(0, 240, 192, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58o4i"]
+atlas = ExtResource("3_t30en")
+region = Rect2(192, 240, 192, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kak10"]
+atlas = ExtResource("3_t30en")
+region = Rect2(384, 240, 192, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4x38"]
+atlas = ExtResource("3_t30en")
+region = Rect2(576, 240, 192, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8be1"]
+atlas = ExtResource("3_t30en")
+region = Rect2(768, 240, 192, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhcqy"]
+atlas = ExtResource("3_t30en")
+region = Rect2(960, 240, 192, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fqohs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nabet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfhfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et1is")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnj4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsvli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgnfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o15lk")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxw2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58o4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kak10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4x38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8be1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhcqy")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 8.0
+}]
 
 [node name="Goblin" instance=ExtResource("1_fj23j")]
 script = ExtResource("2_gqrvn")
 
-[node name="Timer" type="Timer" parent="." index="3"]
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(2, 11)
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="4"]
+[node name="HealthBar" parent="." index="1"]
+position = Vector2(-57, -57)
+
+[node name="Anim" type="AnimatedSprite2D" parent="." index="2"]
+position = Vector2(2, 5)
+scale = Vector2(0.571615, 0.552083)
+sprite_frames = SubResource("SpriteFrames_fqohs")
+animation = &"Walk"
+autoplay = "Idle"
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+position = Vector2(2, 5)
+scale = Vector2(0.571615, 0.552083)
+
+[node name="Timer" type="Timer" parent="." index="4"]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="5"]
 navigation_layers = 16
 avoidance_enabled = true
 radius = 65.87
 neighbor_distance = 5084.18
 time_horizon_obstacles = 0.65
 
-[node name="Timer2" type="Timer" parent="." index="5"]
+[node name="Timer2" type="Timer" parent="." index="6"]
 wait_time = 0.196
 autostart = true
 

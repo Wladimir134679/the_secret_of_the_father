@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://s544lb1641wa"]
+[gd_scene load_steps=82 format=3 uid="uid://s544lb1641wa"]
 
 [ext_resource type="Script" path="res://scenes/test_world.gd" id="1_w11tl"]
 [ext_resource type="TileSet" uid="uid://b56nnqtukxxcx" path="res://scenes/tileset_all.tres" id="2_nfy6l"]
@@ -6,20 +6,134 @@
 [ext_resource type="PackedScene" uid="uid://cij2ojyy1v87c" path="res://objs/building/Mine/Mine.tscn" id="5_f17jh"]
 [ext_resource type="PackedScene" uid="uid://3kdgtxjy1xbp" path="res://Mobs/spawner/spawner.tscn" id="5_saou6"]
 [ext_resource type="PackedScene" uid="uid://257kqbbl8eo1" path="res://objs/building/Castle/castle.tscn" id="6_nqm0k"]
+[ext_resource type="PackedScene" uid="uid://cssb781x4gm31" path="res://objs/Resourse/gold.tscn" id="7_weeb7"]
 [ext_resource type="PackedScene" uid="uid://pjyuitpmmpe2" path="res://scenes/game_ui.tscn" id="7_xquyi"]
 [ext_resource type="Texture2D" uid="uid://cfthltonpnj44" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/96_20240322231516.png" id="10_08mje"]
+[ext_resource type="Script" path="res://Mobs/goblin/goblin.gd" id="10_nw6wj"]
+[ext_resource type="PackedScene" uid="uid://dhv8pdcy4svl8" path="res://element/health_bar/health_bar.tscn" id="11_00cgd"]
 [ext_resource type="LabelSettings" uid="uid://d2lgepsbd2l1o" path="res://scenes/Вступление.tres" id="11_6snja"]
 [ext_resource type="Texture2D" uid="uid://d33wcvsaqla07" path="res://assets/Рыцари/Tiny Swords (Update 010)/UI/Banners/Carved_3Slides.png" id="11_15qeo"]
+[ext_resource type="Texture2D" uid="uid://cupuknsirc7xq" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Goblins/Troops/Torch/Blue/Torch_Blue.png" id="12_3g188"]
 [ext_resource type="Texture2D" uid="uid://dtiq3kodyioav" path="res://assets/Рыцари/Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Left.png" id="12_g477r"]
 [ext_resource type="Script" path="res://player/player.gd" id="13_hcfj1"]
+[ext_resource type="Texture2D" uid="uid://c6fiaf6mvosac" path="res://assets/7_deadly_sins/Grid/Grid.png" id="13_skibg"]
 [ext_resource type="Texture2D" uid="uid://ttpjdv3cathi" path="res://assets/Рыцари/Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Right.png" id="14_bon63"]
 [ext_resource type="Texture2D" uid="uid://da8gcvt1xlrej" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="14_fcj6k"]
 [ext_resource type="Script" path="res://player/SensorItem.gd" id="15_knlc7"]
 [ext_resource type="Texture2D" uid="uid://vr5xjw6f0kel" path="res://assets/CrimsonFantasyGUI/AnimationSheets/HealthRegeneration/LifeHealing-Sheet.png" id="16_bajed"]
 [ext_resource type="PackedScene" uid="uid://ct44mxpbtsv33" path="res://objs/tree/tree.tscn" id="16_perhd"]
-[ext_resource type="PackedScene" uid="uid://m7u0ttgypccf" path="res://Mobs/goblin/goblin.tscn" id="17_hs785"]
+[ext_resource type="PackedScene" uid="uid://pvyn7gdlrx0n" path="res://Mobs/goblin/goblin.tscn" id="17_hs785"]
 [ext_resource type="Texture2D" uid="uid://dbk5ip3ko6b0h" path="res://assets/CrimsonFantasyGUI/AnimationSheets/MinimumDamage/MinimumDamage-Sheet.png" id="17_p1yfi"]
 [ext_resource type="Script" path="res://scenes/Health.gd" id="18_yxpqw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_66hky"]
+radius = 4.99034
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nabet"]
+atlas = ExtResource("12_3g188")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfhfh"]
+atlas = ExtResource("12_3g188")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et1is"]
+atlas = ExtResource("12_3g188")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnj4b"]
+atlas = ExtResource("12_3g188")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsvli"]
+atlas = ExtResource("12_3g188")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgnfw"]
+atlas = ExtResource("12_3g188")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o15lk"]
+atlas = ExtResource("12_3g188")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxw2j"]
+atlas = ExtResource("12_3g188")
+region = Rect2(0, 240, 192, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58o4i"]
+atlas = ExtResource("12_3g188")
+region = Rect2(192, 240, 192, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kak10"]
+atlas = ExtResource("12_3g188")
+region = Rect2(384, 240, 192, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4x38"]
+atlas = ExtResource("12_3g188")
+region = Rect2(576, 240, 192, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8be1"]
+atlas = ExtResource("12_3g188")
+region = Rect2(768, 240, 192, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhcqy"]
+atlas = ExtResource("12_3g188")
+region = Rect2(960, 240, 192, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fqohs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nabet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfhfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et1is")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnj4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsvli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgnfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o15lk")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxw2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58o4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kak10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4x38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8be1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhcqy")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w1o2m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_33hf5"]
 height = 24.0
@@ -338,12 +452,19 @@ process_mode = 4
 visible = false
 position = Vector2(1, -16)
 
+[node name="Resourse" type="Node2D" parent="."]
+
+[node name="Gold" parent="Resourse" instance=ExtResource("7_weeb7")]
+position = Vector2(1594, 1445)
+
 [node name="Mobs" type="Node2D" parent="."]
 
 [node name="GameUi" parent="." instance=ExtResource("7_xquyi")]
 
 [node name="Forest" type="Node2D" parent="."]
 top_level = true
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Tree" parent="Forest" instance=ExtResource("16_perhd")]
 position = Vector2(-87, 2390)
@@ -1935,11 +2056,173 @@ position = Vector2(298, 2282)
 [node name="Tree304" parent="Forest" instance=ExtResource("16_perhd")]
 position = Vector2(493, 2245)
 
+[node name="Grid" type="Sprite2D" parent="."]
+position = Vector2(1400, 1800)
+scale = Vector2(0.0402344, 0.0411114)
+texture = ExtResource("13_skibg")
+
+[node name="3Death" type="Node2D" parent="."]
+position = Vector2(1064, 2216)
+
+[node name="Goblin" type="CharacterBody2D" parent="3Death"]
+position = Vector2(-131, -37)
+collision_layer = 4
+collision_mask = 55
+script = ExtResource("10_nw6wj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="3Death/Goblin"]
+position = Vector2(2, 11)
+scale = Vector2(2.61273, 2.61273)
+shape = SubResource("CircleShape2D_66hky")
+
+[node name="HealthBar" parent="3Death/Goblin" instance=ExtResource("11_00cgd")]
+position = Vector2(-57, -57)
+scale = Vector2(0.33227, 0.33227)
+
+[node name="Anim" type="AnimatedSprite2D" parent="3Death/Goblin"]
+position = Vector2(2, 5)
+scale = Vector2(0.571615, 0.552083)
+sprite_frames = SubResource("SpriteFrames_fqohs")
+animation = &"Walk"
+autoplay = "Idle"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="3Death/Goblin"]
+position = Vector2(2, 5)
+scale = Vector2(0.571615, 0.552083)
+sprite_frames = SubResource("SpriteFrames_w1o2m")
+
+[node name="Timer" type="Timer" parent="3Death/Goblin"]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="3Death/Goblin"]
+navigation_layers = 16
+avoidance_enabled = true
+radius = 65.87
+neighbor_distance = 5084.18
+time_horizon_obstacles = 0.65
+
+[node name="Timer2" type="Timer" parent="3Death/Goblin"]
+wait_time = 0.196
+autostart = true
+
+[node name="Goblin2" type="CharacterBody2D" parent="3Death"]
+position = Vector2(-6, 134)
+collision_layer = 4
+collision_mask = 55
+script = ExtResource("10_nw6wj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="3Death/Goblin2"]
+position = Vector2(2, 11)
+scale = Vector2(2.61273, 2.61273)
+shape = SubResource("CircleShape2D_66hky")
+
+[node name="HealthBar" parent="3Death/Goblin2" instance=ExtResource("11_00cgd")]
+position = Vector2(-57, -57)
+scale = Vector2(0.33227, 0.33227)
+
+[node name="Anim" type="AnimatedSprite2D" parent="3Death/Goblin2"]
+position = Vector2(2, 5)
+scale = Vector2(0.571615, 0.552083)
+sprite_frames = SubResource("SpriteFrames_fqohs")
+animation = &"Walk"
+autoplay = "Idle"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="3Death/Goblin2"]
+position = Vector2(2, 5)
+scale = Vector2(0.571615, 0.552083)
+sprite_frames = SubResource("SpriteFrames_w1o2m")
+
+[node name="Timer" type="Timer" parent="3Death/Goblin2"]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="3Death/Goblin2"]
+navigation_layers = 16
+avoidance_enabled = true
+radius = 65.87
+neighbor_distance = 5084.18
+time_horizon_obstacles = 0.65
+
+[node name="Timer2" type="Timer" parent="3Death/Goblin2"]
+wait_time = 0.196
+autostart = true
+
+[node name="Goblin3" type="CharacterBody2D" parent="3Death"]
+position = Vector2(14, 22)
+collision_layer = 4
+collision_mask = 55
+script = ExtResource("10_nw6wj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="3Death/Goblin3"]
+position = Vector2(2, 11)
+scale = Vector2(2.61273, 2.61273)
+shape = SubResource("CircleShape2D_66hky")
+
+[node name="HealthBar" parent="3Death/Goblin3" instance=ExtResource("11_00cgd")]
+position = Vector2(-57, -57)
+scale = Vector2(0.33227, 0.33227)
+
+[node name="Anim" type="AnimatedSprite2D" parent="3Death/Goblin3"]
+position = Vector2(2, 5)
+scale = Vector2(0.571615, 0.552083)
+sprite_frames = SubResource("SpriteFrames_fqohs")
+animation = &"Walk"
+autoplay = "Idle"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="3Death/Goblin3"]
+position = Vector2(2, 5)
+scale = Vector2(0.571615, 0.552083)
+sprite_frames = SubResource("SpriteFrames_w1o2m")
+
+[node name="Timer" type="Timer" parent="3Death/Goblin3"]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="3Death/Goblin3"]
+navigation_layers = 16
+avoidance_enabled = true
+radius = 65.87
+neighbor_distance = 5084.18
+time_horizon_obstacles = 0.65
+
+[node name="Timer2" type="Timer" parent="3Death/Goblin3"]
+wait_time = 0.196
+autostart = true
+
+[node name="Label" type="Label" parent="3Death"]
+visible = false
+offset_left = -78.0
+offset_top = -81.0
+offset_right = 102.0
+offset_bottom = -42.0
+text = "Тебе не уйти"
+label_settings = ExtResource("11_6snja")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="3Death"]
+visible = false
+offset_left = -216.0
+offset_top = -137.0
+offset_right = -54.0
+offset_bottom = -98.0
+text = "Умри"
+label_settings = ExtResource("11_6snja")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="3Death"]
+visible = false
+offset_left = -208.0
+offset_top = 39.0
+offset_right = 194.0
+offset_bottom = 78.0
+text = "Тот самый проклятый кулон"
+label_settings = ExtResource("11_6snja")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Camera №1" type="Camera2D" parent="."]
 top_level = true
 position = Vector2(1123, 1396)
 limit_smoothed = true
 script = ExtResource("3_ycw8q")
+metadata/_edit_lock_ = true
 
 [node name="Button" type="Button" parent="Camera №1"]
 offset_left = -579.0
@@ -1953,7 +2236,7 @@ visible = false
 position = Vector2(-579, -328)
 
 [node name="Head" type="Sprite2D" parent="Camera №1/CanvasGroup"]
-position = Vector2(183, 359.125)
+position = Vector2(206, 341)
 scale = Vector2(2.17806, 2.18698)
 texture = ExtResource("10_08mje")
 
@@ -1983,10 +2266,34 @@ autowrap_mode = 3
 justification_flags = 3
 clip_text = true
 
+[node name="Grid" type="Sprite2D" parent="Camera №1/CanvasGroup"]
+visible = false
+position = Vector2(959, 341)
+scale = Vector2(0.202637, 0.146806)
+texture = ExtResource("13_skibg")
+
 [node name="Name2" type="Sprite2D" parent="Camera №1/CanvasGroup"]
+visible = false
 position = Vector2(943, 420)
 scale = Vector2(2.05729, 0.411458)
 texture = ExtResource("14_bon63")
+
+[node name="Name2" type="Label" parent="Camera №1/CanvasGroup/Name2"]
+visible = false
+offset_left = -44.0
+offset_top = -49.0
+offset_right = 57.0
+offset_bottom = -20.0
+scale = Vector2(0.983728, 3.19009)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 2
+theme_override_font_sizes/font_size = 18
+text = "Грид"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+justification_flags = 3
+clip_text = true
 
 [node name="Text2" type="Label" parent="Camera №1/CanvasGroup"]
 offset_left = 102.0
@@ -2068,6 +2375,12 @@ animation = &"Health"
 autoplay = "Health"
 script = ExtResource("18_yxpqw")
 
+[connection signal="timeout" from="3Death/Goblin/Timer" to="3Death/Goblin" method="_on_timer_timeout"]
+[connection signal="timeout" from="3Death/Goblin/Timer2" to="3Death/Goblin" method="_on_timer_2_timeout"]
+[connection signal="timeout" from="3Death/Goblin2/Timer" to="3Death/Goblin2" method="_on_timer_timeout"]
+[connection signal="timeout" from="3Death/Goblin2/Timer2" to="3Death/Goblin2" method="_on_timer_2_timeout"]
+[connection signal="timeout" from="3Death/Goblin3/Timer" to="3Death/Goblin3" method="_on_timer_timeout"]
+[connection signal="timeout" from="3Death/Goblin3/Timer2" to="3Death/Goblin3" method="_on_timer_2_timeout"]
 [connection signal="pressed" from="Camera №1/Button" to="Camera №1" method="_on_button_pressed"]
 [connection signal="timeout" from="Camera №1/CanvasGroup/Text2/Timer" to="Camera №1" method="_on_timer_timeout"]
 [connection signal="area_entered" from="Player/SensorItem" to="Player/SensorItem" method="_on_area_entered"]

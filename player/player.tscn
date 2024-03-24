@@ -1,11 +1,13 @@
-[gd_scene load_steps=47 format=3 uid="uid://csbidcltw6m7"]
+[gd_scene load_steps=49 format=3 uid="uid://csbidcltw6m7"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_vww4f"]
 [ext_resource type="Texture2D" uid="uid://da8gcvt1xlrej" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="2_6dheu"]
 [ext_resource type="Texture2D" uid="uid://vr5xjw6f0kel" path="res://assets/CrimsonFantasyGUI/AnimationSheets/HealthRegeneration/LifeHealing-Sheet.png" id="4_mys7r"]
 [ext_resource type="Texture2D" uid="uid://dbk5ip3ko6b0h" path="res://assets/CrimsonFantasyGUI/AnimationSheets/MinimumDamage/MinimumDamage-Sheet.png" id="5_7w70t"]
 [ext_resource type="Script" path="res://scenes/Health.gd" id="6_5ym52"]
+[ext_resource type="Texture2D" uid="uid://dm8xyhugf817w" path="res://assets/Рыцари/Tiny Swords (Update 010)/Resources/Resources/G_Idle_(NoShadow).png" id="7_2a0gt"]
 [ext_resource type="Script" path="res://player/SensorItem.gd" id="8_krhvt"]
+[ext_resource type="Script" path="res://player/Gold2.gd" id="8_vha2l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_33hf5"]
 height = 24.0
@@ -105,7 +107,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -128,7 +130,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Walk",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -302,10 +304,8 @@ debug_color = Color(0.0627451, 0.572549, 0.819608, 0.419608)
 position = Vector2(-5.96046e-08, -4)
 scale = Vector2(0.541667, 0.5)
 sprite_frames = SubResource("SpriteFrames_p2dls")
-animation = &"atack"
+animation = &"Idle"
 autoplay = "Idle"
-frame = 5
-frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.85, 0.85)
@@ -342,7 +342,6 @@ shape = SubResource("CircleShape2D_33sbn")
 debug_color = Color(0.972549, 0.133333, 0.243137, 0.419608)
 
 [node name="HeroBar" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Health2" type="AnimatedSprite2D" parent="HeroBar"]
 position = Vector2(170.313, 59.875)
@@ -351,6 +350,24 @@ sprite_frames = SubResource("SpriteFrames_ti7or")
 animation = &"Health"
 autoplay = "Health"
 script = ExtResource("6_5ym52")
+
+[node name="Gold" type="Sprite2D" parent="HeroBar"]
+position = Vector2(1108, 51)
+scale = Vector2(1.18284, 1.12516)
+texture = ExtResource("7_2a0gt")
+
+[node name="Gold2" type="Label" parent="HeroBar"]
+offset_left = 992.0
+offset_top = 32.0
+offset_right = 1102.0
+offset_bottom = 98.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Maney"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("8_vha2l")
 
 [connection signal="area_entered" from="SensorItem" to="SensorItem" method="_on_area_entered"]
 [connection signal="area_exited" from="SensorItem" to="SensorItem" method="_on_area_exited"]
