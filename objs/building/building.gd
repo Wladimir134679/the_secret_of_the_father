@@ -2,6 +2,8 @@ extends Node2D
 
 signal crash_build
 
+@export var completed = false
+@export var comG = 0 
 var health
 @export var max_health = 10
 

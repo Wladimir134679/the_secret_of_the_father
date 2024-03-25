@@ -1,9 +1,15 @@
 extends Camera2D
 
+
+@onready var gobx = (1000 - $"../3Death".position.x)/180
+@onready var goby = (1750 - $"../3Death".position.y)/180
+
+
 var pc = 0
 @onready var progress = 0
 @onready var my_label = $CanvasGroup/Text2
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready():
 	pass
 
@@ -11,7 +17,6 @@ func _ready():
 func _process(delta):
 	if progress == 0:
 		$"../3Death".process_mode = Node.PROCESS_MODE_DISABLED
-		$"../Player/AnimatedSprite2D".process_mode = Node.PROCESS_MODE_ALWAYS
 		if position.x != $"../Player".position.x:
 			position.x += (($"../Player".position.x - position.x)/50)
 		if position.y != $"../Player".position.y:
@@ -63,9 +68,9 @@ func _process(delta):
 		$"../3Death/Goblin2".anim.play("Walk")
 		$"../3Death/Goblin3".anim.play("Walk")
 		if $"../3Death".position.x != 1000:
-			$"../3Death".position.x += ((1000 - $"../3Death".position.x)/150)
+			$"../3Death".position.x += gobx
 		if $"../3Death".position.y != 1800:
-			$"../3Death".position.y += ((1750 - $"../3Death".position.y)/150)
+			$"../3Death".position.y += goby
 		if $"../3Death".position.x <= 1010:
 			$"../3Death/Goblin".anim.play("Idle")
 			$"../3Death/Goblin2".anim.play("Idle")

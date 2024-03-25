@@ -440,12 +440,15 @@ to_node = NodePath("../../Mobs")
 
 [node name="Mine4" parent="Bild" instance=ExtResource("5_f17jh")]
 position = Vector2(-319, -1536)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
-[node name="Mine5" parent="Bild" instance=ExtResource("5_f17jh")]
-position = Vector2(-15, -1584)
-
-[node name="Mine6" parent="Bild" instance=ExtResource("5_f17jh")]
-position = Vector2(321, -1584)
+[node name="Spawner2" parent="Bild/Mine4" node_paths=PackedStringArray("to_node") instance=ExtResource("5_saou6")]
+process_mode = 4
+position = Vector2(-1, 2.99988)
+scale = Vector2(3.03496, -2.54892)
+spawn_scene = ExtResource("7_weeb7")
+to_node = NodePath("../../../Resourse")
 
 [node name="Castle" parent="Bild" instance=ExtResource("6_nqm0k")]
 process_mode = 4
@@ -2080,6 +2083,7 @@ position = Vector2(-57, -57)
 scale = Vector2(0.33227, 0.33227)
 
 [node name="Anim" type="AnimatedSprite2D" parent="3Death/Goblin"]
+process_mode = 3
 position = Vector2(2, 5)
 scale = Vector2(0.571615, 0.552083)
 sprite_frames = SubResource("SpriteFrames_fqohs")
@@ -2120,6 +2124,7 @@ position = Vector2(-57, -57)
 scale = Vector2(0.33227, 0.33227)
 
 [node name="Anim" type="AnimatedSprite2D" parent="3Death/Goblin2"]
+process_mode = 3
 position = Vector2(2, 5)
 scale = Vector2(0.571615, 0.552083)
 sprite_frames = SubResource("SpriteFrames_fqohs")
@@ -2160,6 +2165,7 @@ position = Vector2(-57, -57)
 scale = Vector2(0.33227, 0.33227)
 
 [node name="Anim" type="AnimatedSprite2D" parent="3Death/Goblin3"]
+process_mode = 3
 position = Vector2(2, 5)
 scale = Vector2(0.571615, 0.552083)
 sprite_frames = SubResource("SpriteFrames_fqohs")
@@ -2324,6 +2330,7 @@ shape = SubResource("CapsuleShape2D_33hf5")
 debug_color = Color(0.0627451, 0.572549, 0.819608, 0.419608)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+process_mode = 3
 position = Vector2(-5.96046e-08, -4)
 scale = Vector2(0.541667, 0.5)
 sprite_frames = SubResource("SpriteFrames_p2dls")

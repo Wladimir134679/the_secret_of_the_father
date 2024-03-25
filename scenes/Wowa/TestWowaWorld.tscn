@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cepnh7jime4fi"]
+[gd_scene load_steps=10 format=3 uid="uid://cepnh7jime4fi"]
 
 [ext_resource type="TileSet" uid="uid://b56nnqtukxxcx" path="res://scenes/tileset_all.tres" id="1_0jbc4"]
 [ext_resource type="PackedScene" uid="uid://ct44mxpbtsv33" path="res://objs/tree/tree.tscn" id="2_v8qc0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://pvyn7gdlrx0n" path="res://Mobs/goblin/goblin.tscn" id="5_nv4yt"]
 [ext_resource type="PackedScene" uid="uid://3kdgtxjy1xbp" path="res://Mobs/spawner/spawner.tscn" id="6_4kjaf"]
 [ext_resource type="PackedScene" uid="uid://cssb781x4gm31" path="res://objs/Resourse/gold.tscn" id="7_wb2tt"]
+[ext_resource type="PackedScene" uid="uid://cij2ojyy1v87c" path="res://objs/building/Mine/Mine.tscn" id="8_grxcm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hde8o"]
 vertices = PackedVector2Array(1428, 890, 1435, 803, 1634, 801, 2407, 1411, 1435, 616, 1411, 610, 1421, 600, 1425, 323, 1960, 290, 1796, 458, 1638, 496, 1447, 517, 2072, 423, 2382, 91, 1883, 595, 1669, 658, 1325, 597, 1328, 623, 54, 61, 1330, 332, 54, 1444, 1323, 897)
@@ -62,6 +63,9 @@ position = Vector2(1888, 976)
 [node name="Gold" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
 position = Vector2(1003, 762)
 
+[node name="Mine" parent="объекты в мире" instance=ExtResource("8_grxcm")]
+position = Vector2(1304, 1075)
+
 [node name="Player" parent="объекты в мире" instance=ExtResource("3_oiib2")]
 position = Vector2(1234, 708)
 
@@ -78,4 +82,12 @@ scale = Vector2(4.2899, 4.2899)
 time = 0.5
 time_rnd = 2.0
 spawn_scene = ExtResource("5_nv4yt")
+to_node = NodePath("../объекты в мире")
+
+[node name="Gold_Spawn" parent="." node_paths=PackedStringArray("to_node") instance=ExtResource("6_4kjaf")]
+position = Vector2(804, 928)
+scale = Vector2(4.2899, 4.2899)
+time = 0.5
+time_rnd = 2.0
+spawn_scene = ExtResource("7_wb2tt")
 to_node = NodePath("../объекты в мире")

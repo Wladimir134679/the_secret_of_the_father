@@ -6,7 +6,7 @@ var SPEED = 130
 var destination = Vector2()
 var prev_pos = Vector2()
 var target = null
-@onready var anim = $Anim
+@onready var anim: AnimatedSprite2D = $Anim
 
 var player
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
