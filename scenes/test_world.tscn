@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://s544lb1641wa"]
+[gd_scene load_steps=85 format=3 uid="uid://s544lb1641wa"]
 
 [ext_resource type="Script" path="res://scenes/test_world.gd" id="1_w11tl"]
 [ext_resource type="TileSet" uid="uid://b56nnqtukxxcx" path="res://scenes/tileset_all.tres" id="2_nfy6l"]
@@ -26,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://pvyn7gdlrx0n" path="res://Mobs/goblin/goblin.tscn" id="17_hs785"]
 [ext_resource type="Texture2D" uid="uid://dbk5ip3ko6b0h" path="res://assets/CrimsonFantasyGUI/AnimationSheets/MinimumDamage/MinimumDamage-Sheet.png" id="17_p1yfi"]
 [ext_resource type="Script" path="res://scenes/Health.gd" id="18_yxpqw"]
+[ext_resource type="Texture2D" uid="uid://dm8xyhugf817w" path="res://assets/Рыцари/Tiny Swords (Update 010)/Resources/Resources/G_Idle_(NoShadow).png" id="27_8u58y"]
+[ext_resource type="Script" path="res://player/Gold2.gd" id="28_0bvad"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_66hky"]
 radius = 4.99034
@@ -2369,6 +2371,24 @@ sprite_frames = SubResource("SpriteFrames_ti7or")
 animation = &"Health"
 autoplay = "Health"
 script = ExtResource("18_yxpqw")
+
+[node name="Gold" type="Sprite2D" parent="Player/HeroBar"]
+position = Vector2(1108, 51)
+scale = Vector2(1.18284, 1.12516)
+texture = ExtResource("27_8u58y")
+
+[node name="Gold2" type="Label" parent="Player/HeroBar"]
+offset_left = 992.0
+offset_top = 32.0
+offset_right = 1102.0
+offset_bottom = 98.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Maney"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("28_0bvad")
 
 [connection signal="timeout" from="3Death/Goblin/Timer" to="3Death/Goblin" method="_on_timer_timeout"]
 [connection signal="timeout" from="3Death/Goblin/Timer2" to="3Death/Goblin" method="_on_timer_2_timeout"]

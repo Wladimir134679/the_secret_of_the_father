@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cij2ojyy1v87c"]
+[gd_scene load_steps=12 format=3 uid="uid://cij2ojyy1v87c"]
 
 [ext_resource type="Script" path="res://objs/building/Mine/Mine.gd" id="1_3tovp"]
 [ext_resource type="Texture2D" uid="uid://p6hb1qtxu3l4" path="res://assets/Рыцари/Tiny Swords (Update 010)/Resources/Gold Mine/GoldMine_Destroyed.png" id="1_ejbky"]
 [ext_resource type="Texture2D" uid="uid://c3m5xydenewl2" path="res://assets/Рыцари/Tiny Swords (Update 010)/Resources/Gold Mine/GoldMine_Active.png" id="2_mmnuy"]
 [ext_resource type="Texture2D" uid="uid://3up8nuo2vwjk" path="res://assets/Рыцари/Tiny Swords (Update 010)/Resources/Gold Mine/GoldMine_Inactive.png" id="3_ge3t5"]
+[ext_resource type="PackedScene" uid="uid://3kdgtxjy1xbp" path="res://Mobs/spawner/spawner.tscn" id="5_2d0f8"]
+[ext_resource type="PackedScene" uid="uid://cssb781x4gm31" path="res://objs/Resourse/gold.tscn" id="6_mg2yt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lib35"]
 radius = 60.0
@@ -38,9 +40,6 @@ animations = [{
 "speed": 0.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_f5hl0"]
-radius = 115.109
-
 [node name="Mine" type="Node2D"]
 script = ExtResource("1_3tovp")
 
@@ -66,11 +65,16 @@ sprite_frames = SubResource("SpriteFrames_5x6gu")
 animation = &"Mine"
 autoplay = "Mine"
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 2
+[node name="GoldSpawn" parent="." node_paths=PackedStringArray("to_node") instance=ExtResource("5_2d0f8")]
+process_mode = 4
+modulate = Color(1, 0.94902, 0, 1)
+self_modulate = Color(1, 0.968627, 0, 1)
+position = Vector2(2, 108)
+scale = Vector2(1.59479, 1.42406)
+spawn_scene = ExtResource("6_mg2yt")
+to_node = NodePath("Resourse")
+metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_f5hl0")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Resourse" type="Node2D" parent="GoldSpawn"]
+position = Vector2(1.88113, -0.702209)
+scale = Vector2(0.0886725, 2.34606)

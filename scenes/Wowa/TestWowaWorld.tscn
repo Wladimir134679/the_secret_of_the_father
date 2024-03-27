@@ -67,8 +67,37 @@ position = Vector2(1888, 976)
 [node name="Gold" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
 position = Vector2(1003, 762)
 
+[node name="Gold2" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
+position = Vector2(1003, 762)
+
+[node name="Gold3" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
+position = Vector2(1003, 762)
+
+[node name="Gold4" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
+position = Vector2(1003, 762)
+
+[node name="Gold5" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
+position = Vector2(1003, 762)
+
+[node name="Gold6" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
+position = Vector2(1003, 762)
+
+[node name="Gold7" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
+position = Vector2(1003, 762)
+
+[node name="Gold8" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
+position = Vector2(1003, 762)
+
+[node name="Gold9" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
+position = Vector2(1003, 762)
+
+[node name="Gold10" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
+position = Vector2(1003, 762)
+scale = Vector2(1.00481, 1)
+
 [node name="Mine" parent="объекты в мире" instance=ExtResource("8_grxcm")]
 position = Vector2(1304, 1075)
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="объекты в мире" instance=ExtResource("3_oiib2")]
 position = Vector2(1234, 708)
@@ -79,8 +108,11 @@ position = Vector2(739, 539)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_hde8o")
 navigation_layers = 16
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("to_node") instance=ExtResource("6_4kjaf")]
+process_mode = 4
 position = Vector2(441, 313)
 scale = Vector2(4.2899, 4.2899)
 time = 0.5
@@ -89,8 +121,9 @@ spawn_scene = ExtResource("5_nv4yt")
 to_node = NodePath("../объекты в мире")
 
 [node name="Gold_Spawn" parent="." node_paths=PackedStringArray("to_node") instance=ExtResource("6_4kjaf")]
+process_mode = 4
 position = Vector2(804, 928)
-scale = Vector2(4.2899, 4.2899)
+scale = Vector2(2.69122, 2.31327)
 time = 0.5
 time_rnd = 2.0
 spawn_scene = ExtResource("7_wb2tt")

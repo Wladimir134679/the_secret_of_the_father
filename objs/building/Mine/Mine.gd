@@ -1,16 +1,20 @@
 extends "res://objs/building/building.gd"
 
+@onready var spawnG = $GoldSpawn
+@onready var anim = $AnimatedSprite2D
 func _ready():
 	pass # Replace with function body.
 
 
 func _process(delta):
-	pass
+	if comG >= 10:
+		completed = true
+	if completed == true:
+		anim.frame = 1
+		spawnG.process_mode = Node.PROCESS_MODE_INHERIT
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed('ui_action'):
-		GP.gold = 0 
-
-func _on_area_2d_body_entered(body):
-	if body.name == "Player":
-		pass
+	if completed == false:
+		if event.is_action_pressed('ui_action'):
+			comG += GP.gold
+			GP.gold = 0 
