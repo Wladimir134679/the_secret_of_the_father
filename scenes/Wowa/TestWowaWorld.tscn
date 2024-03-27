@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cepnh7jime4fi"]
+[gd_scene load_steps=11 format=3 uid="uid://cepnh7jime4fi"]
 
 [ext_resource type="TileSet" uid="uid://b56nnqtukxxcx" path="res://scenes/tileset_all.tres" id="1_0jbc4"]
+[ext_resource type="PackedScene" uid="uid://dv4glsilnynn7" path="res://player/PlayerCamera.tscn" id="1_1a3ov"]
 [ext_resource type="PackedScene" uid="uid://ct44mxpbtsv33" path="res://objs/tree/tree.tscn" id="2_v8qc0"]
 [ext_resource type="PackedScene" uid="uid://csbidcltw6m7" path="res://player/player.tscn" id="3_oiib2"]
 [ext_resource type="PackedScene" uid="uid://cqq6iph345rdb" path="res://objs/building/tower/tower.tscn" id="4_wjj3k"]
@@ -16,6 +17,9 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(1659, 658, 1630, 507, 1
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="TestWowaWorld" type="Node2D"]
+
+[node name="PlayerCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_1a3ov")]
+player = NodePath("../объекты в мире/Player")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_0jbc4")

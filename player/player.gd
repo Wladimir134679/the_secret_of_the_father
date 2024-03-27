@@ -5,10 +5,6 @@ const ZONE_DISTANCE = Vector2(30, 0)
 const SPEED = 180.0
 const SPEED_RUN = 270.0
 var tilemap_for_camera: TileMap
-var gold = 0
-var max_health = 8
-var health = max_health
-@onready var camera : Camera2D = $Camera2D
 @onready var anim = $AnimatedSprite2D
 @onready var atack_zone: Area2D = $AtackZone
 
@@ -29,7 +25,6 @@ func _physics_process(delta: float) -> void:
 	position.y = clamp(position.y, size.position.y, size.end.y)
 	
 	update_atack_zone()
-	update_camera()
 	
 func move_player(directionX, directionY):
 	var speed = SPEED_RUN if Input.is_action_pressed("run_move") else SPEED
@@ -83,14 +78,6 @@ func update_atack_zone():
 func to_damage(count, obj):
 	if obj.has_method('damage'):
 		obj.damage(count)
-	
-func update_camera():
-	var size = size_world()
-	var view_size = get_viewport_rect()
-	camera.limit_left = min(size.position.x, view_size.position.x)
-	camera.limit_top = min(size.position.y, view_size.position.y)
-	camera.limit_right = max(size.end.x, view_size.end.x)
-	camera.limit_bottom = max(size.end.y, view_size.end.y)
 	
 func size_world() -> Rect2i:
 	var r = tilemap_for_camera.get_used_rect()

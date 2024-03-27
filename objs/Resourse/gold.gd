@@ -13,5 +13,5 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
-		body.gold += 1
+		GP.gold += 1
 		queue_free()

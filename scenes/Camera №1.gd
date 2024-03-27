@@ -1,8 +1,10 @@
-extends Camera2D
+extends CanvasLayer
 
 
 @onready var gobx = (1000 - $"../3Death".position.x)/180
 @onready var goby = (1750 - $"../3Death".position.y)/180
+
+@export var camera: Camera2D
 
 
 var pc = 0
@@ -15,12 +17,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#position = camera.position
 	if progress == 0:
+		camera.position = $"../Player".position
+		camera.to_player = false
 		$"../3Death".process_mode = Node.PROCESS_MODE_DISABLED
-		if position.x != $"../Player".position.x:
-			position.x += (($"../Player".position.x - position.x)/50)
-		if position.y != $"../Player".position.y:
-			position.y += (($"../Player".position.y - position.y)/50)
+		if camera.position.x != $"../Player".position.x:
+			camera.position.x += (($"../Player".position.x - camera.position.x)/50)
+		if camera.position.y != $"../Player".position.y:
+			camera.position.y += (($"../Player".position.y - camera.position.y)/50)
 	elif progress == 2:
 		$CanvasGroup/Text2.visible_ratio = 1.0
 	elif progress == 4:
@@ -30,16 +35,16 @@ func _process(delta):
 	elif progress == 7:
 		$Button.process_mode = Node.PROCESS_MODE_DISABLED
 		$CanvasGroup.visible = false
-		if position.x != $"../Player".position.x:
-			position.x += (($"../Player".position.x - position.x)/50)
-		if position.y != $"../Player".position.y:
-			position.y += (($"../Player".position.y - position.y)/50)
+		if camera.position.x != $"../Player".position.x:
+			camera.position.x += (($"../Player".position.x - camera.position.x)/50)
+		if camera.position.y != $"../Player".position.y:
+			camera.position.y += (($"../Player".position.y - camera.position.y)/50)
 		if $"../Player".position.x != 1400:
 			$"../Player".position.x += 2
 		if $"../Player".position.y != 1800:
 			$"../Player".position.y += 1
 		$"../Player".anim.play("Walk")
-		if position.y >= 1740:
+		if camera.position.y >= 1740:
 			$"../Grid".visible = false
 			$Button.process_mode = Node.PROCESS_MODE_INHERIT
 			$"../Player".anim.play("Idle")
@@ -96,8 +101,8 @@ func _on_button_pressed():
 	progress += 1
 	$CanvasGroup/Text2.visible_ratio = 0.0
 	if progress == 1:
-		position.x = $"../Player".position.x
-		position.y = $"../Player".position.y
+		camera.position.x = $"../Player".position.x
+		camera.position.y = $"../Player".position.y
 		$CanvasGroup/Text2/Timer.start()
 		$CanvasGroup.visible = true
 		my_label.text = "Какой замечательный день, это путешествие определенно того стоило!"
@@ -145,5 +150,10 @@ func _on_button_pressed():
 		$"../3Death/Label3".visible = false
 		$"../Player".process_mode = Node.PROCESS_MODE_INHERIT
 		$"../Player/HeroBar".visible = true
-		enabled = false
-		visible = false
+		#camera.enabled = false
+		#camera.visible = false
+		camera.position = $"../Player".position
+		camera.player = $"../Player"
+		camera.to_player = true
+		#var cam = $"../Player/Camera2D"
+		#cam.position = self.position
