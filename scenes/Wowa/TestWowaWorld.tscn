@@ -121,7 +121,6 @@ spawn_scene = ExtResource("5_nv4yt")
 to_node = NodePath("../объекты в мире")
 
 [node name="Gold_Spawn" parent="." node_paths=PackedStringArray("to_node") instance=ExtResource("6_4kjaf")]
-process_mode = 4
 position = Vector2(804, 928)
 scale = Vector2(2.69122, 2.31327)
 time = 0.5

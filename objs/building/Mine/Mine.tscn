@@ -70,11 +70,10 @@ process_mode = 4
 modulate = Color(1, 0.94902, 0, 1)
 self_modulate = Color(1, 0.968627, 0, 1)
 position = Vector2(2, 108)
-scale = Vector2(1.59479, 1.42406)
 spawn_scene = ExtResource("6_mg2yt")
 to_node = NodePath("Resourse")
+local_node = true
 metadata/_edit_group_ = true
 
 [node name="Resourse" type="Node2D" parent="GoldSpawn"]
 position = Vector2(1.88113, -0.702209)
-scale = Vector2(0.0886725, 2.34606)

@@ -8,6 +8,8 @@ extends Node2D
 @export var spawn_scene: PackedScene = null
 # куда её добавить - нода с цены
 @export var to_node : Node2D = null
+# если дали куда класть новые элементы, то в него локально или глобально
+@export var local_node: bool = false
 
 # в какой зоне спавнить, берёт shape, там в зоне радиус менять только
 @onready var zone_spawn: CollisionShape2D = $ZoneSpawn/CollisionShape2D
@@ -35,8 +37,8 @@ func spart_obj() -> void:
 func get_rnd_spawn_position() -> Vector2:
 	var zone_s = zone_spawn.shape.get_rect().position
 	var zone_e = zone_spawn.shape.get_rect().end
-	var origin_s = global_position - zone_s
-	var origin_e = global_position - zone_e
+	var origin_s = zone_s if local_node else global_position - zone_s
+	var origin_e = zone_e if local_node else global_position - zone_e
 	
 	var x = randf_range(origin_s.x, origin_e.x)
 	var y = randf_range(origin_s.y, origin_e.y)
