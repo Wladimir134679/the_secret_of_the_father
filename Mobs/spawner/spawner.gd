@@ -35,8 +35,8 @@ func spart_obj() -> void:
 	to_node.add_child(inst)
 
 func get_rnd_spawn_position() -> Vector2:
-	var zone_s = zone_spawn.shape.get_rect().position
-	var zone_e = zone_spawn.shape.get_rect().end
+	var zone_s = zone_spawn.shape.get_rect().position * scale
+	var zone_e = zone_spawn.shape.get_rect().end * scale
 	var origin_s = zone_s if local_node else global_position - zone_s
 	var origin_e = zone_e if local_node else global_position - zone_e
 	

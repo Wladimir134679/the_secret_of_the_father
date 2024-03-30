@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Mobs/spawner/spawner.gd" id="1_8swbl"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ou6se"]
-radius = 27.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mao81"]
+size = Vector2(50, 50)
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_8swbl")
@@ -15,7 +15,7 @@ one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneSpawn"]
 scale = Vector2(1, 1.01191)
-shape = SubResource("CircleShape2D_ou6se")
+shape = SubResource("RectangleShape2D_mao81")
 debug_color = Color(1, 1, 1, 0.419608)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
