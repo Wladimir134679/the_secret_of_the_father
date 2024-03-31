@@ -107,7 +107,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -130,7 +130,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Walk",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -153,7 +153,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"atack",
-"speed": 10.0
+"speed": 12.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ytwtk"]
@@ -304,7 +304,7 @@ debug_color = Color(0.0627451, 0.572549, 0.819608, 0.419608)
 position = Vector2(-5.96046e-08, -4)
 scale = Vector2(0.541667, 0.5)
 sprite_frames = SubResource("SpriteFrames_p2dls")
-animation = &"Idle"
+animation = &"atack"
 autoplay = "Idle"
 
 [node name="SensorItem" type="Area2D" parent="."]

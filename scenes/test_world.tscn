@@ -421,6 +421,7 @@ animations = [{
 script = ExtResource("1_w11tl")
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_solmv")]
+position = Vector2(990, 1369)
 player = NodePath("../Player")
 to_player = false
 
