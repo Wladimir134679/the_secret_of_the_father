@@ -450,12 +450,15 @@ position = Vector2(-319, -1536)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="Spawner2" parent="Bild/Mine4" node_paths=PackedStringArray("to_node") instance=ExtResource("5_saou6")]
-process_mode = 4
-position = Vector2(-1, 2.99988)
-scale = Vector2(3.03496, -2.54892)
-spawn_scene = ExtResource("7_weeb7")
-to_node = NodePath("../../../Resourse")
+[node name="Mine5" parent="Bild" instance=ExtResource("5_f17jh")]
+position = Vector2(-28, -1618)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Mine6" parent="Bild" instance=ExtResource("5_f17jh")]
+position = Vector2(330, -1542)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Castle" parent="Bild" instance=ExtResource("6_nqm0k")]
 process_mode = 4

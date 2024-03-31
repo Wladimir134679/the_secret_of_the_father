@@ -67,8 +67,6 @@ autoplay = "Mine"
 
 [node name="GoldSpawn" parent="." node_paths=PackedStringArray("to_node") instance=ExtResource("5_2d0f8")]
 process_mode = 4
-modulate = Color(1, 0.94902, 0, 1)
-self_modulate = Color(1, 0.968627, 0, 1)
 position = Vector2(2, 108)
 spawn_scene = ExtResource("6_mg2yt")
 to_node = NodePath("Resourse")
