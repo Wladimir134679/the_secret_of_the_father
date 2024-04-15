@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://pvyn7gdlrx0n"]
+[gd_scene load_steps=32 format=3 uid="uid://pvyn7gdlrx0n"]
 
 [ext_resource type="PackedScene" uid="uid://bkldnsyj7ttcb" path="res://Mobs/mob_obj.tscn" id="1_fj23j"]
 [ext_resource type="Script" path="res://Mobs/goblin/goblin.gd" id="2_gqrvn"]
 [ext_resource type="Texture2D" uid="uid://cupuknsirc7xq" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Goblins/Troops/Torch/Blue/Torch_Blue.png" id="3_t30en"]
+[ext_resource type="Texture2D" uid="uid://5mwiy627ubqo" path="res://assets/Рыцари/Tiny Swords (Update 010)/Effects/Explosion/Explosions.png" id="4_ttj42"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nabet"]
 atlas = ExtResource("3_t30en")
@@ -56,6 +57,54 @@ region = Rect2(768, 240, 192, 120)
 atlas = ExtResource("3_t30en")
 region = Rect2(960, 240, 192, 120)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gm40"]
+atlas = ExtResource("3_t30en")
+region = Rect2(0, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5clt2"]
+atlas = ExtResource("3_t30en")
+region = Rect2(192, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reop1"]
+atlas = ExtResource("3_t30en")
+region = Rect2(384, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ct6f"]
+atlas = ExtResource("3_t30en")
+region = Rect2(576, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h8d6"]
+atlas = ExtResource("3_t30en")
+region = Rect2(768, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlxvc"]
+atlas = ExtResource("3_t30en")
+region = Rect2(960, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b626s"]
+atlas = ExtResource("4_ttj42")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lwg7"]
+atlas = ExtResource("4_ttj42")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he8b4"]
+atlas = ExtResource("4_ttj42")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08dqk"]
+atlas = ExtResource("4_ttj42")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0xpy"]
+atlas = ExtResource("4_ttj42")
+region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chwai"]
+atlas = ExtResource("4_ttj42")
+region = Rect2(1536, 0, 192, 192)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_fqohs"]
 animations = [{
 "frames": [{
@@ -106,7 +155,55 @@ animations = [{
 "loop": true,
 "name": &"Walk",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gm40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5clt2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_reop1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ct6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h8d6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlxvc")
+}],
+"loop": true,
+"name": &"atack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b626s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lwg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he8b4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08dqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0xpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chwai")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 15.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vanh4"]
 
 [node name="Goblin" instance=ExtResource("1_fj23j")]
 script = ExtResource("2_gqrvn")
@@ -121,7 +218,7 @@ position = Vector2(-57, -57)
 position = Vector2(2, 5)
 scale = Vector2(0.571615, 0.552083)
 sprite_frames = SubResource("SpriteFrames_fqohs")
-animation = &"Walk"
+animation = &"atack"
 autoplay = "Idle"
 
 [node name="AnimatedSprite2D" parent="." index="3"]
@@ -141,5 +238,17 @@ time_horizon_obstacles = 0.65
 wait_time = 0.196
 autostart = true
 
+[node name="ZoneAtack" type="Area2D" parent="." index="7"]
+modulate = Color(1, 0.501961, 0.435294, 1)
+position = Vector2(0, 11)
+scale = Vector2(3.71091, 3.71091)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneAtack" index="0"]
+shape = SubResource("CircleShape2D_vanh4")
+debug_color = Color(1, 1, 1, 0.419608)
+
+[connection signal="on_death" from="." to="." method="_on_on_death"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

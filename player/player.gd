@@ -8,6 +8,8 @@ var tilemap_for_camera: TileMap
 @onready var anim = $AnimatedSprite2D
 @onready var atack_zone: Area2D = $AtackZone
 
+var invulnerability: bool = false
+
 
 func _ready() -> void:
 	tilemap_for_camera = get_tree().root.find_child('TileMap', true, false)
@@ -62,6 +64,7 @@ func update_atack_zone():
 	var mouse = get_local_mouse_position()
 	var angle = mouse.angle()
 	atack_zone.position = ZONE_DISTANCE.rotated(angle)
+	atack_zone.rotation = angle
 	# Если нажали на кнопку атаки мышь, то запусть анимацию
 	# повернуть в зависимости где зона атаки
 	# подождать когда закончиться анимаци и вернуть обратно стоять
@@ -79,8 +82,22 @@ func to_damage(count, obj):
 	if obj.has_method('damage'):
 		obj.damage(count)
 	
+func damage(d):
+	if invulnerability:
+		return
+	invulnerability = true
+	$InvulnerabilityTimer.start()
+	GP.health -= d
+	if GP.health <= 0:
+		print ("DEADDDDDDDDD")
+		
+	
 func size_world() -> Rect2i:
 	var r = tilemap_for_camera.get_used_rect()
 	var qs = tilemap_for_camera.rendering_quadrant_size
 	return Rect2i(r.position.x * qs, r.position.y * qs, r.size.x * qs, r.size.y * qs)
 	
+
+func _on_invulnerability_timer_timeout():
+	print("ОПА")
+	invulnerability = false

@@ -1,6 +1,11 @@
 extends CharacterBody2D
 
+enum STATE_ACTION {RUN, TARGET, DEAD, STAND, ATACK}
+
 signal on_death
+
+@export var state_action = STATE_ACTION.STAND
+@export var auto_dead_queue = true
 
 @onready var health = $HealthBar
 
@@ -10,5 +15,6 @@ func damage(da: int) -> void:
 		death()
 
 func death() -> void:
-	queue_free()
+	if auto_dead_queue:
+		queue_free()
 	on_death.emit()
