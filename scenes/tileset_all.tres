@@ -209,8 +209,8 @@ texture_region_size = Vector2i(64, 64)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jn1wt"]
 texture = ExtResource("6_4vwap")
-texture_region_size = Vector2i(64, 64)
-0:0/size_in_atlas = Vector2i(3, 3)
+texture_region_size = Vector2i(32, 32)
+0:0/size_in_atlas = Vector2i(6, 5)
 0:0/animation_columns = 4
 0:0/animation_speed = 4.0
 0:0/animation_frame_0/duration = 1.0
@@ -218,9 +218,14 @@ texture_region_size = Vector2i(64, 64)
 0:0/animation_frame_2/duration = 1.0
 0:0/animation_frame_3/duration = 1.0
 0:0/0 = 0
+0:0/0/z_index = 1
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 64, 16, 64, 16, 80, -16, 80)
+2:5/size_in_atlas = Vector2i(2, 1)
+2:5/0 = 0
+2:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:5/0/physics_layer_0/angular_velocity = 0.0
+2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 0, -16, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uf0de"]
 resource_name = "Тайл мапа"
