@@ -200,6 +200,7 @@ shape = SubResource("CircleShape2D_vanh4")
 debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="DebugInfo" type="Label" parent="." index="7"]
+visible = false
 offset_left = -20.0
 offset_top = -120.0
 offset_right = 20.0

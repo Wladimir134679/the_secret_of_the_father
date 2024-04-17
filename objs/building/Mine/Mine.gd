@@ -2,6 +2,9 @@ extends "res://objs/building/building.gd"
 
 @onready var spawnG = $GoldSpawn
 @onready var anim = $AnimatedSprite2D
+var comG: int
+@export var completed: bool = false
+
 func _ready():
 	pass # Replace with function body.
 

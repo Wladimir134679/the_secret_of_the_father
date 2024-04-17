@@ -20,13 +20,14 @@ func _ready():
 
 func _process(delta):
 	$DebugInfo.text = "HP: " + str(health.current) + "\nState: " + STATE_ACTION.keys()[state_action] + "\nLen: " + str(velocity.length())
-		
+	
+	_find_target_atack()
+	
 	match state_action:
 		STATE_ACTION.TARGET:
 			# Если мы достигли цель, то ищем цель, если нет цели рядом, отменяем движение
 			if nav.is_navigation_finished():
-				if not _find_target_atack():
-					cancel_movement()
+				cancel_movement()
 			else:
 				# если есть движение, то есть движение, ауф
 				var next_point_pos = nav.get_next_path_position()
@@ -46,7 +47,7 @@ func _process(delta):
 				#await anim.animation_finished
 				
 		STATE_ACTION.STAND:
-			# Когда стоит без дела, с шансом 10% начать двигаться к цели
+			# Когда стоит без дела, искать куда идти
 			_find_target()
 		STATE_ACTION.DEAD:
 			# тут завершаем смерть гоблина
