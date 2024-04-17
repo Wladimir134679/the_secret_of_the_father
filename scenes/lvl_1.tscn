@@ -8,7 +8,7 @@
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_oqkb2")]
 position = Vector2(3512, 2632)
-player = NodePath("../Player")
+player = NodePath("../ОбъектыМира/Player")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_wd0ch")
