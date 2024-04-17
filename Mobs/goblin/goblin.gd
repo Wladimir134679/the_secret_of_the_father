@@ -4,6 +4,7 @@ var SPEED = 130
 var destination = Vector2()
 var prev_pos = Vector2()
 var target = null
+var to_target_velocity: Vector2 = Vector2()
 @onready var anim: AnimatedSprite2D = $Anim
 @onready var atack_zone: Area2D = $ZoneAtack
 
@@ -16,6 +17,7 @@ func _ready():
 	player = get_tree().root.find_child('Player', true, false)
 
 func _process(delta):
+	$DebugInfo.text = "HP: " + str(health.current) + "\nState: " + STATE_ACTION.keys()[state_action]
 	match state_action:
 		STATE_ACTION.ATACK:
 			# процесс атаки, тут найти цель на 50% атаки и снять ХП у здания\игрока
@@ -34,14 +36,11 @@ func _process(delta):
 		STATE_ACTION.TARGET:
 			# Движение по velocity, а оно определяется в таймере
 			move_velocity()
-			anim.animation = 'Walk'
 		STATE_ACTION.STAND:
 			# Когда стоит без дела, с шансом 10% начать двигаться к цели
 			if randf() > 0.9:
 				state_action = STATE_ACTION.TARGET
-			anim.animation = 'Idle'
 		STATE_ACTION.DEAD:
-			anim.animation = 'dead'
 			# тут завершаем смерть гоблина
 			var size = anim.sprite_frames.get_frame_count("dead")
 			if anim.frame >= size - 1:
@@ -50,23 +49,30 @@ func _process(delta):
 	
 func move_velocity():
 	if velocity:
+		anim.animation = 'Walk'
 		prev_pos = position
 		move_and_slide()
 		position.x = clamp(position.x, 0, 10000)
 		position.y = clamp(position.y, 0, 10000)
-	wander()
-	
-func search_for_target():
-	#var pl = $"../Player"
-	if position.distance_to(player) < 200:
-		cancel_movement()
-		target = player
-	else:
-		if target:
+		
+		var pos = position
+		if pos.distance_to(destination) <= 30:
 			cancel_movement()
-		target = null
-	if target:
-		set_destination(target.position)
+			target_atack()
+		elif pos.distance_to(prev_pos) <= 0.6:
+			cancel_movement()
+		
+#func search_for_target():
+	##var pl = $"../Player"
+	#if position.distance_to(player) < 200:
+		#cancel_movement()
+		#target = player
+	#else:
+		#if target:
+			#cancel_movement()
+		#target = null
+	#if target:
+		#set_destination(target.position)
 	
 func set_destination(dest):
 	destination = dest
@@ -74,24 +80,20 @@ func set_destination(dest):
 	
 func cancel_movement():
 	state_action = STATE_ACTION.STAND
-	velocity = Vector2()
-	destination = Vector2()
+	anim.animation = 'Idle'
+	velocity = Vector2.ZERO
+	destination = Vector2.ZERO
 	$Timer.start(2)
 	
 func target_atack():
 	print("Нашли цель!")
 	state_action = STATE_ACTION.ATACK
+	anim.animation = 'atack'
 	
 
-func wander():
-	var pos = position
-	if pos.distance_to(destination) <= 30:
-		cancel_movement()
-		target_atack()
-	elif pos.distance_to(prev_pos) <= 0.6:
-		cancel_movement()
-
 func _on_timer_2_timeout() -> void:
+	if state_action != STATE_ACTION.TARGET:
+		return
 	nav.target_position = player.global_position
 	var target = nav.get_next_path_position()
 	set_destination(target)
