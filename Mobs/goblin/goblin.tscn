@@ -215,7 +215,6 @@ scale = Vector2(18.7153, 18.7153)
 shape = SubResource("CircleShape2D_bvof4")
 
 [node name="TimerAtackKD" type="Timer" parent="." index="9"]
-wait_time = 4.584
 one_shot = true
 
 [connection signal="on_death" from="." to="." method="_on_on_death"]

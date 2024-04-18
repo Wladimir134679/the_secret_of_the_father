@@ -63,6 +63,8 @@ func _update_anim(state):
 
 
 func _on_crash_build():
+	var body: StaticBody2D = $StaticBody2D
+	body.collision_layer = 0
 	var preloadExplosion = preload("res://objs/explosion/explosion.tscn")
 	var instExplosion = preloadExplosion.instantiate()
 	instExplosion.position = position
