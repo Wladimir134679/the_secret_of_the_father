@@ -1,7 +1,64 @@
-[gd_scene load_steps=13 format=3 uid="uid://jskqwj15d7b"]
+[gd_scene load_steps=28 format=3 uid="uid://jskqwj15d7b"]
 
 [ext_resource type="Script" path="res://objs/explosion/explosion.gd" id="1_y8nrr"]
+[ext_resource type="Texture2D" uid="uid://13gfnhs5tt8" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Knights/Troops/Dead/Dead.png" id="2_3a46c"]
 [ext_resource type="Texture2D" uid="uid://5mwiy627ubqo" path="res://assets/Рыцари/Tiny Swords (Update 010)/Effects/Explosion/Explosions.png" id="2_acshx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gutr0"]
+atlas = ExtResource("2_3a46c")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rbpx"]
+atlas = ExtResource("2_3a46c")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00rct"]
+atlas = ExtResource("2_3a46c")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxa52"]
+atlas = ExtResource("2_3a46c")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ut8mm"]
+atlas = ExtResource("2_3a46c")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eiynt"]
+atlas = ExtResource("2_3a46c")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f84hm"]
+atlas = ExtResource("2_3a46c")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekpw7"]
+atlas = ExtResource("2_3a46c")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vy8k"]
+atlas = ExtResource("2_3a46c")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfjuu"]
+atlas = ExtResource("2_3a46c")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h64ec"]
+atlas = ExtResource("2_3a46c")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2np8m"]
+atlas = ExtResource("2_3a46c")
+region = Rect2(512, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfssk"]
+atlas = ExtResource("2_3a46c")
+region = Rect2(640, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsyb4"]
+atlas = ExtResource("2_3a46c")
+region = Rect2(768, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1fmwn"]
 atlas = ExtResource("2_acshx")
@@ -43,6 +100,53 @@ region = Rect2(1536, 0, 192, 192)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_gutr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rbpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00rct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxa52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ut8mm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eiynt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f84hm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekpw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vy8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfjuu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h64ec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2np8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfssk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsyb4")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_1fmwn")
 }, {
 "duration": 1.0,
@@ -70,7 +174,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_fwmjl")
 }],
 "loop": false,
-"name": &"default",
+"name": &"explosion",
 "speed": 15.0
 }]
 
@@ -79,6 +183,6 @@ script = ExtResource("1_y8nrr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gq64p")
-autoplay = "default"
-frame = 8
-frame_progress = 1.0
+animation = &"dead"
+autoplay = "explosion"
+frame_progress = 0.675425

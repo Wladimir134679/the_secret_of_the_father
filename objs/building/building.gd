@@ -7,7 +7,10 @@ enum STATE_BUILD {
 }
 
 signal crash_build
+signal build_zone
 
+@export var price_build: int = 10
+@export var state_activation: Array[STATE_BUILD] = [STATE_BUILD.CRASH]
 @export var max_health: int = 10
 var health: int
 var state_build: STATE_BUILD
@@ -23,9 +26,12 @@ func _process(delta: float) -> void:
 	pass
 
 func damage(damage: int):
+	if state_build == STATE_BUILD.CRASH || state_build == STATE_BUILD.SOURCE:
+		return
 	health -= damage
 	update_health_bar()
 	if health <= 0:
+		state_build = STATE_BUILD.CRASH
 		crash_build.emit()
 
 func update_health_bar():

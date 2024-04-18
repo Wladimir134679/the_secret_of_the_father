@@ -116,6 +116,9 @@ func end_dead():
 	var preloadExplosion = preload("res://objs/explosion/explosion.tscn")
 	var instExplosion = preloadExplosion.instantiate()
 	instExplosion.position = position
+	instExplosion.scale.x = 0.5
+	instExplosion.scale.y = 0.5
+	instExplosion.set_name_anim('dead')
 	get_parent().add_child(instExplosion)
 
 func _on_on_death():

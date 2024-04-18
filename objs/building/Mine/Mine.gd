@@ -16,8 +16,8 @@ func _process(delta):
 		anim.frame = 1
 		spawnG.process_mode = Node.PROCESS_MODE_INHERIT
 
-func _input(event: InputEvent) -> void:
-	if completed == false:
-		if event.is_action_pressed('ui_action'):
-			comG += GP.gold
-			GP.gold = 0 
+#func _input(event: InputEvent) -> void:
+	#if completed == false:
+		#if event.is_action_pressed('ui_action'):
+			#comG += GP.gold
+			#GP.gold = 0 
