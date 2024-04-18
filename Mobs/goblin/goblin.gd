@@ -5,8 +5,10 @@ var SPEED = 130
 var target_position: Vector2 = Vector2.ZERO
 var prev_pos = Vector2()
 var to_target_velocity: Vector2 = Vector2()
+var is_atack_processing = false
 @onready var anim: AnimatedSprite2D = $Anim
 @onready var atack_zone: Area2D = $ZoneAtack
+@onready var timer_atack_kd = $TimerAtackKD
 
 #var player
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
@@ -21,10 +23,9 @@ func _ready():
 func _process(delta):
 	$DebugInfo.text = "HP: " + str(health.current) + "\nState: " + STATE_ACTION.keys()[state_action] + "\nLen: " + str(velocity.length())
 	
-	_find_target_atack()
-	
 	match state_action:
 		STATE_ACTION.TARGET:
+			_find_target_atack()
 			# Если мы достигли цель, то ищем цель, если нет цели рядом, отменяем движение
 			if nav.is_navigation_finished():
 				cancel_movement()
@@ -39,16 +40,20 @@ func _process(delta):
 			
 			var size = anim.sprite_frames.get_frame_count("atack")
 			if anim.frame >= size - 1:
-				state_action = STATE_ACTION.STAND	
-			elif anim.frame >= (size - 1) / 2:
+				if is_atack_processing || not _find_target_atack():
+					anim.animation = 'Idle'
+					state_action = STATE_ACTION.STAND
+			elif anim.frame >= (size - 1) / 2 && not is_atack_processing:
+				is_atack_processing = true
+				timer_atack_kd.start()
 				var objs = atack_zone.get_overlapping_bodies()
 				for o_enemy in objs:
 					to_damage(1, o_enemy)
-				#await anim.animation_finished
 				
 		STATE_ACTION.STAND:
-			# Когда стоит без дела, искать куда идти
-			_find_target()
+			# Когда стоит без дела, искать куда идти, если он не в стане от своей атаки
+			if not is_atack_processing:
+				_find_target()
 		STATE_ACTION.DEAD:
 			# тут завершаем смерть гоблина
 			end_dead()
@@ -72,11 +77,6 @@ func cancel_movement():
 	anim.animation = 'Idle'
 	velocity = Vector2.ZERO
 	target_position = Vector2.ZERO
-	
-func target_atack():
-	print("Нашли цель!")
-	state_action = STATE_ACTION.ATACK
-	anim.animation = 'atack'
 
 func _on_timer_navigation_timeout() -> void:
 	if state_action != STATE_ACTION.TARGET:
@@ -85,23 +85,41 @@ func _on_timer_navigation_timeout() -> void:
 
 func _find_target_atack() -> bool:
 	var objs = atack_zone.get_overlapping_bodies()
-	for o_enemy in objs:
-		state_action = STATE_ACTION.ATACK
-		return true
+	var target_atack = get_atack_target()
+	if target_atack:
+		for o_enemy in objs:
+			if target_atack.global_position == o_enemy.global_position:
+				state_action = STATE_ACTION.ATACK
+				return true
 	return false
 	
 
 func _find_target():
-	var objs = $FindPlayerZone.get_overlapping_bodies()
-	var find_player = false
-	for o_enemy_player in objs:
+	var obj_target = get_atack_target()
+	if obj_target:
 		state_action = STATE_ACTION.TARGET
-		find_player = true
-		_navigation_to(o_enemy_player.global_position)
-		break
-	if not find_player:
-		pass
+		_navigation_to(obj_target.global_position)
+	else:
+		cancel_movement()
 		
+
+func get_atack_target():
+	var objs = $FindPlayerZone.get_overlapping_bodies()
+	for o_enemy_player in objs:
+		return o_enemy_player
+	var towers = get_tree().get_nodes_in_group("tower")
+	var min_tower = null
+	for tower in towers:
+		if tower.state_build == tower.STATE_BUILD.WORK:
+			var min_dist: int = 9999999999
+			if min_tower != null:
+				min_dist = position.distance_to(min_tower.global_position)
+			var dist = position.distance_to(tower.global_position)
+			if dist <= min_dist:
+				min_tower = tower
+	if min_tower:
+		return min_tower
+	return null
 
 func _navigation_to(target_position):
 	nav.target_position = target_position
@@ -110,6 +128,8 @@ func _navigation_to(target_position):
 func to_damage(count, obj):
 	if obj.has_method('damage'):
 		obj.damage(count)
+	elif obj.get_parent().has_method('damage'):
+		obj.get_parent().damage(count)
 
 # Тут спавн выпадения предметов из гоблинов после их смерти
 func end_dead():
@@ -125,3 +145,7 @@ func _on_on_death():
 	print("Гоблин умэр")
 	state_action = STATE_ACTION.DEAD
 	
+
+
+func _on_timer_atack_kd_timeout():
+	is_atack_processing = false

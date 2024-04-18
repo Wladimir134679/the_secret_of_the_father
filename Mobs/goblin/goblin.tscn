@@ -193,14 +193,13 @@ modulate = Color(1, 0.501961, 0.435294, 1)
 position = Vector2(0, 11)
 scale = Vector2(3.71091, 3.71091)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneAtack" index="0"]
 shape = SubResource("CircleShape2D_vanh4")
 debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="DebugInfo" type="Label" parent="." index="7"]
-visible = false
 offset_left = -20.0
 offset_top = -120.0
 offset_right = 20.0
@@ -215,5 +214,10 @@ position = Vector2(1, 9)
 scale = Vector2(18.7153, 18.7153)
 shape = SubResource("CircleShape2D_bvof4")
 
+[node name="TimerAtackKD" type="Timer" parent="." index="9"]
+wait_time = 4.584
+one_shot = true
+
 [connection signal="on_death" from="." to="." method="_on_on_death"]
 [connection signal="timeout" from="NavigationTimer" to="." method="_on_timer_navigation_timeout"]
+[connection signal="timeout" from="TimerAtackKD" to="." method="_on_timer_atack_kd_timeout"]

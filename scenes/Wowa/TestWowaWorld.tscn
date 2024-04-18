@@ -105,6 +105,12 @@ metadata/_edit_lock_ = true
 [node name="Player" parent="объекты в мире" instance=ExtResource("3_oiib2")]
 position = Vector2(1234, 708)
 
+[node name="Tower2" parent="объекты в мире" instance=ExtResource("4_wjj3k")]
+position = Vector2(1183, 509)
+
+[node name="Tower3" parent="объекты в мире" instance=ExtResource("4_wjj3k")]
+position = Vector2(742, 1076)
+
 [node name="Tower" parent="объекты в мире" instance=ExtResource("4_wjj3k")]
 position = Vector2(739, 539)
 
@@ -115,9 +121,9 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("to_node") instance=ExtResource("6_4kjaf")]
-position = Vector2(441, 298)
+position = Vector2(553, 415)
 scale = Vector2(2.77315, 5.66499)
-time = 0.2
+time = 5.0
 time_rnd = 0.2
 spawn_scene = ExtResource("5_nv4yt")
 to_node = NodePath("../объекты в мире")
