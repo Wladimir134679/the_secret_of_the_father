@@ -151,23 +151,43 @@ texture_region_size = Vector2i(64, 64)
 resource_name = "Знак опасно"
 texture = ExtResource("8_dlkna")
 texture_region_size = Vector2i(64, 64)
+0:0/next_alternative_id = 2
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/1/physics_layer_0/angular_velocity = 0.0
+0:1/next_alternative_id = 2
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/1 = 1
+0:1/1/flip_h = true
+0:1/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/1/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ojuro"]
 resource_name = "Указатель"
 texture = ExtResource("9_n6kaf")
 texture_region_size = Vector2i(64, 64)
+0:0/next_alternative_id = 3
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/1/physics_layer_0/angular_velocity = 0.0
+0:1/next_alternative_id = 2
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/1 = 1
+0:1/1/flip_h = true
+0:1/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/1/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ql3rs"]
 texture = ExtResource("12_apd8k")

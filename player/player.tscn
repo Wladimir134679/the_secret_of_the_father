@@ -157,7 +157,8 @@ animations = [{
 radius = 22.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ei68m"]
-radius = 14.6783
+radius = 3.0021
+height = 114.25
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -177,6 +178,8 @@ scale = Vector2(0.541667, 0.5)
 sprite_frames = SubResource("SpriteFrames_p2dls")
 animation = &"atack"
 autoplay = "Idle"
+frame = 5
+frame_progress = 1.0
 
 [node name="SensorItem" type="Area2D" parent="."]
 scale = Vector2(0.201897, 0.201897)
@@ -195,8 +198,9 @@ collision_layer = 2
 collision_mask = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AtackZone"]
-position = Vector2(11.1766, 0)
-scale = Vector2(1.01525, 0.280738)
+position = Vector2(-4.96738, -3.04732e-15)
+rotation = 4.71239
+scale = Vector2(1, 0.5)
 shape = SubResource("CapsuleShape2D_ei68m")
 debug_color = Color(0.972549, 0.133333, 0.243137, 0.419608)
 
