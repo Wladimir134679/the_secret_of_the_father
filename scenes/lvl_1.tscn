@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgmii4jke00b1"]
+[gd_scene load_steps=6 format=3 uid="uid://bgmii4jke00b1"]
 
 [ext_resource type="PackedScene" uid="uid://dv4glsilnynn7" path="res://player/PlayerCamera.tscn" id="1_oqkb2"]
 [ext_resource type="TileSet" uid="uid://b56nnqtukxxcx" path="res://scenes/tileset_all.tres" id="1_wd0ch"]
 [ext_resource type="PackedScene" uid="uid://csbidcltw6m7" path="res://player/player.tscn" id="2_57bvf"]
+[ext_resource type="PackedScene" uid="uid://rsho2m156sr0" path="res://objs/auto_packet/auto_packet.tscn" id="4_54c58"]
 [ext_resource type="PackedScene" uid="uid://ct44mxpbtsv33" path="res://objs/tree/tree.tscn" id="4_f0aq5"]
 
 [node name="Node2D" type="Node2D"]
@@ -10,7 +11,7 @@
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_oqkb2")]
 position = Vector2(2784, 3688)
 zoom = Vector2(0.8, 0.8)
-player = NodePath("../Player")
+player = NodePath("../WorldObjects/Player")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_wd0ch")
@@ -27,293 +28,296 @@ layer_3/tile_data = PackedInt32Array()
 layer_4/name = "Декор слой"
 layer_4/tile_data = PackedInt32Array(2949191, 65542, 4, 3014727, 65542, 5, 2949192, 65542, 4, 3014728, 65542, 5, 2949193, 65542, 4, 3014729, 65542, 5, 2949194, 65542, 4, 3014730, 65542, 5, 2949195, 65542, 4, 3014731, 65542, 5, 2949196, 65542, 4, 3014732, 65542, 5, 2949197, 65542, 4, 3014733, 65542, 5, 2949198, 65542, 4, 3014734, 65542, 5, 2949199, 65542, 4, 3014735, 65542, 5, 2949200, 65542, 4, 3014736, 65542, 5, 2949201, 65542, 4, 3014737, 65542, 5, 2949202, 65542, 4, 3014738, 65542, 5, 2949203, 65542, 4, 3014739, 65542, 5, 2949204, 65542, 4, 3014740, 65542, 5, 2949205, 65542, 4, 3014741, 65542, 5, 3014742, 65542, 5, 2949206, 65542, 4, 3407943, 65542, 4, 3473479, 65542, 5, 3407944, 65542, 4, 3473480, 65542, 5, 3407945, 65542, 4, 3473481, 65542, 5, 3407946, 65542, 4, 3473482, 65542, 5, 3407947, 65542, 4, 3473483, 65542, 5, 3407948, 65542, 4, 3473484, 65542, 5, 3407949, 65542, 4, 3473485, 65542, 5, 3407950, 65542, 4, 3473486, 65542, 5, 3407951, 65542, 4, 3473487, 65542, 5, 3407952, 65542, 4, 3473488, 65542, 5, 3407953, 65542, 4, 3473489, 65542, 5, 3407954, 65542, 4, 3473490, 65542, 5, 3407955, 65542, 4, 3473491, 65542, 5, 3407956, 65542, 4, 3473492, 65542, 5, 3407957, 65542, 4, 3473493, 65542, 5, 3473494, 65542, 5, 3407958, 65542, 4, 3407942, 6, 4, 3473478, 6, 5, 2949190, 6, 4, 3014726, 6, 5, 3407959, 131078, 4, 3473495, 6, 2, 2949207, 131078, 2, 3014743, 131078, 3, 2883672, 131078, 2, 2818137, 131078, 2, 2752602, 131078, 2, 2687067, 131078, 2, 2621532, 131078, 2, 2555997, 131078, 2, 2490462, 131078, 2, 2424927, 131078, 2, 2359392, 131078, 2, 2293857, 131078, 2, 2228322, 131078, 2, 2162787, 131078, 2, 3539032, 6, 2, 3604569, 6, 2, 3670106, 6, 2, 3735643, 6, 2, 3801180, 6, 2, 3866717, 6, 2, 3932254, 6, 2, 3997791, 6, 2, 4063328, 6, 2, 4128865, 6, 2, 4194402, 6, 2, 2949208, 131078, 3, 2883673, 131078, 5, 2818138, 131078, 5, 2752603, 131078, 5, 2687068, 131078, 5, 2621533, 131078, 5, 2555998, 131078, 5, 2490463, 131078, 5, 2424928, 131078, 5, 2359393, 131078, 5, 2293858, 131078, 5, 2228323, 131078, 5, 2883671, 6, 0, 2818136, 6, 0, 2752601, 6, 0, 2687066, 6, 0, 2621531, 6, 0, 2555996, 6, 0, 2490461, 6, 0, 2424926, 6, 0, 2359391, 6, 0, 2293856, 6, 0, 2228321, 6, 0, 2162786, 6, 0, 3473496, 131078, 0, 3539033, 131078, 0, 3604570, 131078, 0, 3670107, 131078, 0, 3735644, 131078, 0, 3801181, 131078, 0, 3866718, 131078, 0, 3932255, 131078, 0, 3997792, 131078, 0, 4063329, 131078, 0, 4128866, 131078, 0, 4194403, 131078, 4, 4259939, 6, 2, 3539031, 6, 5, 3604568, 6, 5, 3670105, 6, 5, 3735642, 6, 5, 3801179, 6, 5, 3866716, 6, 5, 3932253, 6, 5, 3997790, 6, 5, 4063327, 6, 5, 4128864, 6, 5, 4194401, 6, 5, 4259938, 6, 5, 2097252, 65542, 4, 2097251, 6, 4, 2162788, 65542, 5, 4325475, 6, 3, 4259940, 65542, 4, 4325476, 65542, 5, 2097260, 131078, 0, 2162796, 196614, 1, 2097259, 65542, 4, 2162795, 65542, 5, 2097258, 65542, 4, 2162794, 65542, 5, 2097257, 65542, 4, 2162793, 65542, 5, 2097256, 65542, 4, 2162792, 65542, 5, 2097255, 65542, 4, 2162791, 65542, 5, 2097254, 65542, 4, 2162790, 65542, 5, 2097253, 65542, 4, 2162789, 65542, 5, 4259941, 65542, 4, 4325477, 65542, 5, 4259942, 65542, 4, 4325478, 65542, 5, 4259943, 65542, 4, 4325479, 65542, 5, 4259944, 65542, 4, 4325480, 65542, 5, 4259945, 65542, 4, 4325481, 65542, 5, 4259946, 65542, 4, 4325482, 65542, 5, 4259947, 65542, 4, 4325483, 65542, 5, 4259948, 131078, 2, 4325484, 196614, 3, 4128876, 196614, 2, 4194412, 196614, 1, 4063340, 196614, 1, 3932268, 196614, 1, 3997804, 196614, 2, 3801196, 196614, 1, 3866732, 196614, 2, 3670124, 196614, 1, 3735660, 196614, 2, 3539052, 196614, 1, 3604588, 196614, 2, 3407980, 196614, 1, 3473516, 196614, 2, 3276908, 196614, 2, 3342444, 196614, 2, 3211372, 196614, 1, 3080300, 196614, 1, 3145836, 196614, 2, 2949228, 196614, 1, 3014764, 196614, 2, 2818156, 196614, 1, 2883692, 196614, 2, 2687084, 196614, 2, 2752620, 196614, 2, 2621548, 196614, 1, 2490476, 196614, 1, 2556012, 196614, 2, 2359404, 196614, 1, 2424940, 196614, 2, 2228332, 196614, 1, 2293868, 196614, 2, 3604552, 1, 0, 3735627, 1, 0, 3670095, 1, 0, 3604563, 1, 0, 3735639, 1, 0, 2621513, 1, 0, 2752593, 1, 0, 2555993, 1, 0, 2359389, 1, 0, 2162781, 1, 0, 3604556, 2, 0, 3735635, 2, 0, 2818122, 2, 0, 2752597, 2, 0, 2293850, 2, 0, 4259935, 3, 0, 4128862, 3, 0, 3866711, 3, 0, 2818126, 3, 0, 2490442, 3, 0, 2555991, 3, 0, 3080263, 9, 0, 3145805, 9, 0, 3276873, 9, 0, 3342418, 9, 0, 3342414, 9, 0, 3080275, 9, 0, 3080265, 11, 0, 3342419, 11, 0, 3014744, 11, 0, 3473497, 12, 0, 2949211, 12, 0, 2752604, 12, 0, 3604572, 12, 0, 2228331, 12, 0, 2293867, 11, 0, 2228330, 11, 0, 2359403, 9, 0, 2293866, 9, 0, 2228329, 9, 0, 4194411, 12, 0, 4128875, 11, 0, 4194410, 11, 0, 4063339, 9, 0, 4128874, 9, 0, 4194409, 9, 0, 2228324, 12, 0, 2490466, 12, 0, 2555999, 12, 0, 4128867, 12, 0, 3932258, 12, 0, 3801182, 12, 0, 3473499, 11, 0, 3670110, 11, 0, 3866720, 11, 0, 3997795, 11, 0, 2883676, 11, 0, 2687070, 11, 0, 2490465, 11, 0, 2293859, 11, 0, 2228326, 9, 0, 2621547, 9, 0, 4194405, 9, 0, 3801195, 9, 0, 3670123, 12, 0, 3604587, 12, 0, 3473515, 12, 0, 3276907, 12, 0, 3145835, 12, 0, 3080299, 12, 0, 2949227, 12, 0, 2818155, 12, 0, 2752619, 12, 0, 2556011, 12, 0, 3735659, 11, 0, 3604586, 11, 0, 3407979, 11, 0, 3211371, 11, 0, 3080298, 11, 0, 2949226, 11, 0, 2883691, 11, 0, 3014763, 11, 0, 2752618, 11, 0, 2490475, 11, 0, 3670122, 9, 0, 3407978, 9, 0, 3211370, 9, 0, 3014762, 9, 0, 2818154, 9, 0, 2556010, 9, 0, 3866670, 0, 0, 3866671, 65536, 0, 3866672, 131072, 0, 3473476, 17, 0, 3539012, 17, 1, 3670068, 13, 0, 4128822, 13, 0, 4325430, 13, 0, 4194356, 13, 0, 4259905, 13, 0, 3801157, 13, 0, 3670079, 13, 0, 3604543, 13, 0, 3407927, 13, 0, 2949175, 13, 0, 2752566, 13, 0, 2424888, 13, 0, 2424885, 13, 0, 2293812, 13, 0, 2883651, 13, 0, 2293825, 13, 0, 2162750, 13, 0, 2228292, 13, 0, 2621505, 13, 0, 2687036, 13, 0, 2621498, 13, 0, 2818102, 13, 0, 3080253, 13, 0, 3276863, 13, 0, 3473471, 13, 0, 3473462, 13, 0, 4128832, 13, 0, 4128837, 13, 0, 4063285, 13, 0, 4128818, 16, 0, 3539004, 16, 0, 3801156, 16, 0, 2883639, 16, 0, 2293814, 16, 0, 2490427, 16, 0, 2752581, 16, 0, 2162754, 16, 0, 2687029, 16, 0, 3539013, 16, 0)
 
-[node name="Player" parent="." instance=ExtResource("2_57bvf")]
-z_index = 1
+[node name="ПакетЛеса" parent="." node_paths=PackedStringArray("where_scene") instance=ExtResource("4_54c58")]
+where_scene = NodePath("../WorldObjects")
+
+[node name="Tree6" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4260, 2405)
+
+[node name="Tree7" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4404, 2293)
+
+[node name="Tree8" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4420, 2413)
+
+[node name="Tree9" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4356, 2501)
+
+[node name="Tree35" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4468, 2686)
+
+[node name="Tree37" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4444, 2829)
+
+[node name="Tree36" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4476, 2877)
+
+[node name="Tree10" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4292, 2261)
+
+[node name="Tree11" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3732, 2501)
+
+[node name="Tree99" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3716, 2573)
+
+[node name="Tree12" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3812, 2557)
+
+[node name="Tree13" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3796, 2637)
+
+[node name="Tree14" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3732, 2709)
+
+[node name="Tree93" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3812, 2741)
+
+[node name="Tree94" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3868, 2805)
+
+[node name="Tree95" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3788, 2831)
+
+[node name="Tree96" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3860, 2877)
+
+[node name="Tree24" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3388, 2309)
+
+[node name="Tree25" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3340, 2653)
+
+[node name="Tree26" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3412, 2765)
+
+[node name="Tree27" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3460, 2933)
+
+[node name="Tree28" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3532, 3045)
+
+[node name="Tree29" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3516, 2798)
+
+[node name="Tree30" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3572, 2917)
+
+[node name="Tree31" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3364, 2405)
+
+[node name="Tree32" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3476, 2221)
+
+[node name="Tree16" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4012, 2150)
+
+[node name="Tree47" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4100, 2197)
+
+[node name="Tree17" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4156, 2245)
+
+[node name="Tree18" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4036, 2237)
+
+[node name="Tree46" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4092, 2293)
+
+[node name="Tree44" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4212, 2301)
+
+[node name="Tree45" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4340, 2349)
+
+[node name="Tree38" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4228, 2709)
+
+[node name="Tree39" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4324, 2805)
+
+[node name="Tree40" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4116, 2653)
+
+[node name="Tree41" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4252, 2821)
+
+[node name="Tree42" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4372, 2877)
+
+[node name="Tree43" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4148, 2733)
+
+[node name="Tree97" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4180, 2813)
+
+[node name="Tree100" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4236, 2877)
+
+[node name="Tree48" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3716, 4237)
+
+[node name="Tree49" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3588, 4229)
+
+[node name="Tree50" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3620, 4277)
+
+[node name="Tree51" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3372, 4109)
+
+[node name="Tree52" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3468, 4205)
+
+[node name="Tree53" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3260, 4053)
+
+[node name="Tree54" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3396, 4221)
+
+[node name="Tree57" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4404, 4205)
+
+[node name="Tree58" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4276, 4197)
+
+[node name="Tree59" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4156, 4173)
+
+[node name="Tree60" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4084, 4189)
+
+[node name="Tree70" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4124, 4245)
+
+[node name="Tree71" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4332, 4229)
+
+[node name="Tree72" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4212, 4245)
+
+[node name="Tree55" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3516, 4277)
+
+[node name="Tree61" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3588, 3317)
+
+[node name="Tree62" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3412, 3526)
+
+[node name="Tree63" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3556, 3389)
+
+[node name="Tree64" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3556, 3461)
+
+[node name="Tree65" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3356, 3589)
+
+[node name="Tree66" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3276, 3645)
+
+[node name="Tree67" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3484, 3541)
+
+[node name="Tree68" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3436, 3613)
+
+[node name="Tree69" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3540, 3541)
+
+[node name="Tree73" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4020, 3357)
+
+[node name="Tree74" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3988, 3429)
+
+[node name="Tree75" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3988, 3501)
+
+[node name="Tree76" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3916, 3581)
+
+[node name="Tree77" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3868, 3653)
+
+[node name="Tree78" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3972, 3581)
+
+[node name="Tree85" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4076, 3549)
+
+[node name="Tree86" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3980, 3669)
+
+[node name="Tree87" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4076, 3653)
+
+[node name="Tree79" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4004, 3109)
+
+[node name="Tree80" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3932, 3149)
+
+[node name="Tree81" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4060, 3189)
+
+[node name="Tree82" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3980, 3237)
+
+[node name="Tree83" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3924, 3317)
+
+[node name="Tree84" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3900, 3429)
+
+[node name="Tree88" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4468, 3797)
+
+[node name="Tree89" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4420, 3869)
+
+[node name="Tree90" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4476, 3533)
+
+[node name="Tree91" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4452, 3645)
+
+[node name="Tree92" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(4380, 3733)
+
+[node name="Tree56" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3292, 4133)
+
+[node name="Tree15" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3668, 2398)
+
+[node name="Tree98" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3652, 2478)
+
+[node name="Tree19" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3524, 2294)
+
+[node name="Tree20" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3588, 2254)
+
+[node name="Tree21" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3588, 2389)
+
+[node name="Tree33" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3660, 2197)
+
+[node name="Tree34" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3756, 2157)
+
+[node name="Tree22" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3524, 2477)
+
+[node name="Tree23" parent="ПакетЛеса" instance=ExtResource("4_f0aq5")]
+position = Vector2(3476, 2381)
+
+[node name="WorldObjects" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="WorldObjects" instance=ExtResource("2_57bvf")]
 position = Vector2(3144, 3888)
-
-[node name="Лес" type="Node2D" parent="."]
-
-[node name="Tree6" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4288, 2392)
-
-[node name="Tree7" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4432, 2280)
-
-[node name="Tree8" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4448, 2400)
-
-[node name="Tree9" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4384, 2488)
-
-[node name="Tree35" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4496, 2673)
-
-[node name="Tree37" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4472, 2816)
-
-[node name="Tree36" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4504, 2864)
-
-[node name="Tree10" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4320, 2248)
-
-[node name="Tree11" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3760, 2488)
-
-[node name="Tree99" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3744, 2560)
-
-[node name="Tree12" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3840, 2544)
-
-[node name="Tree13" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3824, 2624)
-
-[node name="Tree14" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3760, 2696)
-
-[node name="Tree93" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3840, 2728)
-
-[node name="Tree94" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3896, 2792)
-
-[node name="Tree95" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3816, 2818)
-
-[node name="Tree96" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3888, 2864)
-
-[node name="Tree24" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3416, 2296)
-
-[node name="Tree25" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3368, 2640)
-
-[node name="Tree26" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3440, 2752)
-
-[node name="Tree27" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3488, 2920)
-
-[node name="Tree28" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3560, 3032)
-
-[node name="Tree29" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3544, 2785)
-
-[node name="Tree30" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3600, 2904)
-
-[node name="Tree31" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3392, 2392)
-
-[node name="Tree32" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3504, 2208)
-
-[node name="Tree16" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4040, 2137)
-
-[node name="Tree47" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4128, 2184)
-
-[node name="Tree17" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4184, 2232)
-
-[node name="Tree18" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4064, 2224)
-
-[node name="Tree46" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4120, 2280)
-
-[node name="Tree44" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4240, 2288)
-
-[node name="Tree45" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4368, 2336)
-
-[node name="Tree38" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4256, 2696)
-
-[node name="Tree39" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4352, 2792)
-
-[node name="Tree40" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4144, 2640)
-
-[node name="Tree41" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4280, 2808)
-
-[node name="Tree42" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4400, 2864)
-
-[node name="Tree43" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4176, 2720)
-
-[node name="Tree97" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4208, 2800)
-
-[node name="Tree100" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4264, 2864)
-
-[node name="Tree48" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3744, 4224)
-
-[node name="Tree49" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3616, 4216)
-
-[node name="Tree50" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3648, 4264)
-
-[node name="Tree51" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3400, 4096)
-
-[node name="Tree52" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3496, 4192)
-
-[node name="Tree53" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3288, 4040)
-
-[node name="Tree54" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3424, 4208)
-
-[node name="Tree57" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4432, 4192)
-
-[node name="Tree58" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4304, 4184)
-
-[node name="Tree59" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4184, 4160)
-
-[node name="Tree60" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4112, 4176)
-
-[node name="Tree70" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4152, 4232)
-
-[node name="Tree71" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4360, 4216)
-
-[node name="Tree72" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4240, 4232)
-
-[node name="Tree55" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3544, 4264)
-
-[node name="Tree61" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3616, 3304)
-
-[node name="Tree62" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3440, 3513)
-
-[node name="Tree63" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3584, 3376)
-
-[node name="Tree64" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3584, 3448)
-
-[node name="Tree65" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3384, 3576)
-
-[node name="Tree66" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3304, 3632)
-
-[node name="Tree67" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3512, 3528)
-
-[node name="Tree68" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3464, 3600)
-
-[node name="Tree69" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3568, 3528)
-
-[node name="Tree73" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4048, 3344)
-
-[node name="Tree74" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4016, 3416)
-
-[node name="Tree75" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4016, 3488)
-
-[node name="Tree76" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3944, 3568)
-
-[node name="Tree77" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3896, 3640)
-
-[node name="Tree78" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4000, 3568)
-
-[node name="Tree85" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4104, 3536)
-
-[node name="Tree86" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4008, 3656)
-
-[node name="Tree87" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4104, 3640)
-
-[node name="Tree79" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4032, 3096)
-
-[node name="Tree80" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3960, 3136)
-
-[node name="Tree81" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4088, 3176)
-
-[node name="Tree82" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4008, 3224)
-
-[node name="Tree83" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3952, 3304)
-
-[node name="Tree84" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3928, 3416)
-
-[node name="Tree88" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4496, 3784)
-
-[node name="Tree89" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4448, 3856)
-
-[node name="Tree90" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4504, 3520)
-
-[node name="Tree91" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4480, 3632)
-
-[node name="Tree92" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(4408, 3720)
-
-[node name="Tree56" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3320, 4120)
-
-[node name="Tree15" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3696, 2385)
-
-[node name="Tree98" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3680, 2465)
-
-[node name="Tree19" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3552, 2281)
-
-[node name="Tree20" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3616, 2241)
-
-[node name="Tree21" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3616, 2376)
-
-[node name="Tree33" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3688, 2184)
-
-[node name="Tree34" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3784, 2144)
-
-[node name="Tree22" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3552, 2464)
-
-[node name="Tree23" parent="Лес" instance=ExtResource("4_f0aq5")]
-position = Vector2(3504, 2368)

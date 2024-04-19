@@ -13,6 +13,9 @@ var is_atack_processing = false
 #var player
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 
+@export var chance_of_coin_drop: float = 0.5
+@export var drop_scene: PackedScene
+
 func _ready():
 	SPEED = 100
 	auto_dead_queue = false
@@ -133,6 +136,7 @@ func to_damage(count, obj):
 
 # Тут спавн выпадения предметов из гоблинов после их смерти
 func end_dead():
+	GP.souls += 1
 	var preloadExplosion = preload("res://objs/explosion/explosion.tscn")
 	var instExplosion = preloadExplosion.instantiate()
 	instExplosion.position = position
@@ -140,6 +144,13 @@ func end_dead():
 	instExplosion.scale.y = 0.5
 	instExplosion.set_name_anim('dead')
 	get_parent().add_child(instExplosion)
+	
+	if randf() <= chance_of_coin_drop:
+		print("COint drop")
+		var inst = drop_scene.instantiate()
+		inst.position = position
+		get_parent().add_child(inst)
+		
 
 func _on_on_death():
 	print("Гоблин умэр")

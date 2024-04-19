@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://rsho2m156sr0"]
+
+[ext_resource type="Script" path="res://objs/auto_packet/auto_packet.gd" id="1_mv460"]
+
+[node name="AutoPacket" type="Node2D"]
+script = ExtResource("1_mv460")

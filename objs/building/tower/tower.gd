@@ -75,3 +75,9 @@ func _on_crash_build():
 
 func _on_atack__kd_timer_timeout():
 	kd_atack = false
+
+
+func _on_build_zone():
+	var body: StaticBody2D = $StaticBody2D
+	update_health_bar()
+	body.collision_layer = 16

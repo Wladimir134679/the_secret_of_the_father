@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://pjyuitpmmpe2"]
+[gd_scene load_steps=20 format=3 uid="uid://pjyuitpmmpe2"]
 
 [ext_resource type="Script" path="res://scenes/game_ui.gd" id="1_jsp6e"]
 [ext_resource type="Script" path="res://scenes/fps.gd" id="2_kvn7c"]
 [ext_resource type="Script" path="res://scenes/InventoryUI.gd" id="3_1wmfj"]
 [ext_resource type="Texture2D" uid="uid://vr5xjw6f0kel" path="res://assets/CrimsonFantasyGUI/AnimationSheets/HealthRegeneration/LifeHealing-Sheet.png" id="4_3ombw"]
+[ext_resource type="Texture2D" uid="uid://cw0smvutqli7a" path="res://assets/Рыцари/Tiny Swords (Update 010)/Resources/Resources/M_Idle.png" id="6_an8q3"]
 [ext_resource type="Script" path="res://scenes/Health.gd" id="6_ehoum"]
+[ext_resource type="Texture2D" uid="uid://dm8xyhugf817w" path="res://assets/Рыцари/Tiny Swords (Update 010)/Resources/Resources/G_Idle_(NoShadow).png" id="7_earwf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7u38x"]
 atlas = ExtResource("4_3ombw")
@@ -77,6 +79,12 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_cdu4j"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_efbou"]
+font_size = 40
+
 [node name="GameUi" type="CanvasLayer"]
 script = ExtResource("1_jsp6e")
 
@@ -110,3 +118,37 @@ scale = Vector2(4.67773, 4.51562)
 sprite_frames = SubResource("SpriteFrames_cvepy")
 animation = &"Health"
 script = ExtResource("6_ehoum")
+
+[node name="HeroBar" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HeroBar"]
+offset_left = 851.0
+offset_top = 22.0
+offset_right = 1151.0
+offset_bottom = 194.0
+
+[node name="Gold2" type="Label" parent="HeroBar/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Maney"
+label_settings = SubResource("LabelSettings_cdu4j")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Gold" type="Sprite2D" parent="HeroBar/VBoxContainer/Gold2"]
+position = Vector2(252, 9.99999)
+scale = Vector2(1.18284, 1.12516)
+texture = ExtResource("7_earwf")
+
+[node name="SoulsInfo" type="Label" parent="HeroBar/VBoxContainer"]
+layout_mode = 2
+text = "Души"
+label_settings = SubResource("LabelSettings_efbou")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MIdle" type="Sprite2D" parent="HeroBar/VBoxContainer/SoulsInfo"]
+position = Vector2(246, 16)
+texture = ExtResource("6_an8q3")

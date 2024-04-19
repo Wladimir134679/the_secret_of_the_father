@@ -60,7 +60,7 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_lj5mf")
 
 [node name="AtackTimer" type="Timer" parent="." index="4"]
-wait_time = 345.458
 
+[connection signal="build_zone" from="." to="." method="_on_build_zone"]
 [connection signal="crash_build" from="." to="." method="_on_crash_build"]
 [connection signal="timeout" from="AtackTimer" to="." method="_on_atack__kd_timer_timeout"]

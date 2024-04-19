@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cepnh7jime4fi"]
+[gd_scene load_steps=13 format=3 uid="uid://cepnh7jime4fi"]
 
 [ext_resource type="TileSet" uid="uid://b56nnqtukxxcx" path="res://scenes/tileset_all.tres" id="1_0jbc4"]
 [ext_resource type="PackedScene" uid="uid://dv4glsilnynn7" path="res://player/PlayerCamera.tscn" id="1_1a3ov"]
@@ -9,13 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://3kdgtxjy1xbp" path="res://Mobs/spawner/spawner.tscn" id="6_4kjaf"]
 [ext_resource type="PackedScene" uid="uid://cssb781x4gm31" path="res://objs/Resourse/gold.tscn" id="7_wb2tt"]
 [ext_resource type="PackedScene" uid="uid://cij2ojyy1v87c" path="res://objs/building/Mine/Mine.tscn" id="8_grxcm"]
+[ext_resource type="Script" path="res://scenes/Wowa/NavigationRegion2D.gd" id="8_rh5fu"]
 [ext_resource type="PackedScene" uid="uid://pjyuitpmmpe2" path="res://scenes/game_ui.tscn" id="10_aksbp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hde8o"]
-vertices = PackedVector2Array(1428, 890, 1435, 803, 1634, 801, 2407, 1411, 1435, 616, 1411, 610, 1421, 600, 1425, 323, 1960, 290, 1796, 458, 1638, 496, 1447, 517, 2072, 423, 2382, 91, 1883, 595, 1669, 658, 1325, 597, 1328, 623, 54, 61, 1330, 332, 54, 1444, 1323, 897)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 0, 5, 6), PackedInt32Array(7, 8, 9, 10, 11), PackedInt32Array(12, 13, 3), PackedInt32Array(14, 12, 3), PackedInt32Array(15, 9, 14, 2), PackedInt32Array(9, 15, 10), PackedInt32Array(6, 7, 11, 4), PackedInt32Array(16, 6, 5, 17), PackedInt32Array(13, 12, 8), PackedInt32Array(18, 13, 8, 7), PackedInt32Array(18, 7, 19), PackedInt32Array(20, 18, 19, 16), PackedInt32Array(20, 16, 17, 21), PackedInt32Array(3, 20, 21, 0), PackedInt32Array(14, 3, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1659, 658, 1630, 507, 1456, 526, 1445, 617, 1445, 793, 1626, 791), PackedVector2Array(2392, 82, 2418, 1421, 44, 1455, 44, 51), PackedVector2Array(1333, 886, 1417, 881, 1402, 622, 1338, 632), PackedVector2Array(1340, 341, 1335, 587, 1411, 590, 1415, 334), PackedVector2Array(1809, 459, 1885, 580, 2058, 422, 1959, 305)])
+vertices = PackedVector2Array(1690, 659, 1859, 603, 1892, 614, 2400, 1467, 1650, 821, 2100, 425, 2362, 111, 1956, 255, 74, 81, 1445, 280, 1654, 474, 1827, 452, 1442, 497, 1449, 909, 1443, 822, 1304, 616, 1308, 616, 1302, 918, 74, 1425, 1312, 291)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 3), PackedInt32Array(2, 5, 3), PackedInt32Array(6, 5, 7), PackedInt32Array(8, 6, 7, 9), PackedInt32Array(1, 0, 10, 11), PackedInt32Array(11, 10, 12, 9, 7), PackedInt32Array(13, 14, 4, 3), PackedInt32Array(15, 16, 17), PackedInt32Array(13, 3, 18, 17), PackedInt32Array(17, 18, 8, 15), PackedInt32Array(19, 15, 8), PackedInt32Array(8, 9, 19)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1659, 658, 1630, 507, 1456, 526, 1445, 617, 1445, 793, 1626, 791), PackedVector2Array(2392, 82, 2431, 1498, 44, 1455, 44, 51), PackedVector2Array(1333, 886, 1417, 881, 1402, 622, 1338, 632), PackedVector2Array(1341, 319, 1335, 587, 1411, 590, 1415, 313), PackedVector2Array(1859, 458, 1885, 580, 2058, 422, 1959, 305)])
 source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 30.0
 
 [node name="TestWowaWorld" type="Node2D"]
 
@@ -50,7 +52,7 @@ position = Vector2(943, 1275)
 position = Vector2(1916, 762)
 
 [node name="Tree6" parent="объекты в мире" instance=ExtResource("2_v8qc0")]
-position = Vector2(1667, 463)
+position = Vector2(1718, 415)
 
 [node name="Tree7" parent="объекты в мире" instance=ExtResource("2_v8qc0")]
 position = Vector2(1025, 356)
@@ -117,14 +119,15 @@ position = Vector2(739, 539)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_hde8o")
 navigation_layers = 16
+script = ExtResource("8_rh5fu")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("to_node") instance=ExtResource("6_4kjaf")]
-position = Vector2(553, 415)
+position = Vector2(1766, 632)
 scale = Vector2(2.77315, 5.66499)
-time = 5.0
-time_rnd = 0.2
+time = 2.0
+time_rnd = 1.0
 spawn_scene = ExtResource("5_nv4yt")
 to_node = NodePath("../объекты в мире")
 

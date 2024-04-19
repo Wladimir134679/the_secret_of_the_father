@@ -16,6 +16,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 
+	if anim.animation == 'atack':
+		return
 	var directionX := Input.get_axis("move_left", "move_right")
 	var directionY := Input.get_axis("move_up", "move_down")
 		
@@ -29,6 +31,10 @@ func _physics_process(delta: float) -> void:
 	update_atack_zone()
 	
 func move_player(directionX, directionY):
+	
+	if anim.animation == 'atack':
+		return
+		
 	var speed = SPEED_RUN if Input.is_action_pressed("run_move") else SPEED
 	#Движение персонажа
 	if directionX:

@@ -1,10 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://csbidcltw6m7"]
+[gd_scene load_steps=26 format=3 uid="uid://csbidcltw6m7"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_vww4f"]
 [ext_resource type="Texture2D" uid="uid://da8gcvt1xlrej" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="2_6dheu"]
-[ext_resource type="Texture2D" uid="uid://dm8xyhugf817w" path="res://assets/Рыцари/Tiny Swords (Update 010)/Resources/Resources/G_Idle_(NoShadow).png" id="7_2a0gt"]
 [ext_resource type="Script" path="res://player/SensorItem.gd" id="8_krhvt"]
-[ext_resource type="Script" path="res://player/Gold2.gd" id="8_vha2l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_33hf5"]
 height = 24.0
@@ -203,26 +201,6 @@ rotation = 4.71239
 scale = Vector2(1, 0.5)
 shape = SubResource("CapsuleShape2D_ei68m")
 debug_color = Color(0.972549, 0.133333, 0.243137, 0.419608)
-
-[node name="HeroBar" type="CanvasLayer" parent="."]
-
-[node name="Gold" type="Sprite2D" parent="HeroBar"]
-position = Vector2(1108, 51)
-scale = Vector2(1.18284, 1.12516)
-texture = ExtResource("7_2a0gt")
-
-[node name="Gold2" type="Label" parent="HeroBar"]
-offset_left = 992.0
-offset_top = 32.0
-offset_right = 1102.0
-offset_bottom = 98.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "Maney"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-script = ExtResource("8_vha2l")
 
 [node name="InvulnerabilityTimer" type="Timer" parent="."]
 wait_time = 0.681
