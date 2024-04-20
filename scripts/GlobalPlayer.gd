@@ -21,6 +21,11 @@ func add_souls(val: int):
 	souls += val
 	adding_souls.emit()
 	_calculate_level()
+	
+func next_count_level():
+	if experience_level >= experience_levels_count.size():
+		return "max"
+	return experience_levels_count[experience_level + 1]
 
 func _calculate_level():
 	if experience_level >= experience_levels_count.size():
