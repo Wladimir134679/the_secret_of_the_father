@@ -2,8 +2,6 @@ extends CharacterBody2D
 
 
 const ZONE_DISTANCE = Vector2(30, 0)
-const SPEED = 180.0
-const SPEED_RUN = 270.0
 var tilemap_for_camera: TileMap
 @onready var anim = $AnimatedSprite2D
 @onready var atack_zone: Area2D = $AtackZone
@@ -34,8 +32,8 @@ func move_player(directionX, directionY):
 	
 	if anim.animation == 'atack':
 		return
-		
-	var speed = SPEED_RUN if Input.is_action_pressed("run_move") else SPEED
+	
+	var speed = GP.speed_move * 2 if Input.is_action_pressed("run_move") else GP.speed_move
 	#Движение персонажа
 	if directionX:
 		velocity.x = directionX * speed
@@ -105,5 +103,4 @@ func size_world() -> Rect2i:
 	
 
 func _on_invulnerability_timer_timeout():
-	print("ОПА")
 	invulnerability = false

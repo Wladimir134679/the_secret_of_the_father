@@ -136,7 +136,7 @@ func to_damage(count, obj):
 
 # Тут спавн выпадения предметов из гоблинов после их смерти
 func end_dead():
-	GP.souls += 1
+	GP.add_souls(1)
 	var preloadExplosion = preload("res://objs/explosion/explosion.tscn")
 	var instExplosion = preloadExplosion.instantiate()
 	instExplosion.position = position
@@ -146,7 +146,6 @@ func end_dead():
 	get_parent().add_child(instExplosion)
 	
 	if randf() <= chance_of_coin_drop:
-		print("COint drop")
 		var inst = drop_scene.instantiate()
 		inst.position = position
 		get_parent().add_child(inst)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://pjyuitpmmpe2"]
+[gd_scene load_steps=21 format=3 uid="uid://pjyuitpmmpe2"]
 
 [ext_resource type="Script" path="res://scenes/game_ui.gd" id="1_jsp6e"]
 [ext_resource type="Script" path="res://scenes/fps.gd" id="2_kvn7c"]
@@ -85,6 +85,9 @@ font_size = 40
 [sub_resource type="LabelSettings" id="LabelSettings_efbou"]
 font_size = 40
 
+[sub_resource type="LabelSettings" id="LabelSettings_m187n"]
+font_size = 40
+
 [node name="GameUi" type="CanvasLayer"]
 script = ExtResource("1_jsp6e")
 
@@ -133,9 +136,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Maney"
 label_settings = SubResource("LabelSettings_cdu4j")
-horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="Gold" type="Sprite2D" parent="HeroBar/VBoxContainer/Gold2"]
 position = Vector2(252, 9.99999)
@@ -146,9 +147,14 @@ texture = ExtResource("7_earwf")
 layout_mode = 2
 text = "Души"
 label_settings = SubResource("LabelSettings_efbou")
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MIdle" type="Sprite2D" parent="HeroBar/VBoxContainer/SoulsInfo"]
 position = Vector2(246, 16)
 texture = ExtResource("6_an8q3")
+
+[node name="LevelInfo" type="Label" parent="HeroBar/VBoxContainer"]
+layout_mode = 2
+text = "Level"
+label_settings = SubResource("LabelSettings_m187n")
+vertical_alignment = 1
