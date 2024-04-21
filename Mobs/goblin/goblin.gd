@@ -1,6 +1,7 @@
 extends "res://Mobs/mob_obj.gd"
 
 var SPEED = 130
+const ZONE_DISTANCE_ATACK = Vector2(15, 0)
 #var destination = Vector2()
 var target_position: Vector2 = Vector2.ZERO
 var prev_pos = Vector2()
@@ -26,6 +27,7 @@ func _ready():
 func _process(delta):
 	$DebugInfo.text = "HP: " + str(health.current) + "\nState: " + STATE_ACTION.keys()[state_action] + "\nLen: " + str(velocity.length())
 	
+	_update_zone_atack_angle()
 	match state_action:
 		STATE_ACTION.TARGET:
 			_find_target_atack()
@@ -155,7 +157,10 @@ func _on_on_death():
 	print("Гоблин умэр")
 	state_action = STATE_ACTION.DEAD
 	
-
+func _update_zone_atack_angle():
+	var angle = velocity.angle()
+	atack_zone.position = ZONE_DISTANCE_ATACK.rotated(angle)
+	atack_zone.rotation = angle
 
 func _on_timer_atack_kd_timeout():
 	is_atack_processing = false
