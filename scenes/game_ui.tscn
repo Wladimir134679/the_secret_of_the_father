@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://pjyuitpmmpe2"]
+[gd_scene load_steps=24 format=3 uid="uid://pjyuitpmmpe2"]
 
 [ext_resource type="Script" path="res://scenes/game_ui.gd" id="1_jsp6e"]
 [ext_resource type="Script" path="res://scenes/fps.gd" id="2_kvn7c"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/Health.gd" id="6_ehoum"]
 [ext_resource type="Texture2D" uid="uid://dm8xyhugf817w" path="res://assets/Рыцари/Tiny Swords (Update 010)/Resources/Resources/G_Idle_(NoShadow).png" id="7_earwf"]
 [ext_resource type="Script" path="res://scenes/NewLevel.gd" id="8_w4rpe"]
+[ext_resource type="Theme" uid="uid://bun5isarjtwby" path="res://scenes/all_theme.tres" id="9_7jhq8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7u38x"]
 atlas = ExtResource("4_3ombw")
@@ -89,7 +90,15 @@ font_size = 40
 [sub_resource type="LabelSettings" id="LabelSettings_m187n"]
 font_size = 40
 
+[sub_resource type="LabelSettings" id="LabelSettings_rppn5"]
+font_size = 50
+font_color = Color(1, 0, 0, 1)
+shadow_size = 3
+shadow_color = Color(0.454902, 0, 0, 1)
+shadow_offset = Vector2(3, 3)
+
 [node name="GameUi" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_jsp6e")
 
 [node name="fps" type="Label" parent="."]
@@ -174,19 +183,54 @@ script = ExtResource("8_w4rpe")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NewLevel"]
 layout_mode = 2
+theme = ExtResource("9_7jhq8")
 
 [node name="Button" type="Button" parent="NewLevel/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("9_7jhq8")
 text = "+1 урон"
 
 [node name="Button2" type="Button" parent="NewLevel/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("9_7jhq8")
 text = "+1 жизнь"
 
 [node name="Button3" type="Button" parent="NewLevel/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("9_7jhq8")
 text = "+5 скорость"
+
+[node name="EndGame" type="CenterContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndGame"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EndGame/VBoxContainer"]
+layout_mode = 2
+text = "ПРОИГРАЛ =((("
+label_settings = SubResource("LabelSettings_rppn5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="EndGame/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("9_7jhq8")
+text = "Начать сначала"
 
 [connection signal="pressed" from="NewLevel/HBoxContainer/Button" to="NewLevel" method="_click_atack"]
 [connection signal="pressed" from="NewLevel/HBoxContainer/Button2" to="NewLevel" method="_click_health"]
 [connection signal="pressed" from="NewLevel/HBoxContainer/Button3" to="NewLevel" method="_click_speed"]
+[connection signal="pressed" from="EndGame/VBoxContainer/Button" to="." method="_on_new_game_end_game_button_pressed"]

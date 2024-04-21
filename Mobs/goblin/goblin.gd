@@ -31,7 +31,8 @@ func _process(delta):
 	anim.flip_h = velocity.x < 0
 	match state_action:
 		STATE_ACTION.TARGET:
-			_find_target_atack()
+			if _find_target_atack():
+				return
 			# Если мы достигли цель, то ищем цель, если нет цели рядом, отменяем движение
 			if nav.is_navigation_finished():
 				cancel_movement()

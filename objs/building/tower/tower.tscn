@@ -43,6 +43,9 @@ offset_bottom = -166.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="StaticBody2D" parent="." index="1"]
+scale = Vector2(1.49772, 1.44415)
+
 [node name="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(0, -18)
 

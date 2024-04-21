@@ -71,34 +71,34 @@ position = Vector2(1517, 1176)
 position = Vector2(1888, 976)
 
 [node name="Gold" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
-position = Vector2(1003, 762)
+position = Vector2(2097, 509)
 
 [node name="Gold2" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
-position = Vector2(1034, 727)
+position = Vector2(2128, 474)
 
 [node name="Gold3" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
-position = Vector2(1033, 766)
+position = Vector2(2127, 513)
 
 [node name="Gold4" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
-position = Vector2(992, 826)
+position = Vector2(2086, 573)
 
 [node name="Gold5" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
-position = Vector2(971, 810)
+position = Vector2(2065, 557)
 
 [node name="Gold6" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
-position = Vector2(1060, 814)
+position = Vector2(2154, 561)
 
 [node name="Gold7" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
-position = Vector2(1110, 806)
+position = Vector2(2204, 553)
 
 [node name="Gold8" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
-position = Vector2(948, 762)
+position = Vector2(2042, 509)
 
 [node name="Gold9" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
-position = Vector2(998, 723)
+position = Vector2(2092, 470)
 
 [node name="Gold10" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
-position = Vector2(1044, 751)
+position = Vector2(2160, 514)
 scale = Vector2(1.00481, 1)
 
 [node name="Mine" parent="объекты в мире" instance=ExtResource("8_grxcm")]
@@ -109,16 +109,17 @@ metadata/_edit_lock_ = true
 position = Vector2(1234, 708)
 
 [node name="Tower2" parent="объекты в мире" instance=ExtResource("4_wjj3k")]
-position = Vector2(927, 704)
+position = Vector2(1109, 1583)
 
 [node name="Tower3" parent="объекты в мире" instance=ExtResource("4_wjj3k")]
-position = Vector2(636, 992)
+position = Vector2(386, 1556)
 
 [node name="Tower" parent="объекты в мире" instance=ExtResource("4_wjj3k")]
-position = Vector2(715, 468)
+position = Vector2(261, 909)
 
 [node name="Castle" parent="объекты в мире" instance=ExtResource("8_habvo")]
 position = Vector2(664, 735)
+max_health = 10
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_hde8o")
@@ -128,7 +129,7 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("to_node") instance=ExtResource("6_4kjaf")]
-position = Vector2(1766, 632)
+position = Vector2(1173, 522)
 scale = Vector2(2.77315, 5.66499)
 time = 2.0
 time_rnd = 1.0
@@ -136,7 +137,7 @@ spawn_scene = ExtResource("5_nv4yt")
 to_node = NodePath("../объекты в мире")
 
 [node name="Gold_Spawn" parent="." node_paths=PackedStringArray("to_node") instance=ExtResource("6_4kjaf")]
-position = Vector2(804, 928)
+position = Vector2(1113, 1076)
 scale = Vector2(3.91384, 3.45899)
 time = 0.5
 time_rnd = 0.5

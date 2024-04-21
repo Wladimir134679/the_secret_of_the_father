@@ -19,9 +19,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x34wh"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lo7w4"]
+size = Vector2(82.6151, 44.0506)
 
-[node name="Castle" groups=["tower"] instance=ExtResource("1_f8e7h")]
+[node name="Castle" groups=["castle", "tower"] instance=ExtResource("1_f8e7h")]
 script = ExtResource("2_oknki")
 max_health = 30
 
@@ -29,15 +30,23 @@ max_health = 30
 position = Vector2(3, -66)
 sprite_frames = SubResource("SpriteFrames_u6g5v")
 
+[node name="ProgressBar" parent="." index="1"]
+modulate = Color(0, 0.909804, 0.611765, 1)
+offset_left = -167.0
+offset_top = -206.0
+offset_right = 172.0
+offset_bottom = -179.0
+
 [node name="StaticBody2D" parent="." index="2"]
-position = Vector2(-1, -15)
-scale = Vector2(3.24718, 2.4038)
+scale = Vector2(3.31659, 4.06351)
 
 [node name="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(1.00002, 6)
-rotation = 1.57079
-scale = Vector2(2.08812, 2.82035)
-shape = SubResource("CapsuleShape2D_x34wh")
+position = Vector2(1.20605, -11.1972)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_lo7w4")
+
+[node name="ZoneBuild" parent="." index="3"]
+scale = Vector2(8.08416, -3.85494)
 
 [node name="Node2D" parent="." index="4"]
 visible = false
