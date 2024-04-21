@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cepnh7jime4fi"]
+[gd_scene load_steps=14 format=3 uid="uid://cepnh7jime4fi"]
 
 [ext_resource type="TileSet" uid="uid://b56nnqtukxxcx" path="res://scenes/tileset_all.tres" id="1_0jbc4"]
 [ext_resource type="PackedScene" uid="uid://dv4glsilnynn7" path="res://player/PlayerCamera.tscn" id="1_1a3ov"]
@@ -9,13 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://3kdgtxjy1xbp" path="res://Mobs/spawner/spawner.tscn" id="6_4kjaf"]
 [ext_resource type="PackedScene" uid="uid://cssb781x4gm31" path="res://objs/Resourse/gold.tscn" id="7_wb2tt"]
 [ext_resource type="PackedScene" uid="uid://cij2ojyy1v87c" path="res://objs/building/Mine/Mine.tscn" id="8_grxcm"]
+[ext_resource type="PackedScene" uid="uid://dsg44bqc7yvuy" path="res://objs/building/Castle/castle.tscn" id="8_habvo"]
 [ext_resource type="Script" path="res://scenes/Wowa/NavigationRegion2D.gd" id="8_rh5fu"]
 [ext_resource type="PackedScene" uid="uid://pjyuitpmmpe2" path="res://scenes/game_ui.tscn" id="10_aksbp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hde8o"]
-vertices = PackedVector2Array(1690, 659, 1859, 603, 1892, 614, 2400, 1467, 1650, 821, 2100, 425, 2362, 111, 1956, 255, 74, 81, 1445, 280, 1654, 474, 1827, 452, 1442, 497, 1449, 909, 1443, 822, 1304, 616, 1308, 616, 1302, 918, 74, 1425, 1312, 291)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 3), PackedInt32Array(2, 5, 3), PackedInt32Array(6, 5, 7), PackedInt32Array(8, 6, 7, 9), PackedInt32Array(1, 0, 10, 11), PackedInt32Array(11, 10, 12, 9, 7), PackedInt32Array(13, 14, 4, 3), PackedInt32Array(15, 16, 17), PackedInt32Array(13, 3, 18, 17), PackedInt32Array(17, 18, 8, 15), PackedInt32Array(19, 15, 8), PackedInt32Array(8, 9, 19)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1659, 658, 1630, 507, 1456, 526, 1445, 617, 1445, 793, 1626, 791), PackedVector2Array(2392, 82, 2431, 1498, 44, 1455, 44, 51), PackedVector2Array(1333, 886, 1417, 881, 1402, 622, 1338, 632), PackedVector2Array(1341, 319, 1335, 587, 1411, 590, 1415, 313), PackedVector2Array(1859, 458, 1885, 580, 2058, 422, 1959, 305)])
+vertices = PackedVector2Array(1446, 484, 1445, 793, 1439, 604, 1438, 292, 1635, 802, 2400, 1467, 1438, 923, 74, 1425, 1312, 922, 1434, 608, 1314, 600, 1305, 616, 2362, 111, 1617, 487, 74, 81, 1315, 293)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 1), PackedInt32Array(6, 5, 7, 8), PackedInt32Array(1, 6, 9, 2), PackedInt32Array(10, 2, 9, 11), PackedInt32Array(12, 5, 4, 13), PackedInt32Array(8, 7, 14, 11), PackedInt32Array(13, 0, 3, 12), PackedInt32Array(10, 11, 14, 15), PackedInt32Array(15, 14, 12, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1589, 517, 1476, 515, 1475, 764, 1603, 770), PackedVector2Array(2392, 82, 2431, 1498, 44, 1455, 44, 51), PackedVector2Array(1341, 892, 1408, 893, 1404, 640, 1336, 644), PackedVector2Array(1345, 323, 1344, 571, 1409, 573, 1408, 322)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 30.0
 
@@ -108,13 +109,16 @@ metadata/_edit_lock_ = true
 position = Vector2(1234, 708)
 
 [node name="Tower2" parent="объекты в мире" instance=ExtResource("4_wjj3k")]
-position = Vector2(1183, 509)
+position = Vector2(927, 704)
 
 [node name="Tower3" parent="объекты в мире" instance=ExtResource("4_wjj3k")]
-position = Vector2(742, 1076)
+position = Vector2(636, 992)
 
 [node name="Tower" parent="объекты в мире" instance=ExtResource("4_wjj3k")]
-position = Vector2(739, 539)
+position = Vector2(715, 468)
+
+[node name="Castle" parent="объекты в мире" instance=ExtResource("8_habvo")]
+position = Vector2(664, 735)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_hde8o")
