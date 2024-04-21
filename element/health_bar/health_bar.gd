@@ -18,5 +18,5 @@ func _process(delta: float) -> void:
 	update_sprite()
 
 func update_sprite() -> void:
-	var size = sprite.sprite_frames.get_frame_count('Heart')
+	var size = sprite.sprite_frames.get_frame_count('Heart') - 1
 	sprite.frame = size * float(current / float(max))

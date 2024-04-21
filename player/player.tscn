@@ -155,8 +155,8 @@ animations = [{
 radius = 22.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ei68m"]
-radius = 3.0021
-height = 114.25
+radius = 3.43097
+height = 134.119
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
