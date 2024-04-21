@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var max: int = 10
-@export var current: int = 10
+@export var max: int = 3
+@export var current: int = 3
 
 @onready var sprite: AnimatedSprite2D = $SpriteShow
 

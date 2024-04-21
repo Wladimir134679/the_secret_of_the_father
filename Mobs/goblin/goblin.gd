@@ -28,6 +28,7 @@ func _process(delta):
 	$DebugInfo.text = "HP: " + str(health.current) + "\nState: " + STATE_ACTION.keys()[state_action] + "\nLen: " + str(velocity.length())
 	
 	_update_zone_atack_angle()
+	anim.flip_h = velocity.x < 0
 	match state_action:
 		STATE_ACTION.TARGET:
 			_find_target_atack()

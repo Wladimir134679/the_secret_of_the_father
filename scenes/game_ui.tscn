@@ -126,10 +126,10 @@ script = ExtResource("6_ehoum")
 [node name="HeroBar" type="CanvasLayer" parent="."]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HeroBar"]
-offset_left = 851.0
-offset_top = 22.0
-offset_right = 1151.0
-offset_bottom = 194.0
+offset_left = 987.0
+offset_top = 18.0
+offset_right = 1138.0
+offset_bottom = 191.0
 
 [node name="Gold2" type="Label" parent="HeroBar/VBoxContainer"]
 layout_mode = 2
@@ -140,7 +140,7 @@ label_settings = SubResource("LabelSettings_cdu4j")
 vertical_alignment = 1
 
 [node name="Gold" type="Sprite2D" parent="HeroBar/VBoxContainer/Gold2"]
-position = Vector2(252, 9.99999)
+position = Vector2(111, 21)
 scale = Vector2(1.18284, 1.12516)
 texture = ExtResource("7_earwf")
 
@@ -151,7 +151,7 @@ label_settings = SubResource("LabelSettings_efbou")
 vertical_alignment = 1
 
 [node name="MIdle" type="Sprite2D" parent="HeroBar/VBoxContainer/SoulsInfo"]
-position = Vector2(246, 16)
+position = Vector2(111, 16)
 texture = ExtResource("6_an8q3")
 
 [node name="LevelInfo" type="Label" parent="HeroBar/VBoxContainer"]
@@ -162,6 +162,7 @@ vertical_alignment = 1
 
 [node name="NewLevel" type="CenterContainer" parent="."]
 process_mode = 3
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
