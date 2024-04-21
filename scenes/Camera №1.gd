@@ -3,7 +3,6 @@ extends CanvasLayer
 
 @onready var gobx = (1000 - $"../3Death".position.x)/180
 @onready var goby = (1750 - $"../3Death".position.y)/180
-
 @export var camera: Camera2D
 
 
@@ -17,7 +16,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#position = camera.position
 	if progress == 0:
 		camera.position = $"../Player".position
 		camera.to_player = false
@@ -150,10 +148,6 @@ func _on_button_pressed():
 		$"../3Death/Label3".visible = false
 		$"../Player".process_mode = Node.PROCESS_MODE_INHERIT
 		$"../Player/HeroBar".visible = true
-		#camera.enabled = false
-		#camera.visible = false
 		camera.position = $"../Player".position
 		camera.player = $"../Player"
 		camera.to_player = true
-		#var cam = $"../Player/Camera2D"
-		#cam.position = self.position

@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://s544lb1641wa"]
+[gd_scene load_steps=84 format=3 uid="uid://s544lb1641wa"]
 
 [ext_resource type="Script" path="res://scenes/test_world.gd" id="1_w11tl"]
 [ext_resource type="TileSet" uid="uid://b56nnqtukxxcx" path="res://scenes/tileset_all.tres" id="2_nfy6l"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://d33wcvsaqla07" path="res://assets/Рыцари/Tiny Swords (Update 010)/UI/Banners/Carved_3Slides.png" id="11_15qeo"]
 [ext_resource type="Texture2D" uid="uid://cupuknsirc7xq" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Goblins/Troops/Torch/Blue/Torch_Blue.png" id="12_3g188"]
 [ext_resource type="Texture2D" uid="uid://dtiq3kodyioav" path="res://assets/Рыцари/Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Left.png" id="12_g477r"]
-[ext_resource type="Script" path="res://player/player.gd" id="13_hcfj1"]
 [ext_resource type="Texture2D" uid="uid://c6fiaf6mvosac" path="res://assets/7_deadly_sins/Grid/Grid.png" id="13_skibg"]
 [ext_resource type="Texture2D" uid="uid://ttpjdv3cathi" path="res://assets/Рыцари/Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Right.png" id="14_bon63"]
 [ext_resource type="Texture2D" uid="uid://da8gcvt1xlrej" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="14_fcj6k"]
@@ -2329,7 +2328,7 @@ process_mode = 4
 position = Vector2(1000, 1600)
 collision_layer = 2
 collision_mask = 29
-script = ExtResource("13_hcfj1")
+script = ExtResource("28_0bvad")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, 1)
