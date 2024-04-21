@@ -156,7 +156,7 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vanh4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3b3w5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bvof4"]
 
@@ -193,12 +193,14 @@ autostart = true
 [node name="ZoneAtack" type="Area2D" parent="." index="6"]
 modulate = Color(1, 0.501961, 0.435294, 1)
 position = Vector2(0, 11)
-scale = Vector2(3.71091, 3.71091)
+scale = Vector2(1.80731, 2.98896)
 collision_layer = 4
 collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneAtack" index="0"]
-shape = SubResource("CircleShape2D_vanh4")
+position = Vector2(7.27584, -0.269476)
+scale = Vector2(0.660399, 0.349848)
+shape = SubResource("RectangleShape2D_3b3w5")
 debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="DebugInfo" type="Label" parent="." index="7"]
