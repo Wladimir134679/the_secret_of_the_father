@@ -333,7 +333,7 @@ y_sort_enabled = true
 position = Vector2(3144, 3888)
 
 [node name="Tower" parent="WorldObjects" instance=ExtResource("6_7vglk")]
-position = Vector2(3904, 3720)
+position = Vector2(4184, 3840)
 
 [node name="Gold" parent="WorldObjects" instance=ExtResource("7_ko1ha")]
 position = Vector2(3388, 2456)
@@ -403,6 +403,24 @@ position = Vector2(3408, 2544)
 
 [node name="Goblin3" parent="WorldObjects" instance=ExtResource("8_gs10f")]
 position = Vector2(3492, 2560)
+
+[node name="Goblin4" parent="WorldObjects" instance=ExtResource("8_gs10f")]
+position = Vector2(3798, 2208)
+
+[node name="Goblin5" parent="WorldObjects" instance=ExtResource("8_gs10f")]
+position = Vector2(3851, 2232)
+
+[node name="Goblin6" parent="WorldObjects" instance=ExtResource("8_gs10f")]
+position = Vector2(3916, 2242)
+
+[node name="Goblin7" parent="WorldObjects" instance=ExtResource("8_gs10f")]
+position = Vector2(3976, 2280)
+
+[node name="Goblin8" parent="WorldObjects" instance=ExtResource("8_gs10f")]
+position = Vector2(3885, 2291)
+
+[node name="Goblin9" parent="WorldObjects" instance=ExtResource("8_gs10f")]
+position = Vector2(3798, 2266)
 
 [node name="GameUi" parent="." instance=ExtResource("1_xc000")]
 
