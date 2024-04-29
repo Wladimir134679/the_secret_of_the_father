@@ -42,7 +42,6 @@ scale = Vector2(3.31659, 4.06351)
 
 [node name="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(1.20605, -11.1972)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_lo7w4")
 
 [node name="ZoneBuild" parent="." index="3"]

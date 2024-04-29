@@ -1,23 +1,45 @@
 extends CharacterBody2D
 
+enum STATE_PLAYER {RUN, STAND, ATACK, ROLLING_OVER, INVULNERABILITY}
 
 const ZONE_DISTANCE = Vector2(30, 0)
 var tilemap_for_camera: TileMap
 @onready var anim = $AnimatedSprite2D
 @onready var atack_zone: Area2D = $AtackZone
 
-var invulnerability: bool = false
+var state: STATE_PLAYER = STATE_PLAYER.STAND
 
 
 func _ready() -> void:
 	tilemap_for_camera = get_tree().root.find_child('TileMap', true, false)
+	$AnimationPlayer.play("idle")
 
 func _physics_process(delta: float) -> void:
-
-	if anim.animation == 'atack':
-		return
+	match state:
+		STATE_PLAYER.STAND:
+			anim.play("Idle")
+			_update_move()
+			update_atack_zone()
+		STATE_PLAYER.ATACK:
+			update_atack_zone()
+			return
+		STATE_PLAYER.INVULNERABILITY:
+			return
+		STATE_PLAYER.RUN:
+			anim.play("Walk")
+			_update_move()
+			update_atack_zone()
+			
+func _update_move():
 	var directionX := Input.get_axis("move_left", "move_right")
 	var directionY := Input.get_axis("move_up", "move_down")
+	
+	if !directionX && !directionY:
+		state = STATE_PLAYER.STAND
+		anim.play("Idle")
+		return
+	state = STATE_PLAYER.RUN
+	anim.play("Walk")
 		
 	move_player(directionX, directionY)
 	update_animation_player(directionX, directionY)
@@ -26,10 +48,7 @@ func _physics_process(delta: float) -> void:
 	position.x = clamp(position.x, size.position.x, size.end.x)
 	position.y = clamp(position.y, size.position.y, size.end.y)
 	
-	update_atack_zone()
-	
 func move_player(directionX, directionY):
-	
 	if anim.animation == 'atack':
 		return
 	
@@ -77,9 +96,11 @@ func update_atack_zone():
 		for o_enemy in objs:
 			to_damage(GP.damage, o_enemy)
 			to_damage(GP.damage, o_enemy.get_parent())
+		state = STATE_PLAYER.ATACK
 		anim.play("atack")
 		$AnimatedSprite2D.flip_h = atack_zone.position.x < 0
 		await anim.animation_finished
+		state = STATE_PLAYER.STAND
 		anim.play("Idle")
 
 func to_damage(count, obj):
@@ -87,10 +108,12 @@ func to_damage(count, obj):
 		obj.damage(count)
 	
 func damage(d):
-	if invulnerability:
+	if state == STATE_PLAYER.INVULNERABILITY:
 		return
-	invulnerability = true
+	$AnimationPlayer.play("invulnerability", -1, 2)
+	state = STATE_PLAYER.INVULNERABILITY
 	$InvulnerabilityTimer.start()
+	anim.play("Idle")
 	GP.health -= d
 	if GP.health <= 0:
 		print ("DEADDDDDDDDD")
@@ -103,4 +126,5 @@ func size_world() -> Rect2i:
 	
 
 func _on_invulnerability_timer_timeout():
-	invulnerability = false
+	$AnimationPlayer.play("idle")
+	state = STATE_PLAYER.STAND
