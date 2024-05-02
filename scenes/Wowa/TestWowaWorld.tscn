@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cepnh7jime4fi"]
+[gd_scene load_steps=15 format=3 uid="uid://cepnh7jime4fi"]
 
 [ext_resource type="TileSet" uid="uid://b56nnqtukxxcx" path="res://scenes/tileset_all.tres" id="1_0jbc4"]
 [ext_resource type="PackedScene" uid="uid://dv4glsilnynn7" path="res://player/PlayerCamera.tscn" id="1_1a3ov"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dsg44bqc7yvuy" path="res://objs/building/Castle/castle.tscn" id="8_habvo"]
 [ext_resource type="Script" path="res://scenes/Wowa/NavigationRegion2D.gd" id="8_rh5fu"]
 [ext_resource type="PackedScene" uid="uid://pjyuitpmmpe2" path="res://scenes/game_ui.tscn" id="10_aksbp"]
+[ext_resource type="PackedScene" uid="uid://qttxpr3mpare" path="res://objs/building/GoblinTower/GoblinTower.tscn" id="13_p54ia"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hde8o"]
 vertices = PackedVector2Array(1446, 484, 1445, 793, 1439, 604, 1438, 292, 1635, 802, 2400, 1467, 1438, 923, 74, 1425, 1312, 922, 1434, 608, 1314, 600, 1305, 616, 2362, 111, 1617, 487, 74, 81, 1315, 293)
@@ -91,6 +92,9 @@ position = Vector2(2154, 561)
 [node name="Gold7" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
 position = Vector2(2204, 553)
 
+[node name="GoblinTower" parent="объекты в мире" instance=ExtResource("13_p54ia")]
+position = Vector2(1204, 259)
+
 [node name="Gold8" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
 position = Vector2(2042, 509)
 
@@ -129,6 +133,7 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("to_node") instance=ExtResource("6_4kjaf")]
+process_mode = 4
 position = Vector2(1173, 522)
 scale = Vector2(2.77315, 5.66499)
 time = 2.0

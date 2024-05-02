@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="the_secret_of_the_father_Demo"
-run/main_scene="res://scenes/Menu.tscn"
+run/main_scene="res://objs/building/building.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 

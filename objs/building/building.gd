@@ -20,7 +20,7 @@ var state_build: STATE_BUILD
 func _ready() -> void:
 	health = max_health
 	update_health_bar()
-	state_build = STATE_BUILD.SOURCE
+	state_build = STATE_BUILD.WORK
 
 func _process(delta: float) -> void:
 	pass

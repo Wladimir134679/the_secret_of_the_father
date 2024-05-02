@@ -10,6 +10,8 @@ extends Node2D
 @export var to_node : Node2D = null
 # если дали куда класть новые элементы, то в него локально или глобально
 @export var local_node: bool = false
+# класть сверх родителя, то есть на родятеля родителя сцены
+@export var up_parent: bool = false
 
 # в какой зоне спавнить, берёт shape, там в зоне радиус менять только
 @onready var zone_spawn: CollisionShape2D = $ZoneSpawn/CollisionShape2D
@@ -32,7 +34,15 @@ func spart_obj() -> void:
 		return
 	var inst = spawn_scene.instantiate()
 	inst.position = get_rnd_spawn_position()
-	to_node.add_child(inst)
+	var n_to
+	if not to_node:
+		n_to = get_parent()
+	else:
+		n_to = to_node
+	if up_parent:
+		n_to = n_to.get_parent()
+	
+	n_to.add_child(inst)
 
 func get_rnd_spawn_position() -> Vector2:
 	var zone_s = zone_spawn.shape.get_rect().position * scale
