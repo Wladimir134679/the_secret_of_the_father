@@ -264,6 +264,7 @@ root_node = NodePath("../AnimatedSprite2D")
 libraries = {
 "": SubResource("AnimationLibrary_46tx8")
 }
+autoplay = "idle"
 
 [connection signal="area_entered" from="SensorItem" to="SensorItem" method="_on_area_entered"]
 [connection signal="area_exited" from="SensorItem" to="SensorItem" method="_on_area_exited"]

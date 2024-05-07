@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://pjyuitpmmpe2"]
+[gd_scene load_steps=27 format=3 uid="uid://pjyuitpmmpe2"]
 
 [ext_resource type="Script" path="res://scenes/game_ui.gd" id="1_jsp6e"]
 [ext_resource type="Script" path="res://scenes/fps.gd" id="2_kvn7c"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://dm8xyhugf817w" path="res://assets/Рыцари/Tiny Swords (Update 010)/Resources/Resources/G_Idle_(NoShadow).png" id="7_earwf"]
 [ext_resource type="Script" path="res://scenes/NewLevel.gd" id="8_w4rpe"]
 [ext_resource type="Theme" uid="uid://bun5isarjtwby" path="res://scenes/all_theme.tres" id="9_7jhq8"]
+[ext_resource type="Texture2D" uid="uid://je6455tib75u" path="res://assets/PNG/1.png" id="10_8uo5j"]
+[ext_resource type="Texture2D" uid="uid://clkw54yv2kk6h" path="res://assets/PNG/2.png" id="11_2w65y"]
+[ext_resource type="Texture2D" uid="uid://beleohrhjo4dj" path="res://assets/PNG/13.png" id="12_dk708"]
+[ext_resource type="Texture2D" uid="uid://o6re6sfb75yo" path="res://assets/Рыцари/Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Up.png" id="13_jio54"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7u38x"]
 atlas = ExtResource("4_3ombw")
@@ -90,13 +94,6 @@ font_size = 40
 [sub_resource type="LabelSettings" id="LabelSettings_m187n"]
 font_size = 40
 
-[sub_resource type="LabelSettings" id="LabelSettings_rppn5"]
-font_size = 50
-font_color = Color(1, 0, 0, 1)
-shadow_size = 3
-shadow_color = Color(0.454902, 0, 0, 1)
-shadow_offset = Vector2(3, 3)
-
 [node name="GameUi" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_jsp6e")
@@ -172,14 +169,14 @@ vertical_alignment = 1
 [node name="NewLevel" type="CenterContainer" parent="."]
 process_mode = 3
 visible = false
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 577.0
+offset_top = -646.0
 grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+grow_vertical = 0
+size_flags_vertical = 8
 script = ExtResource("8_w4rpe")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NewLevel"]
@@ -189,17 +186,38 @@ theme = ExtResource("9_7jhq8")
 [node name="Button" type="Button" parent="NewLevel/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("9_7jhq8")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 45
 text = "+1 урон"
+icon = ExtResource("10_8uo5j")
+flat = true
+icon_alignment = 1
 
 [node name="Button2" type="Button" parent="NewLevel/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("9_7jhq8")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 45
 text = "+1 жизнь"
+icon = ExtResource("11_2w65y")
+flat = true
+icon_alignment = 1
 
 [node name="Button3" type="Button" parent="NewLevel/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("9_7jhq8")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 45
 text = "+5 скорость"
+icon = ExtResource("12_dk708")
+flat = true
+icon_alignment = 1
 
 [node name="EndGame" type="CenterContainer" parent="."]
 visible = false
@@ -208,31 +226,109 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -100.5
+offset_top = -36.5
+offset_right = 100.5
+offset_bottom = 36.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="BannerConnectionUp" type="Sprite2D" parent="EndGame"]
+position = Vector2(203.5, 108.5)
+scale = Vector2(4.58333, 1.9375)
+texture = ExtResource("13_jio54")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="EndGame"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="EndGame/VBoxContainer"]
 layout_mode = 2
-text = "ПРОИГРАЛ =((("
-label_settings = SubResource("LabelSettings_rppn5")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 29
+text = "Поражение
+Совет: попробуйте снова :)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="EndGame/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("9_7jhq8")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 29
 text = "Начать сначала"
+flat = true
+
+[node name="Menu" type="Button" parent="EndGame/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("9_7jhq8")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 29
+text = "Назад в меню"
+flat = true
+
+[node name="Win" type="CenterContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = -57.5
+offset_right = 132.0
+offset_bottom = 57.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BannerConnectionUp" type="Sprite2D" parent="Win"]
+position = Vector2(131.5, 75.9558)
+scale = Vector2(3.38021, 1.36504)
+texture = ExtResource("13_jio54")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Win"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Win/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.384314, 1, 0.384314, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 29
+text = "Уровень пройден"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextLvl" type="Button" parent="Win/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("9_7jhq8")
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "Следующий уровень"
+flat = true
+icon_alignment = 1
+
+[node name="Menu" type="Button" parent="Win/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("9_7jhq8")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "Назад в меню"
+flat = true
 
 [connection signal="pressed" from="NewLevel/HBoxContainer/Button" to="NewLevel" method="_click_atack"]
 [connection signal="pressed" from="NewLevel/HBoxContainer/Button2" to="NewLevel" method="_click_health"]
 [connection signal="pressed" from="NewLevel/HBoxContainer/Button3" to="NewLevel" method="_click_speed"]
 [connection signal="pressed" from="EndGame/VBoxContainer/Button" to="." method="_on_new_game_end_game_button_pressed"]
+[connection signal="pressed" from="EndGame/VBoxContainer/Menu" to="." method="_on_new_game_end_game_button_pressed"]
