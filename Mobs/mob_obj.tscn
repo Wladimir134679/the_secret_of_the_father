@@ -23,3 +23,8 @@ scale = Vector2(0.33227, 0.33227)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w1o2m")
+
+[node name="InvulnerabilityTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_invulnerability_timer_timeout"]

@@ -105,7 +105,7 @@ func update_atack_zone():
 
 func to_damage(count, obj):
 	if obj.has_method('damage'):
-		obj.damage(count)
+		obj.damage(count, self)
 	
 func damage(d):
 	if state == STATE_PLAYER.INVULNERABILITY:

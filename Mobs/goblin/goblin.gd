@@ -30,6 +30,9 @@ func _process(delta):
 	_update_zone_atack_angle()
 	anim.flip_h = velocity.x < 0
 	match state_action:
+		STATE_ACTION.INVULNERABILITY:
+			move_velocity()
+			velocity /= 1.3
 		STATE_ACTION.TARGET:
 			if _find_target_atack():
 				return
@@ -166,3 +169,15 @@ func _update_zone_atack_angle():
 
 func _on_timer_atack_kd_timeout():
 	is_atack_processing = false
+
+
+func _on_on_damage(who) -> void:
+	if who && 'position' in who:
+		_push_away(who.position)
+	$AnimationPlayer.play("invulnerability", -1, 1.0 / float($InvulnerabilityTimer.wait_time))
+
+
+func _push_away(pos_who):
+	var angl = pos_who.angle_to_point(position)
+	velocity = Vector2(400, 0).rotated(angl)
+
