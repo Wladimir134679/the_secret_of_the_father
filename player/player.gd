@@ -8,7 +8,8 @@ var tilemap_for_camera: TileMap
 @onready var atack_zone: Area2D = $AtackZone
 
 var state: STATE_PLAYER = STATE_PLAYER.STAND
-
+var rolling_dir: Vector2
+var rolling_dist: Vector2
 
 func _ready() -> void:
 	tilemap_for_camera = get_tree().root.find_child('TileMap', true, false)
@@ -20,6 +21,19 @@ func _physics_process(delta: float) -> void:
 			anim.play("Idle")
 			_update_move()
 			update_atack_zone()
+		STATE_PLAYER.ROLLING_OVER:
+			var rolling_speed = GP.speed_move * 2
+			if rolling_dir.x:
+				velocity.x = rolling_dir.x * rolling_speed
+			if rolling_dir.y:
+				velocity.y = rolling_dir.y * rolling_speed
+			var last_pos = position
+			var result = move_and_slide()
+			var sum_dis = position - last_pos
+			rolling_dist += sum_dis
+			
+			if result || rolling_dist.length() > 100:
+				state = STATE_PLAYER.STAND
 		STATE_PLAYER.ATACK:
 			update_atack_zone()
 			return
@@ -33,6 +47,18 @@ func _physics_process(delta: float) -> void:
 func _update_move():
 	var directionX := Input.get_axis("move_left", "move_right")
 	var directionY := Input.get_axis("move_up", "move_down")
+	
+	
+	if Input.is_action_just_pressed("rolling_over"):
+		rolling_dir = Vector2(directionX, directionY)
+		state = STATE_PLAYER.ROLLING_OVER
+		anim.play("Idle")
+		if directionX == 1:
+			$AnimationPlayer.play("rolling_over_left")
+		elif directionX == -1:
+			$AnimationPlayer.play("rolling_over_right")
+		rolling_dist = Vector2(0, 0)
+		return
 	
 	if !directionX && !directionY:
 		state = STATE_PLAYER.STAND
@@ -52,7 +78,7 @@ func move_player(directionX, directionY):
 	if anim.animation == 'atack':
 		return
 	
-	var speed = GP.speed_move * 2 if Input.is_action_pressed("run_move") else GP.speed_move
+	var speed = GP.speed_move * 1.5 if Input.is_action_pressed("run_move") else GP.speed_move
 	#Движение персонажа
 	if directionX:
 		velocity.x = directionX * speed

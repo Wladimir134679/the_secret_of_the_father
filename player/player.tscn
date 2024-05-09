@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://csbidcltw6m7"]
+[gd_scene load_steps=32 format=3 uid="uid://csbidcltw6m7"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_vww4f"]
 [ext_resource type="Texture2D" uid="uid://da8gcvt1xlrej" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="2_6dheu"]
@@ -172,6 +172,17 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 0.337255, 0.384314, 1)]
 }
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_qad3p"]
 resource_name = "idle"
@@ -203,11 +214,41 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_ujldj"]
+resource_name = "rolling_over_left"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -1.03847, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 1)
+}
+
+[sub_resource type="Animation" id="Animation_sbdcp"]
+resource_name = "rolling_over_right"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1.03847, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 1)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_46tx8"]
 _data = {
 "RESET": SubResource("Animation_a7pnb"),
 "idle": SubResource("Animation_qad3p"),
-"invulnerability": SubResource("Animation_jtmgf")
+"invulnerability": SubResource("Animation_jtmgf"),
+"rolling_over_left": SubResource("Animation_ujldj"),
+"rolling_over_right": SubResource("Animation_sbdcp")
 }
 
 [node name="Player" type="CharacterBody2D"]
