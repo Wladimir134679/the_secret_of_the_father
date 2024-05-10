@@ -24,5 +24,5 @@ func _click_atack():
 	_close_level()
 	
 func _click_speed():
-	GP.speed_move += 5
+	GP.speed_move += 15
 	_close_level()

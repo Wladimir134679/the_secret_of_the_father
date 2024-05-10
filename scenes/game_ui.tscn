@@ -168,7 +168,6 @@ vertical_alignment = 1
 
 [node name="NewLevel" type="CenterContainer" parent="."]
 process_mode = 3
-visible = false
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -187,10 +186,11 @@ theme = ExtResource("9_7jhq8")
 layout_mode = 2
 theme = ExtResource("9_7jhq8")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 45
-text = "+1 урон"
+theme_override_font_sizes/font_size = 35
+text = "+1 Урона"
 icon = ExtResource("10_8uo5j")
 flat = true
 icon_alignment = 1
@@ -199,10 +199,11 @@ icon_alignment = 1
 layout_mode = 2
 theme = ExtResource("9_7jhq8")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 45
-text = "+1 жизнь"
+theme_override_font_sizes/font_size = 35
+text = "+1 Здоровья"
 icon = ExtResource("11_2w65y")
 flat = true
 icon_alignment = 1
@@ -211,10 +212,11 @@ icon_alignment = 1
 layout_mode = 2
 theme = ExtResource("9_7jhq8")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 45
-text = "+5 скорость"
+theme_override_font_sizes/font_size = 35
+text = "+15 Скорости"
 icon = ExtResource("12_dk708")
 flat = true
 icon_alignment = 1
@@ -331,4 +333,3 @@ flat = true
 [connection signal="pressed" from="NewLevel/HBoxContainer/Button2" to="NewLevel" method="_click_health"]
 [connection signal="pressed" from="NewLevel/HBoxContainer/Button3" to="NewLevel" method="_click_speed"]
 [connection signal="pressed" from="EndGame/VBoxContainer/Button" to="." method="_on_new_game_end_game_button_pressed"]
-[connection signal="pressed" from="EndGame/VBoxContainer/Menu" to="." method="_on_new_game_end_game_button_pressed"]
