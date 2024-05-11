@@ -25,7 +25,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func damage(damage: int):
+func damage(damage: int, who = null):
 	if state_build == STATE_BUILD.CRASH || state_build == STATE_BUILD.SOURCE:
 		return
 	health -= damage

@@ -13,6 +13,9 @@ extends Node2D
 # класть сверх родителя, то есть на родятеля родителя сцены
 @export var up_parent: bool = false
 
+# остановка спавнинга
+@export var stop_spawn: bool = false
+
 # в какой зоне спавнить, берёт shape, там в зоне радиус менять только
 @onready var zone_spawn: CollisionShape2D = $ZoneSpawn/CollisionShape2D
 @onready var timer: Timer = $Timer
@@ -26,8 +29,9 @@ func _process(delta: float) -> void:
 	
 
 func _on_timer_timeout() -> void:
-	self.spart_obj()
-	self.start()
+	if !stop_spawn:
+		self.spart_obj()
+		self.start()
 	
 func spart_obj() -> void:
 	if !to_node and !spawn_scene:
@@ -54,7 +58,11 @@ func get_rnd_spawn_position() -> Vector2:
 	var y = randf_range(origin_s.y, origin_e.y)
 	
 	return Vector2(x, y)
+	
+func stop():
+	stop_spawn = true
 
 func start() -> void:
 	var _time = time if time_rnd == 0 else time + time_rnd * randf()
+	stop_spawn = false
 	timer.start(_time)
