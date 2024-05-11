@@ -55,14 +55,14 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="GoblinTower" instance=ExtResource("1_6mxrn")]
+[node name="GoblinTower" groups=["goblin_tower"] instance=ExtResource("1_6mxrn")]
 script = ExtResource("2_d4oh3")
 
 [node name="ProgressBar" parent="." index="0"]
 offset_top = -187.0
 offset_bottom = -160.0
 
-[node name="StaticBody2D" parent="." index="1" groups=["goblin_tower"]]
+[node name="StaticBody2D" parent="." index="1"]
 collision_layer = 4
 
 [node name="ZoneBuild" parent="." index="2"]

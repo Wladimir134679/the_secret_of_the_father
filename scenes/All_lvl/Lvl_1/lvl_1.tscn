@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bgmii4jke00b1"]
+[gd_scene load_steps=19 format=3 uid="uid://bgmii4jke00b1"]
 
 [ext_resource type="Script" path="res://scenes/All_lvl/Lvl_1/lvl_1.gd" id="1_vxfwu"]
 [ext_resource type="PackedScene" uid="uid://dv4glsilnynn7" path="res://player/PlayerCamera.tscn" id="2_b0sn3"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c6fiaf6mvosac" path="res://assets/7_deadly_sins/Grid/Grid.png" id="13_02rec"]
 [ext_resource type="Texture2D" uid="uid://ttpjdv3cathi" path="res://assets/Рыцари/Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Right.png" id="14_euy7l"]
 [ext_resource type="LabelSettings" uid="uid://d2lgepsbd2l1o" path="res://scenes/Вступление.tres" id="15_fceb5"]
+[ext_resource type="PackedScene" uid="uid://qttxpr3mpare" path="res://objs/building/GoblinTower/GoblinTower.tscn" id="17_kcfng"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_cpjdj"]
 vertices = PackedVector2Array(3442, 2434, 3472, 2478, 3471, 2477, 3468, 4087, 3348, 4031, 3349, 4031, 3641, 2552, 3641, 2551, 3698, 2616, 3693, 2343, 3599, 2310, 3801, 2191, 4233, 2442, 4322, 2442, 4300, 2517, 4204, 2582, 4080, 2565, 3865, 3463, 3911, 3490, 3888, 3514, 4293, 3712, 4119, 3697, 4146, 3634, 4439, 3420, 4138, 3507, 4464, 3319, 4379, 2557, 4485, 2426, 4510, 2426, 4510, 2539, 4472, 2569, 4403, 2677, 4323, 2670, 3855, 2922, 3642, 3148, 3581, 3087, 3659, 3003, 3786, 2897, 4334, 3906, 4494, 3913, 4494, 4111, 4431, 4117, 4233, 4102, 3983, 2253, 3774, 2408, 3945, 2138, 3503, 2680, 3346, 2586, 3353, 2441, 3499, 2523, 3204, 3951, 3114, 3928, 3121, 3867, 3168, 3781, 3268, 3697, 3912, 2913, 4211, 2914, 4438, 2921, 4446, 2996, 4122, 3099, 3982, 3002, 5849, 2829, 5857, 2778, 6581, 2778, 6608, 2798, 6608, 2799, 6136, 4065, 6135, 4065, 6050, 3723, 3588, 2506, 3660, 2663, 3633, 2836, 3696, 2734, 3740, 2771, 3725, 2835, 4056, 4110, 4024, 4237, 3790, 4230, 3742, 4151, 3493, 3657, 3625, 3525, 3806, 3670, 6093, 4023, 6042, 4008, 3816, 2138, 3865, 2491, 3775, 2409, 4069, 2339, 4149, 2315, 4207, 2373, 3882, 2576, 4062, 2657, 3913, 2739, 3866, 2654, 4111, 2781, 3913, 2740, 3938, 2807, 6762, 2976, 6886, 3038, 6886, 3987, 6712, 4154, 6252, 4198, 6232, 4178, 6192, 4130, 6192, 4129, 6690, 4198, 4232, 4102, 3570, 4134, 4074, 3451, 4082, 3369, 4130, 3258, 4475, 3034, 4511, 3310, 4334, 3794, 4025, 3706, 3860, 3277, 3884, 3334, 3863, 3363, 3650, 3328, 3957, 3706, 3876, 3143, 3903, 3189, 3909, 3235, 3837, 3416, 3856, 3576, 3806, 3602, 3854, 3699, 3918, 3682, 5636, 3034, 6022, 3704, 5703, 3377, 5636, 3302, 4920, 3302)
@@ -570,6 +571,9 @@ vertical_alignment = 1
 position = Vector2(3504, 3759.5)
 scale = Vector2(0.0250001, 0.0344447)
 texture = ExtResource("13_02rec")
+
+[node name="GoblinTower" parent="." instance=ExtResource("17_kcfng")]
+position = Vector2(6414, 3999)
 
 [connection signal="pressed" from="Автоматика сцены/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Автоматика сцены/CanvasGroup/Text2/Timer" to="." method="_on_timer_timeout"]

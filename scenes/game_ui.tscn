@@ -168,6 +168,7 @@ vertical_alignment = 1
 
 [node name="NewLevel" type="CenterContainer" parent="."]
 process_mode = 3
+visible = false
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -277,7 +278,6 @@ text = "Назад в меню"
 flat = true
 
 [node name="Win" type="CenterContainer" parent="."]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -333,3 +333,5 @@ flat = true
 [connection signal="pressed" from="NewLevel/HBoxContainer/Button2" to="NewLevel" method="_click_health"]
 [connection signal="pressed" from="NewLevel/HBoxContainer/Button3" to="NewLevel" method="_click_speed"]
 [connection signal="pressed" from="EndGame/VBoxContainer/Button" to="." method="_on_new_game_end_game_button_pressed"]
+[connection signal="pressed" from="Win/VBoxContainer/NextLvl" to="." method="_on_next_lvl_pressed"]
+[connection signal="pressed" from="Win/VBoxContainer/Menu" to="." method="_on_menu_pressed"]

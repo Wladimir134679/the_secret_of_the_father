@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cepnh7jime4fi"]
+[gd_scene load_steps=17 format=3 uid="uid://cepnh7jime4fi"]
 
 [ext_resource type="TileSet" uid="uid://b56nnqtukxxcx" path="res://scenes/tileset_all.tres" id="1_0jbc4"]
 [ext_resource type="PackedScene" uid="uid://dv4glsilnynn7" path="res://player/PlayerCamera.tscn" id="1_1a3ov"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://scenes/Wowa/NavigationRegion2D.gd" id="8_rh5fu"]
 [ext_resource type="PackedScene" uid="uid://pjyuitpmmpe2" path="res://scenes/game_ui.tscn" id="10_aksbp"]
 [ext_resource type="PackedScene" uid="uid://qttxpr3mpare" path="res://objs/building/GoblinTower/GoblinTower.tscn" id="13_p54ia"]
+[ext_resource type="PackedScene" uid="uid://c1u75r8hfpqnc" path="res://scenes/util/level_manager_node_wave.tscn" id="14_hwro6"]
+[ext_resource type="PackedScene" uid="uid://bgmii4jke00b1" path="res://scenes/All_lvl/Lvl_1/lvl_1.tscn" id="15_8giju"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hde8o"]
 vertices = PackedVector2Array(1446, 484, 1445, 793, 1439, 604, 1438, 292, 1635, 802, 2400, 1467, 1438, 923, 74, 1425, 1312, 922, 1434, 608, 1314, 600, 1305, 616, 2362, 111, 1617, 487, 74, 81, 1315, 293)
@@ -121,6 +123,9 @@ position = Vector2(386, 1556)
 [node name="Tower" parent="объекты в мире" instance=ExtResource("4_wjj3k")]
 position = Vector2(261, 909)
 
+[node name="GoblinTower2" parent="объекты в мире" instance=ExtResource("13_p54ia")]
+position = Vector2(1393, 249)
+
 [node name="Castle" parent="объекты в мире" instance=ExtResource("8_habvo")]
 position = Vector2(664, 735)
 max_health = 10
@@ -150,3 +155,6 @@ spawn_scene = ExtResource("7_wb2tt")
 to_node = NodePath("../объекты в мире")
 
 [node name="GameUi" parent="." instance=ExtResource("10_aksbp")]
+
+[node name="LevelManagerNodeWave" parent="." instance=ExtResource("14_hwro6")]
+next_level = ExtResource("15_8giju")

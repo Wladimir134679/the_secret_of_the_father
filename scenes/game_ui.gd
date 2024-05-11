@@ -1,10 +1,13 @@
 extends CanvasLayer
 
 @onready var end_game_creen = $EndGame
+@onready var win_screem = $Win
 
 func _ready() -> void:
 	end_game_creen.hide()
+	win_screem.hide()
 	ManagerLevel.castle_crash.connect(_open_end_game)
+	ManagerLevel.all_goblin_tower_crash.connect(_win_game)
 
 func _process(delta):
 	$HeroBar/VBoxContainer/Gold2.text = str(GP.gold)
@@ -14,8 +17,21 @@ func _process(delta):
 func _open_end_game():
 	end_game_creen.show()
 	get_tree().paused = true
+	
+func _win_game() -> void:
+	win_screem.show()
+	get_tree().paused = true
 
 
 func _on_new_game_end_game_button_pressed() -> void:
 	get_tree().paused = false
 	get_tree().reload_current_scene()
+
+
+func _on_next_lvl_pressed() -> void:
+	if ManagerLevel.next_level_scene:
+		get_tree().change_scene_to_file(ManagerLevel.next_level_scene)
+
+
+func _on_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/Menu.tscn")
