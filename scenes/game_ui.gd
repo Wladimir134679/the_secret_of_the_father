@@ -13,6 +13,9 @@ func _process(delta):
 	$HeroBar/VBoxContainer/Gold2.text = str(GP.gold)
 	$HeroBar/VBoxContainer/SoulsInfo.text = str(GP.souls) + "/" + str(GP.next_count_level())
 	$HeroBar/VBoxContainer/LevelInfo.text = str(GP.experience_level) + " lv."
+	
+	if Input.is_action_pressed("open_pause"):
+		_open_pause_menu()
 
 func _open_end_game():
 	end_game_creen.show()
@@ -20,6 +23,10 @@ func _open_end_game():
 	
 func _win_game() -> void:
 	win_screem.show()
+	get_tree().paused = true
+	
+func _open_pause_menu():
+	$MenuPause.show()
 	get_tree().paused = true
 
 
@@ -34,4 +41,15 @@ func _on_next_lvl_pressed() -> void:
 
 
 func _on_menu_pressed() -> void:
+	await get_tree().change_scene_to_file("res://scenes/Menu.tscn")
+
+
+func _on_continue_pressed() -> void:
+	$MenuPause.hide()
+	get_tree().paused = false
+
+
+func _on_in_main_menu_pressed() -> void:
+	$MenuPause.hide()
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/Menu.tscn")
