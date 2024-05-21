@@ -11,6 +11,8 @@ var state: STATE_PLAYER = STATE_PLAYER.STAND
 var rolling_dir: Vector2
 var rolling_dist: Vector2
 
+@export var node_to_spawn: Node2D
+
 func _ready() -> void:
 	tilemap_for_camera = get_tree().root.find_child('TileMap', true, false)
 	$AnimationPlayer.play("idle")
@@ -142,7 +144,13 @@ func damage(d):
 	anim.play("Idle")
 	GP.health -= d
 	if GP.health <= 0:
-		print ("DEADDDDDDDDD")
+		state = STATE_PLAYER.STAND
+		anim.play("Idle")
+		GP.dead_to_respawn()
+		if node_to_spawn:
+			position = node_to_spawn.position
+			if node_to_spawn.has_method("action"):
+				node_to_spawn.action()
 		
 	
 func size_world() -> Rect2i:

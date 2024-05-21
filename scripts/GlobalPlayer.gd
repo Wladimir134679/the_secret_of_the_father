@@ -17,6 +17,9 @@ func _ready() -> void:
 	health = 10
 	health_max = health
 	
+func dead_to_respawn():
+	health = health_max
+	
 func add_souls(val: int):
 	souls += val
 	adding_souls.emit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cepnh7jime4fi"]
+[gd_scene load_steps=20 format=3 uid="uid://cepnh7jime4fi"]
 
 [ext_resource type="TileSet" uid="uid://b56nnqtukxxcx" path="res://scenes/tileset_all.tres" id="1_0jbc4"]
 [ext_resource type="PackedScene" uid="uid://dv4glsilnynn7" path="res://player/PlayerCamera.tscn" id="1_1a3ov"]
@@ -11,10 +11,19 @@
 [ext_resource type="PackedScene" uid="uid://cij2ojyy1v87c" path="res://objs/building/Mine/Mine.tscn" id="8_grxcm"]
 [ext_resource type="PackedScene" uid="uid://dsg44bqc7yvuy" path="res://objs/building/Castle/castle.tscn" id="8_habvo"]
 [ext_resource type="Script" path="res://scenes/Wowa/NavigationRegion2D.gd" id="8_rh5fu"]
+[ext_resource type="Script" path="res://scenes/Wowa/PlayerRespawn.gd" id="10_3h04t"]
 [ext_resource type="PackedScene" uid="uid://pjyuitpmmpe2" path="res://scenes/game_ui.tscn" id="10_aksbp"]
 [ext_resource type="PackedScene" uid="uid://qttxpr3mpare" path="res://objs/building/GoblinTower/GoblinTower.tscn" id="13_p54ia"]
 [ext_resource type="PackedScene" uid="uid://c1u75r8hfpqnc" path="res://scenes/util/level_manager_node_wave.tscn" id="14_hwro6"]
 [ext_resource type="PackedScene" uid="uid://bgmii4jke00b1" path="res://scenes/All_lvl/Lvl_1/lvl_1.tscn" id="15_8giju"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wmhqo"]
+
+[sub_resource type="Curve" id="Curve_huv6t"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hde8o"]
 vertices = PackedVector2Array(1446, 484, 1445, 793, 1439, 604, 1438, 292, 1635, 802, 2400, 1467, 1438, 923, 74, 1425, 1312, 922, 1434, 608, 1314, 600, 1305, 616, 2362, 111, 1617, 487, 74, 81, 1315, 293)
@@ -111,8 +120,9 @@ scale = Vector2(1.00481, 1)
 position = Vector2(1304, 1075)
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="объекты в мире" instance=ExtResource("3_oiib2")]
+[node name="Player" parent="объекты в мире" node_paths=PackedStringArray("node_to_spawn") instance=ExtResource("3_oiib2")]
 position = Vector2(1234, 708)
+node_to_spawn = NodePath("../PlayerRespawn")
 
 [node name="Tower2" parent="объекты в мире" instance=ExtResource("4_wjj3k")]
 position = Vector2(1109, 1583)
@@ -129,6 +139,31 @@ position = Vector2(1393, 249)
 [node name="Castle" parent="объекты в мире" instance=ExtResource("8_habvo")]
 position = Vector2(664, 735)
 max_health = 10
+
+[node name="PlayerRespawn" type="Node2D" parent="объекты в мире"]
+position = Vector2(883, 751)
+script = ExtResource("10_3h04t")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="объекты в мире/PlayerRespawn"]
+modulate = Color(0.996078, 0, 0, 1)
+emitting = false
+amount = 200
+lifetime = 0.5
+one_shot = true
+texture = SubResource("CanvasTexture_wmhqo")
+direction = Vector2(1, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+angular_velocity_min = 100.0
+angular_velocity_max = 100.0
+angular_velocity_curve = SubResource("Curve_huv6t")
+orbit_velocity_min = 0.1
+orbit_velocity_max = 1.0
+radial_accel_min = 1.0
+radial_accel_max = 1.0
+scale_amount_max = 3.0
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_hde8o")

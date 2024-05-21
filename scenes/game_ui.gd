@@ -6,6 +6,7 @@ extends CanvasLayer
 func _ready() -> void:
 	end_game_creen.hide()
 	win_screem.hide()
+	$MenuPause.hide()
 	ManagerLevel.castle_crash.connect(_open_end_game)
 	ManagerLevel.all_goblin_tower_crash.connect(_win_game)
 
