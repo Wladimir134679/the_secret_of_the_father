@@ -20,15 +20,18 @@ func _process(delta):
 
 func _open_end_game():
 	end_game_creen.show()
-	get_tree().paused = true
+	if get_tree():
+		get_tree().paused = true
 	
 func _win_game() -> void:
 	win_screem.show()
-	get_tree().paused = true
+	if get_tree():
+		get_tree().paused = true
 	
 func _open_pause_menu():
 	$MenuPause.show()
-	get_tree().paused = true
+	if get_tree():
+		get_tree().paused = true
 
 
 func _on_new_game_end_game_button_pressed() -> void:

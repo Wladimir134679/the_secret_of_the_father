@@ -16,6 +16,7 @@ var is_atack_processing = false
 
 @export var chance_of_coin_drop: float = 0.5
 @export var drop_scene: PackedScene
+@export var pathfollower: PathFollow2D
 
 func _ready():
 	SPEED = 100
@@ -28,23 +29,31 @@ func _process(delta):
 	$DebugInfo.text = "HP: " + str(health.current) + "\nState: " + STATE_ACTION.keys()[state_action] + "\nLen: " + str(velocity.length())
 	
 	_update_zone_atack_angle()
-	anim.flip_h = velocity.x < 0
 	match state_action:
 		STATE_ACTION.INVULNERABILITY:
 			move_velocity()
 			velocity /= 1.3
+			anim.flip_h = velocity.x < 0
 		STATE_ACTION.TARGET:
+			anim.flip_h = velocity.x < 0
 			if _find_target_atack():
 				return
-			# Если мы достигли цель, то ищем цель, если нет цели рядом, отменяем движение
-			if nav.is_navigation_finished():
-				cancel_movement()
-			else:
-				# если есть движение, то есть движение, ауф
-				var next_point_pos = nav.get_next_path_position()
-				velocity = global_position.direction_to(next_point_pos) * SPEED
-				move_velocity()
+			_move_to_target()
+		STATE_ACTION.PATROLLING:
+			anim.animation = 'Walk'
+			if _find_target(false, false):
+				return
+			if not pathfollower:
+				return
+			$DebugInfo.text += "\nOfH: " + str(pathfollower.h_offset) + "\nOfV: " + str(pathfollower.v_offset);
+			pathfollower.progress += SPEED * delta
+			_navigation_to(pathfollower.global_position)
+			_move_to_target()
+			anim.flip_h = velocity.x < 0
+			#position = pathfollower.position
+			#anim.flip_h = pathfollower.get_h_offset() < 0
 		STATE_ACTION.ATACK:
+			anim.flip_h = velocity.x < 0
 			# процесс атаки, тут найти цель на 50% атаки и снять ХП у здания\игрока
 			anim.animation = 'atack'
 			
@@ -61,6 +70,7 @@ func _process(delta):
 					to_damage(1, o_enemy)
 				
 		STATE_ACTION.STAND:
+			anim.flip_h = velocity.x < 0
 			# Когда стоит без дела, искать куда идти, если он не в стане от своей атаки
 			if not is_atack_processing:
 				_find_target()
@@ -68,7 +78,17 @@ func _process(delta):
 			# тут завершаем смерть гоблина
 			end_dead()
 			queue_free()
-	
+
+func _move_to_target():
+	# Если мы достигли цель, то ищем цель, если нет цели рядом, отменяем движение
+	if state_action != STATE_ACTION.PATROLLING && nav.is_navigation_finished():
+		cancel_movement()
+	else:
+		# если есть движение, то есть движение, ауф
+		var next_point_pos = nav.get_next_path_position()
+		velocity = global_position.direction_to(next_point_pos) * SPEED
+		move_velocity()
+
 func move_velocity():
 	if velocity:
 		anim.animation = 'Walk'
@@ -79,7 +99,7 @@ func move_velocity():
 		
 		var pos = position
 		$DebugInfo.text += "\nDist_to: " + str(pos.distance_to(prev_pos))
-		if pos.distance_to(prev_pos) <= 0.6:
+		if state_action != STATE_ACTION.PATROLLING && pos.distance_to(prev_pos) <= 0.6:
 			cancel_movement()
 	
 func cancel_movement():
@@ -104,19 +124,23 @@ func _find_target_atack() -> bool:
 	return false
 	
 
-func _find_target():
-	var obj_target = get_atack_target()
+func _find_target(is_cancel = true, is_global = true):
+	var obj_target = get_atack_target(is_global)
 	if obj_target:
 		state_action = STATE_ACTION.TARGET
 		_navigation_to(obj_target.global_position)
-	else:
+		return true
+	elif is_cancel:
 		cancel_movement()
+	return false
 		
 
-func get_atack_target():
+func get_atack_target(global = true):
 	var objs = $FindPlayerZone.get_overlapping_bodies()
 	for o_enemy_player in objs:
 		return o_enemy_player
+	if not global:
+		return
 	var towers = get_tree().get_nodes_in_group("tower")
 	var min_tower = null
 	for tower in towers:

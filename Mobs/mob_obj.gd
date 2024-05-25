@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum STATE_ACTION {RUN, TARGET, DEAD, STAND, ATACK, INVULNERABILITY}
+enum STATE_ACTION {RUN, TARGET, DEAD, STAND, ATACK, INVULNERABILITY, PATROLLING}
 
 signal on_death
 signal on_damage

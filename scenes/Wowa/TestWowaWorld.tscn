@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cepnh7jime4fi"]
+[gd_scene load_steps=19 format=3 uid="uid://cepnh7jime4fi"]
 
 [ext_resource type="TileSet" uid="uid://b56nnqtukxxcx" path="res://scenes/tileset_all.tres" id="1_0jbc4"]
 [ext_resource type="PackedScene" uid="uid://dv4glsilnynn7" path="res://player/PlayerCamera.tscn" id="1_1a3ov"]
@@ -11,19 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://cij2ojyy1v87c" path="res://objs/building/Mine/Mine.tscn" id="8_grxcm"]
 [ext_resource type="PackedScene" uid="uid://dsg44bqc7yvuy" path="res://objs/building/Castle/castle.tscn" id="8_habvo"]
 [ext_resource type="Script" path="res://scenes/Wowa/NavigationRegion2D.gd" id="8_rh5fu"]
-[ext_resource type="Script" path="res://scenes/Wowa/PlayerRespawn.gd" id="10_3h04t"]
 [ext_resource type="PackedScene" uid="uid://pjyuitpmmpe2" path="res://scenes/game_ui.tscn" id="10_aksbp"]
+[ext_resource type="PackedScene" uid="uid://bpv10kseti5l6" path="res://player/player_respawn.tscn" id="10_k42iw"]
 [ext_resource type="PackedScene" uid="uid://qttxpr3mpare" path="res://objs/building/GoblinTower/GoblinTower.tscn" id="13_p54ia"]
 [ext_resource type="PackedScene" uid="uid://c1u75r8hfpqnc" path="res://scenes/util/level_manager_node_wave.tscn" id="14_hwro6"]
 [ext_resource type="PackedScene" uid="uid://bgmii4jke00b1" path="res://scenes/All_lvl/Lvl_1/lvl_1.tscn" id="15_8giju"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_wmhqo"]
-
-[sub_resource type="Curve" id="Curve_huv6t"]
-min_value = -360.0
-max_value = 360.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hde8o"]
 vertices = PackedVector2Array(1446, 484, 1445, 793, 1439, 604, 1438, 292, 1635, 802, 2400, 1467, 1438, 923, 74, 1425, 1312, 922, 1434, 608, 1314, 600, 1305, 616, 2362, 111, 1617, 487, 74, 81, 1315, 293)
@@ -31,6 +23,13 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(1589, 517, 1476, 515, 1475, 764, 1603, 770), PackedVector2Array(2392, 82, 2431, 1498, 44, 1455, 44, 51), PackedVector2Array(1341, 892, 1408, 893, 1404, 640, 1336, 644), PackedVector2Array(1345, 323, 1344, 571, 1409, 573, 1408, 322)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 30.0
+
+[sub_resource type="Curve2D" id="Curve2D_c18ac"]
+bake_interval = 6.27
+_data = {
+"points": PackedVector2Array(-85.3071, 93.1644, 85.3071, -93.1644, 1032, 442, 50.5108, 38.1637, -50.5108, -38.1637, 1107, 250, 60.6129, 60.6129, -60.6129, -60.6129, 919, 237, 39.2862, -70.7151, -39.2862, 70.7151, 674, 217, -77.4499, -60.6129, 77.4499, 60.6129, 860, 363, -68.4702, 89.797, 68.4702, -89.797, 1007, 454)
+}
+point_count = 6
 
 [node name="TestWowaWorld" type="Node2D"]
 
@@ -121,7 +120,7 @@ position = Vector2(1304, 1075)
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="объекты в мире" node_paths=PackedStringArray("node_to_spawn") instance=ExtResource("3_oiib2")]
-position = Vector2(1234, 708)
+position = Vector2(879, 1003)
 node_to_spawn = NodePath("../PlayerRespawn")
 
 [node name="Tower2" parent="объекты в мире" instance=ExtResource("4_wjj3k")]
@@ -137,33 +136,15 @@ position = Vector2(261, 909)
 position = Vector2(1393, 249)
 
 [node name="Castle" parent="объекты в мире" instance=ExtResource("8_habvo")]
-position = Vector2(664, 735)
+position = Vector2(580, 1151)
 max_health = 10
 
-[node name="PlayerRespawn" type="Node2D" parent="объекты в мире"]
-position = Vector2(883, 751)
-script = ExtResource("10_3h04t")
+[node name="PlayerRespawn" parent="объекты в мире" instance=ExtResource("10_k42iw")]
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="объекты в мире/PlayerRespawn"]
-modulate = Color(0.996078, 0, 0, 1)
-emitting = false
-amount = 200
-lifetime = 0.5
-one_shot = true
-texture = SubResource("CanvasTexture_wmhqo")
-direction = Vector2(1, 1)
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 200.0
-initial_velocity_max = 200.0
-angular_velocity_min = 100.0
-angular_velocity_max = 100.0
-angular_velocity_curve = SubResource("Curve_huv6t")
-orbit_velocity_min = 0.1
-orbit_velocity_max = 1.0
-radial_accel_min = 1.0
-radial_accel_max = 1.0
-scale_amount_max = 3.0
+[node name="Goblin" parent="объекты в мире" node_paths=PackedStringArray("pathfollower") instance=ExtResource("5_nv4yt")]
+position = Vector2(989, 594)
+pathfollower = NodePath("../../Path2D/PathFollow2D")
+state_action = 6
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_hde8o")
@@ -193,3 +174,11 @@ to_node = NodePath("../объекты в мире")
 
 [node name="LevelManagerNodeWave" parent="." instance=ExtResource("14_hwro6")]
 next_level = ExtResource("15_8giju")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_c18ac")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(1032, 442)
+rotation = -0.829395
+rotates = false
