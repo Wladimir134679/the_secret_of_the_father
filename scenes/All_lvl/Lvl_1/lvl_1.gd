@@ -15,6 +15,7 @@ func _ready():
 
 func _process(delta):
 	if progress == 0:
+		$GoblinTower.process_mode = Node.PROCESS_MODE_DISABLED
 		camera.position = Player.position
 		camera.to_player = false
 		$"3Death".process_mode = Node.PROCESS_MODE_DISABLED
@@ -149,6 +150,7 @@ func _on_button_pressed():
 		$"3Death/Label".visible = false
 		$"3Death/Label2".visible = false
 		$"3Death/Label3".visible = false
+		$GoblinTower.process_mode = Node.PROCESS_MODE_INHERIT
 		Player.process_mode = Node.PROCESS_MODE_INHERIT
 		camera.position = Player.position
 		camera.player = Player

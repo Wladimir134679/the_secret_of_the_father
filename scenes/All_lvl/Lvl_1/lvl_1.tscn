@@ -568,7 +568,9 @@ scale = Vector2(0.0250001, 0.0344447)
 texture = ExtResource("13_02rec")
 
 [node name="GoblinTower" parent="." instance=ExtResource("17_kcfng")]
-position = Vector2(6414, 3999)
+process_mode = 4
+position = Vector2(6445, 3999)
+state_activation = Array[int]([2])
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_8bkel")
