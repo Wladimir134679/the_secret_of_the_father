@@ -3,7 +3,7 @@ extends Node
 signal adding_souls
 signal new_experince_level
 
-var speed_move = 200
+var speed_move = 150
 var damage: int
 var health: int
 var health_max: int
