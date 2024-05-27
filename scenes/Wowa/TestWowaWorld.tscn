@@ -37,6 +37,7 @@ point_count = 6
 player = NodePath("../объекты в мире/Player")
 
 [node name="TileMap" type="TileMap" parent="."]
+process_mode = 3
 tile_set = ExtResource("1_0jbc4")
 rendering_quadrant_size = 64
 format = 2
