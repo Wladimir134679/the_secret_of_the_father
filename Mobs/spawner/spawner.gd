@@ -47,7 +47,7 @@ func spart_obj() -> void:
 	
 	count_current_spawn += 1
 	if time_package != 0:
-		if count_current_spawn <= count_package:
+		if count_current_spawn < count_package:
 			timer_kd.start(time_package)
 	
 	var inst = spawn_scene.instantiate()

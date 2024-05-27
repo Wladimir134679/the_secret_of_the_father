@@ -79,6 +79,7 @@ autoplay = "default"
 
 [node name="Spawner" parent="." index="5" node_paths=PackedStringArray("to_node") instance=ExtResource("3_kbmfw")]
 position = Vector2(-3, 73)
+spawn_to_start = true
 time_package = 0.3
 count_package = 3
 time = 10.0

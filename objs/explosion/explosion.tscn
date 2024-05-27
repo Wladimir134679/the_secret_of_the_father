@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=3 uid="uid://jskqwj15d7b"]
 
 [ext_resource type="Script" path="res://objs/explosion/explosion.gd" id="1_y8nrr"]
-[ext_resource type="Texture2D" uid="uid://13gfnhs5tt8" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Knights/Troops/Dead/Dead.png" id="2_3a46c"]
+[ext_resource type="Texture2D" uid="uid://daxuo0lwp53j5" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Knights/Troops/Dead/Dead.png" id="2_3a46c"]
 [ext_resource type="Texture2D" uid="uid://5mwiy627ubqo" path="res://assets/Рыцари/Tiny Swords (Update 010)/Effects/Explosion/Explosions.png" id="2_acshx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gutr0"]
