@@ -66,7 +66,7 @@ offset_left = 14.0
 offset_top = 12.0
 offset_right = 54.0
 offset_bottom = 35.0
-text = "Сделано WDeath и GrNeR"
+text = "Сделано WDeath и Gr1NeR"
 label_settings = SubResource("LabelSettings_cr6ss")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
