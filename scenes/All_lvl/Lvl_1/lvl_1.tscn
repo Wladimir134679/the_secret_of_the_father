@@ -684,7 +684,12 @@ texture = ExtResource("13_02rec")
 
 [node name="GoblinTower" parent="." instance=ExtResource("17_kcfng")]
 process_mode = 4
-position = Vector2(6445, 3999)
+position = Vector2(6000, 3000)
+state_activation = Array[int]([2])
+
+[node name="GoblinTower2" parent="." instance=ExtResource("17_kcfng")]
+process_mode = 4
+position = Vector2(6504, 3237)
 state_activation = Array[int]([2])
 
 [node name="Path2D2" type="Path2D" parent="."]
