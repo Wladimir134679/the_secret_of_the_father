@@ -365,6 +365,7 @@ position = Vector2(3144, 3888)
 
 [node name="Tower" parent="WorldObjects" instance=ExtResource("7_bntq5")]
 position = Vector2(4148, 3869)
+state_build = 0
 
 [node name="Gold" parent="WorldObjects" instance=ExtResource("8_0sgqs")]
 position = Vector2(3388, 2456)
