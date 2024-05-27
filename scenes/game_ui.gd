@@ -15,8 +15,11 @@ func _process(delta):
 	$HeroBar/VBoxContainer/SoulsInfo.text = str(GP.souls) + "/" + str(GP.next_count_level())
 	$HeroBar/VBoxContainer/LevelInfo.text = str(GP.experience_level) + " lv."
 	
-	if Input.is_action_pressed("open_pause"):
-		_open_pause_menu()
+	if Input.is_action_just_pressed("open_pause"):
+		if !$MenuPause.visible:
+			_open_pause_menu()
+		else:
+			_close_pause_menu()
 
 func _open_end_game():
 	end_game_creen.show()
@@ -32,6 +35,11 @@ func _open_pause_menu():
 	$MenuPause.show()
 	if get_tree():
 		get_tree().paused = true
+		
+func _close_pause_menu():
+	$MenuPause.hide()
+	if get_tree():
+		get_tree().paused = false
 
 
 func _on_new_game_end_game_button_pressed() -> void:
