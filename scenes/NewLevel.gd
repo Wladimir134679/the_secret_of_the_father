@@ -23,8 +23,8 @@ func _close_level():
 	self.hide()
 
 func _click_health():
-	GP.health += 1
-	GP.health_max += 1
+	GP.health += 2
+	GP.health_max += 2
 	_close_level()
 	
 func _click_atack():
@@ -32,7 +32,7 @@ func _click_atack():
 	_close_level()
 	
 func _click_speed():
-	GP.speed_move += 15
+	GP.speed_move += 25
 	_close_level()
 
 

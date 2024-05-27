@@ -9,6 +9,8 @@ var health: int
 var health_max: int
 var gold: int = 0
 var souls: int = 0
+var attack_speed: int
+var attack_zone: int
 var experience_level: int = 0
 var experience_levels_count: Array[int] = [0, 3, 5, 7, 9, 13, 15, 18, 21, 26, 30, 40, 50, 65, 70, 90, 100]
 

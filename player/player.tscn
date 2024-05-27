@@ -264,8 +264,9 @@ shape = SubResource("CapsuleShape2D_33hf5")
 debug_color = Color(0.0627451, 0.572549, 0.819608, 0.419608)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+process_mode = 3
 modulate = Color(1, 0.337255, 0.384314, 1)
-position = Vector2(-5.96046e-08, -4)
+position = Vector2(0, -4)
 scale = Vector2(0.541667, 0.5)
 sprite_frames = SubResource("SpriteFrames_p2dls")
 animation = &"atack"

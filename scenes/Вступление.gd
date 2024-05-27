@@ -15,7 +15,7 @@ func _on_timer_timeout():
 func _ready():
 	$Text1.visible_ratio = 0.0
 	$Text1/Timer.start()
-	my_label.text = "Здесь будет очень много текста и когда-нибудь ахуенные диалоги:)"
+	my_label.text = "Гоблины и люди. Их вражда никогда не закончится"
 	pc = 1.0/my_label.text.length()
 
 func _process(_delta):
@@ -50,5 +50,5 @@ func _on_button_pressed():
 		my_label.text = "Ну раз так, тогда начнем"
 		pc = 1.0/my_label.text.length()
 	elif progress == 8:
-		get_tree().change_scene_to_file("res://scenes/test_world.tscn")
+		get_tree().change_scene_to_file("res://scenes/All_lvl/Lvl_1/lvl_1.tscn")
 

@@ -316,6 +316,7 @@ position = Vector2(2, 11)
 position = Vector2(-57, -57)
 
 [node name="Anim" type="AnimatedSprite2D" parent="." index="2"]
+process_mode = 3
 position = Vector2(2, 5)
 scale = Vector2(0.571615, 0.552083)
 sprite_frames = SubResource("SpriteFrames_fqohs")

@@ -244,7 +244,7 @@ theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 35
-text = "+1 Здоровья"
+text = "+2 Здоровья"
 icon = ExtResource("11_2w65y")
 flat = true
 icon_alignment = 1
@@ -257,12 +257,13 @@ theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 35
-text = "+15 Скорости"
+text = "+25 Скорости"
 icon = ExtResource("12_dk708")
 flat = true
 icon_alignment = 1
 
 [node name="TimerTo" type="Timer" parent="NewLevel"]
+wait_time = 0.4
 one_shot = true
 
 [node name="EndGame" type="CenterContainer" parent="."]
