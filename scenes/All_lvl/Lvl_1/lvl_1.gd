@@ -155,3 +155,8 @@ func _on_button_pressed():
 		camera.position = Player.position
 		camera.player = Player
 		camera.to_player = true
+		var pos = $"3Death".position
+		$"3Death/Goblin".position += pos
+		$"3Death/Goblin2".position += pos
+		$"3Death/Goblin3".position += pos
+		$"3Death".position = Vector2.ZERO
