@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 func _open_level():
 	get_tree().paused = true
 	$"../NewLevelPlayerInfo".show()
+	$"../NewLevelPlayerInfo/AudioStreamPlayer".play()
 	timer.start()
 	
 func _close_level():

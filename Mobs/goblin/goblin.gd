@@ -120,6 +120,7 @@ func _find_target_atack() -> bool:
 		for o_enemy in objs:
 			if target_atack.global_position == o_enemy.global_position:
 				state_action = STATE_ACTION.ATACK
+				$Atack.play()
 				return true
 	return false
 	

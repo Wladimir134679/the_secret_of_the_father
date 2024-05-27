@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://pjyuitpmmpe2"]
+[gd_scene load_steps=34 format=3 uid="uid://pjyuitpmmpe2"]
 
 [ext_resource type="Script" path="res://scenes/game_ui.gd" id="1_jsp6e"]
 [ext_resource type="Script" path="res://scenes/fps.gd" id="2_kvn7c"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://clkw54yv2kk6h" path="res://assets/PNG/2.png" id="11_2w65y"]
 [ext_resource type="Texture2D" uid="uid://beleohrhjo4dj" path="res://assets/PNG/13.png" id="12_dk708"]
 [ext_resource type="Texture2D" uid="uid://o6re6sfb75yo" path="res://assets/Рыцари/Tiny Swords (Update 010)/UI/Banners/Banner_Connection_Up.png" id="13_jio54"]
+[ext_resource type="AudioStream" uid="uid://dtsd6lxnc1q5s" path="res://assets/audio/vzmah-volshebnoy-palochkoy.ogg" id="14_7tlwh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7u38x"]
 atlas = ExtResource("4_3ombw")
@@ -455,6 +456,10 @@ horizontal_alignment = 1
 [node name="ProgressBar" type="ProgressBar" parent="NewLevelPlayerInfo/VBoxContainer"]
 layout_mode = 2
 max_value = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="NewLevelPlayerInfo"]
+stream = ExtResource("14_7tlwh")
+volume_db = -15.0
 
 [connection signal="pressed" from="NewLevel/HBoxContainer/Button" to="NewLevel" method="_click_atack"]
 [connection signal="pressed" from="NewLevel/HBoxContainer/Button2" to="NewLevel" method="_click_health"]

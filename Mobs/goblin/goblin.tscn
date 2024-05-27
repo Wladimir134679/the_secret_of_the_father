@@ -1,9 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://pvyn7gdlrx0n"]
+[gd_scene load_steps=31 format=3 uid="uid://pvyn7gdlrx0n"]
 
 [ext_resource type="PackedScene" uid="uid://bkldnsyj7ttcb" path="res://Mobs/mob_obj.tscn" id="1_fj23j"]
 [ext_resource type="Script" path="res://Mobs/goblin/goblin.gd" id="2_gqrvn"]
 [ext_resource type="PackedScene" uid="uid://cssb781x4gm31" path="res://objs/Resourse/gold.tscn" id="3_0fx2v"]
 [ext_resource type="Texture2D" uid="uid://cupuknsirc7xq" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Goblins/Troops/Torch/Blue/Torch_Blue.png" id="3_t30en"]
+[ext_resource type="AudioStream" uid="uid://bqghv0k46qmws" path="res://assets/audio/goblin_atack.ogg" id="5_lwe1x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nabet"]
 atlas = ExtResource("3_t30en")
@@ -371,6 +372,11 @@ one_shot = true
 libraries = {
 "": SubResource("AnimationLibrary_4oxyy")
 }
+
+[node name="Atack" type="AudioStreamPlayer2D" parent="." index="12"]
+stream = ExtResource("5_lwe1x")
+volume_db = -15.0
+max_distance = 500.0
 
 [connection signal="on_damage" from="." to="." method="_on_on_damage"]
 [connection signal="on_death" from="." to="." method="_on_on_death"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=32 format=3 uid="uid://csbidcltw6m7"]
+[gd_scene load_steps=33 format=3 uid="uid://csbidcltw6m7"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_vww4f"]
 [ext_resource type="Texture2D" uid="uid://da8gcvt1xlrej" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="2_6dheu"]
+[ext_resource type="AudioStream" uid="uid://ce74nki4j8pra" path="res://assets/audio/promah-pri-boe-na-mechah.ogg" id="4_uar6e"]
 [ext_resource type="Script" path="res://player/SensorItem.gd" id="8_krhvt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_33hf5"]
@@ -288,7 +289,7 @@ debug_color = Color(0.227451, 0.635294, 0.180392, 0.419608)
 [node name="AtackZone" type="Area2D" parent="."]
 scale = Vector2(0.805254, -9.3268)
 collision_layer = 2
-collision_mask = 20
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AtackZone"]
 position = Vector2(-4.96738, -3.04732e-15)
@@ -307,6 +308,10 @@ libraries = {
 "": SubResource("AnimationLibrary_46tx8")
 }
 autoplay = "idle"
+
+[node name="AtackAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_uar6e")
+volume_db = -15.0
 
 [connection signal="area_entered" from="SensorItem" to="SensorItem" method="_on_area_entered"]
 [connection signal="area_exited" from="SensorItem" to="SensorItem" method="_on_area_exited"]

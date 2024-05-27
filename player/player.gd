@@ -121,6 +121,7 @@ func update_atack_zone():
 	# подождать когда закончиться анимаци и вернуть обратно стоять
 	if Input.is_action_just_pressed("atack_mouse"):
 		var objs = atack_zone.get_overlapping_bodies()
+		$AtackAudio.play()
 		for o_enemy in objs:
 			to_damage(GP.damage, o_enemy)
 			to_damage(GP.damage, o_enemy.get_parent())
