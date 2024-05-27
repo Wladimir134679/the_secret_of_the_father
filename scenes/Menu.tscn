@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://lavnqi2oht0b"]
+[gd_scene load_steps=6 format=3 uid="uid://lavnqi2oht0b"]
 
 [ext_resource type="Script" path="res://scenes/Menu.gd" id="1_8iwf2"]
 [ext_resource type="Texture2D" uid="uid://b31armv8b084c" path="res://assets/Рыцари/Tiny Swords (Update 010)/UI/Buttons/Button_Blue_3Slides.png" id="2_b23v5"]
 [ext_resource type="PackedScene" uid="uid://doo3g5scck2d2" path="res://scenes/bg.tscn" id="2_quh5d"]
+[ext_resource type="AudioStream" uid="uid://8kmajm7wrwq0" path="res://assets/audio/main_menu.mp3" id="4_lae0w"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cr6ss"]
 font_size = 24
@@ -68,6 +69,11 @@ offset_right = 54.0
 offset_bottom = 35.0
 text = "Сделано WDeath и Gr1NeR"
 label_settings = SubResource("LabelSettings_cr6ss")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lae0w")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

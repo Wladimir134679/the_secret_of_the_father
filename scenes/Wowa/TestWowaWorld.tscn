@@ -591,14 +591,31 @@ layer_0/tile_data = PackedInt32Array(0, 5, 0, 1, 65541, 0, 2, 65541, 0, 3, 65541
 layer_1/name = "Камни"
 layer_1/tile_data = PackedInt32Array(655381, 196614, 0, 720917, 196614, 1, 786453, 196614, 2, 851989, 196614, 3, 327701, 196614, 0, 393237, 196614, 1, 458773, 196614, 2, 524309, 196614, 3, 524311, 6, 0, 589847, 6, 1, 655383, 6, 2, 720919, 6, 3, 524312, 131078, 0, 589848, 131078, 1, 655384, 131078, 2, 720920, 131078, 3)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 495.0
-offset_top = 520.0
-offset_right = 1299.0
-offset_bottom = 661.0
+[node name="Info" type="Label" parent="."]
+offset_left = 1078.0
+offset_top = 1386.0
+offset_right = 1882.0
+offset_bottom = 1527.0
 text = "Это финальный уровень, спасибо за игру!
 Понравилась игра? Стоит продолжать её делать? 
-Тогда найдите и напишите WDeath об этом =)"
+Тогда найдите и напишите WDeath или Gr1NeR об этом =)"
+label_settings = ExtResource("21_bcx4j")
+
+[node name="Info2" type="Label" parent="."]
+offset_left = 858.0
+offset_top = 378.0
+offset_right = 1532.0
+offset_bottom = 453.0
+text = "Тестовый уровень
+Использовался для разработки"
+label_settings = ExtResource("21_bcx4j")
+
+[node name="Info3" type="Label" parent="."]
+offset_left = 515.0
+offset_top = 1396.0
+offset_right = 912.0
+offset_bottom = 1432.0
+text = "Защити центральную башню!"
 label_settings = ExtResource("21_bcx4j")
 
 [node name="объекты в мире" type="Node2D" parent="."]
@@ -611,7 +628,7 @@ position = Vector2(289, 1083)
 position = Vector2(477, 809)
 
 [node name="Tree3" parent="объекты в мире" instance=ExtResource("2_v8qc0")]
-position = Vector2(1043, 955)
+position = Vector2(1168, 1325)
 
 [node name="Tree4" parent="объекты в мире" instance=ExtResource("2_v8qc0")]
 position = Vector2(943, 1275)
@@ -659,7 +676,7 @@ position = Vector2(2154, 561)
 position = Vector2(2204, 553)
 
 [node name="GoblinTower" parent="объекты в мире" instance=ExtResource("13_p54ia")]
-position = Vector2(1206, 191)
+position = Vector2(1203, 218)
 
 [node name="Gold8" parent="объекты в мире" instance=ExtResource("7_wb2tt")]
 position = Vector2(2042, 509)
@@ -689,7 +706,7 @@ position = Vector2(804, 1086)
 position = Vector2(615, 882)
 
 [node name="GoblinTower2" parent="объекты в мире" instance=ExtResource("13_p54ia")]
-position = Vector2(1452, 151)
+position = Vector2(1844, 388)
 
 [node name="Castle" parent="объекты в мире" instance=ExtResource("8_habvo")]
 position = Vector2(568, 1236)
@@ -720,7 +737,7 @@ spawn_scene = ExtResource("5_nv4yt")
 to_node = NodePath("../объекты в мире")
 
 [node name="Gold_Spawn" parent="." node_paths=PackedStringArray("to_node") instance=ExtResource("6_4kjaf")]
-position = Vector2(1113, 1076)
+position = Vector2(1338, 1293)
 scale = Vector2(3.91384, 3.45899)
 time = 4.0
 time_rnd = 2.0

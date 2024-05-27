@@ -160,4 +160,5 @@ func _on_button_pressed():
 		$"3Death/Goblin2".position += pos
 		$"3Death/Goblin3".position += pos
 		$"3Death".position = Vector2.ZERO
-		$Info.show()
+		$PlayerCamera.zoom = Vector2(1, 1)
+		$InfoText.show()
