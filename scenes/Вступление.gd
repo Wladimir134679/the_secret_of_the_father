@@ -15,13 +15,13 @@ func _on_timer_timeout():
 func _ready():
 	$Text1.visible_ratio = 0.0
 	$Text1/Timer.start()
-	my_label.text = "Гоблины и люди. Их вражда никогда не закончится"
+	my_label.text = "Гоблины и люди\n Их вражда никогда не закончится \n"
 	pc = 1.0/my_label.text.length()
 
 func _process(_delta):
 	if progress == 1:
 		$Text1.visible_ratio = 1.0
-		my_label.text = "Здесь будет очень много текста и когда-нибудь ахуенные диалоги:)"
+		my_label.text = "Гоблины и люди. Их вражда никогда не закончится"
 	if progress == 3:
 		$Text1.visible_ratio = 1.0
 		my_label.text = "Если здесь будет другой текст, то я буду ссаться кипятком от радости"
