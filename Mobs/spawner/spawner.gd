@@ -1,5 +1,9 @@
 extends Node2D
 
+@export var spawn_to_start: bool = false
+@export var time_package: float = 0
+@export var count_package: int = 0
+var count_current_spawn: int = 0
 # время через которое нужно заспавнить одного моба
 @export var time: float = 1
 # рандомность для случайности 0 - нет её
@@ -19,9 +23,12 @@ extends Node2D
 # в какой зоне спавнить, берёт shape, там в зоне радиус менять только
 @onready var zone_spawn: CollisionShape2D = $ZoneSpawn/CollisionShape2D
 @onready var timer: Timer = $Timer
+@onready var timer_kd: Timer = $TimerKD
 
 func _ready() -> void:
 	self.start()
+	if spawn_to_start:
+		spart_obj()
 
 
 func _process(delta: float) -> void:
@@ -33,9 +40,16 @@ func _on_timer_timeout() -> void:
 		self.spart_obj()
 		self.start()
 	
+
 func spart_obj() -> void:
 	if !to_node and !spawn_scene:
 		return
+	
+	count_current_spawn += 1
+	if time_package != 0:
+		if count_current_spawn <= count_package:
+			timer_kd.start(time_package)
+	
 	var inst = spawn_scene.instantiate()
 	inst.position = get_rnd_spawn_position()
 	var n_to
@@ -65,4 +79,5 @@ func stop():
 func start() -> void:
 	var _time = time if time_rnd == 0 else time + time_rnd * randf()
 	stop_spawn = false
+	count_current_spawn = 0
 	timer.start(_time)

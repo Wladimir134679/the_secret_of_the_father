@@ -18,4 +18,8 @@ scale = Vector2(1, 1.01191)
 shape = SubResource("RectangleShape2D_mao81")
 debug_color = Color(1, 1, 1, 0.419608)
 
+[node name="TimerKD" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerKD" to="." method="spart_obj"]
