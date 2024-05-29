@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dv4glsilnynn7" path="res://player/PlayerCamera.tscn" id="2_b0sn3"]
 [ext_resource type="PackedScene" uid="uid://c1u75r8hfpqnc" path="res://scenes/util/level_manager_node_wave.tscn" id="2_lsejs"]
 [ext_resource type="TileSet" uid="uid://b56nnqtukxxcx" path="res://scenes/tileset_all.tres" id="3_37nit"]
-[ext_resource type="PackedScene" uid="uid://cepnh7jime4fi" path="res://scenes/Wowa/TestWowaWorld.tscn" id="3_fc7m8"]
+[ext_resource type="PackedScene" uid="uid://i6opqh1ysem3" path="res://scenes/All_lvl/Lvl_2/lvl_2.tscn" id="4_db2lv"]
 [ext_resource type="PackedScene" uid="uid://rsho2m156sr0" path="res://objs/auto_packet/auto_packet.tscn" id="4_p4d26"]
 [ext_resource type="PackedScene" uid="uid://ct44mxpbtsv33" path="res://objs/tree/tree.tscn" id="5_xpt60"]
 [ext_resource type="PackedScene" uid="uid://csbidcltw6m7" path="res://player/player.tscn" id="6_wb4wk"]
@@ -64,7 +64,7 @@ autoplay = true
 attenuation = 1.1487
 
 [node name="LevelManagerNodeWave" parent="." instance=ExtResource("2_lsejs")]
-next_level = ExtResource("3_fc7m8")
+next_level = ExtResource("4_db2lv")
 
 [node name="PlayerCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_b0sn3")]
 position = Vector2(2816, 3744)
@@ -84,7 +84,7 @@ layer_2/tile_data = PackedInt32Array(3866672, 5, 0, 3932208, 5, 1, 3997744, 5, 2
 layer_3/name = "Тень"
 layer_3/tile_data = PackedInt32Array()
 layer_4/name = "Декор слой"
-layer_4/tile_data = PackedInt32Array(3866670, 0, 0, 3866671, 65536, 0, 3866672, 131072, 0, 3473476, 17, 0, 3539012, 17, 1, 3670068, 13, 0, 4128822, 13, 0, 4325430, 13, 0, 4194356, 13, 0, 4259905, 13, 0, 3801157, 13, 0, 3670079, 13, 0, 3604543, 13, 0, 3407927, 13, 0, 2949175, 13, 0, 2752566, 13, 0, 2424888, 13, 0, 2424885, 13, 0, 2293812, 13, 0, 2883651, 13, 0, 2293825, 13, 0, 2162750, 13, 0, 2228292, 14, 0, 2621505, 13, 0, 2687036, 13, 0, 2621498, 13, 0, 2818102, 13, 0, 3080253, 13, 0, 3276863, 13, 0, 3473471, 13, 0, 3473462, 13, 0, 4128832, 13, 0, 4128837, 13, 0, 4063285, 13, 0, 4128818, 16, 0, 3539004, 16, 0, 3801156, 16, 0, 2883639, 16, 0, 2293814, 16, 0, 2490427, 16, 0, 2752581, 16, 0, 2162754, 16, 0, 2687029, 16, 0, 3539013, 16, 0, 2228304, 0, 0, 2228305, 65536, 0, 2228306, 131072, 0, 2752583, 9, 0, 2359366, 9, 0, 2097221, 9, 0, 2097226, 9, 0, 2293837, 9, 0, 2424904, 11, 0, 2097230, 11, 0, 2359376, 11, 0, 2621518, 11, 0, 2687050, 12, 0, 2031687, 12, 0, 2818118, 13, 0, 2359365, 13, 0, 2424899, 13, 0, 2162755, 13, 0, 2752580, 14, 0)
+layer_4/tile_data = PackedInt32Array(3866670, 0, 0, 3866671, 65536, 0, 3866672, 131072, 0, 3670068, 13, 0, 4128822, 13, 0, 4325430, 13, 0, 4194356, 13, 0, 4259905, 13, 0, 3801157, 13, 0, 3670079, 13, 0, 3604543, 13, 0, 3407927, 13, 0, 2949175, 13, 0, 2752566, 13, 0, 2424888, 13, 0, 2424885, 13, 0, 2293812, 13, 0, 2883651, 13, 0, 2293825, 13, 0, 2162750, 13, 0, 2228292, 14, 0, 2621505, 13, 0, 2687036, 13, 0, 2621498, 13, 0, 2818102, 13, 0, 3080253, 13, 0, 3276863, 13, 0, 3473471, 13, 0, 3473462, 13, 0, 4128832, 13, 0, 4128837, 13, 0, 4063285, 13, 0, 4128818, 16, 0, 3539004, 16, 0, 3801156, 16, 0, 2883639, 16, 0, 2293814, 16, 0, 2490427, 16, 0, 2752581, 16, 0, 2162754, 16, 0, 2687029, 16, 0, 3539013, 16, 0, 2228304, 0, 0, 2228305, 65536, 0, 2228306, 131072, 0, 2752583, 9, 0, 2359366, 9, 0, 2097221, 9, 0, 2097226, 9, 0, 2293837, 9, 0, 2424904, 11, 0, 2097230, 11, 0, 2359376, 11, 0, 2621518, 11, 0, 2687050, 12, 0, 2031687, 12, 0, 2818118, 13, 0, 2359365, 13, 0, 2424899, 13, 0, 2162755, 13, 0, 2752580, 14, 0, 2883648, 17, 0, 2949184, 17, 1)
 
 [node name="InfoText" type="Node2D" parent="."]
 
@@ -101,14 +101,15 @@ ESC - меню"
 label_settings = ExtResource("7_2jg3f")
 
 [node name="Цель" type="Label" parent="InfoText"]
-offset_left = 3621.0
-offset_top = 3981.0
-offset_right = 4520.0
-offset_bottom = 4056.0
-text = "Найди деньги, восстанови башню 
-и найди откуда придут гоблины!
-Уничтожь их всех..."
+offset_left = 3688.0
+offset_top = 3792.0
+offset_right = 4187.0
+offset_bottom = 3931.0
+text = "Найди откуда идут гоблины
+ и уничтожь их всех)
+"
 label_settings = ExtResource("7_2jg3f")
+horizontal_alignment = 1
 
 [node name="Куда" type="Label" parent="InfoText"]
 offset_left = 3792.0
@@ -120,20 +121,20 @@ text = "<- туда"
 label_settings = ExtResource("7_2jg3f")
 
 [node name="Куда враг" type="Label" parent="InfoText"]
-offset_left = 4215.0
-offset_top = 2976.0
-offset_right = 4442.0
-offset_bottom = 3012.0
-rotation = 0.279674
+offset_left = 4089.0
+offset_top = 2454.0
+offset_right = 4336.0
+offset_bottom = 2490.0
+rotation = 0.261799
 text = "там база врага ->"
 label_settings = ExtResource("7_2jg3f")
 
 [node name="Умер?" type="Label" parent="InfoText"]
-offset_left = 3624.0
-offset_top = 2932.0
-offset_right = 3957.0
-offset_bottom = 2968.0
-text = "Ты умереть не можешь..."
+offset_left = 3894.0
+offset_top = 2928.0
+offset_right = 4227.0
+offset_bottom = 2964.0
+text = "Ты хочешь умереть?"
 label_settings = ExtResource("7_2jg3f")
 
 [node name="ПакетЛеса" parent="." node_paths=PackedStringArray("where_scene") instance=ExtResource("4_p4d26")]
@@ -435,7 +436,7 @@ position = Vector2(3144, 3888)
 node_to_spawn = NodePath("../PlayerRespawn")
 
 [node name="Tower" parent="WorldObjects" instance=ExtResource("7_bntq5")]
-position = Vector2(4148, 3869)
+position = Vector2(4625, 2674)
 state_build = 0
 
 [node name="Gold" parent="WorldObjects" instance=ExtResource("8_0sgqs")]
@@ -445,13 +446,10 @@ position = Vector2(3388, 2456)
 position = Vector2(3356, 2472)
 
 [node name="Gold4" parent="WorldObjects" instance=ExtResource("8_0sgqs")]
-position = Vector2(3388, 2432)
+position = Vector2(3368, 2440)
 
 [node name="Gold5" parent="WorldObjects" instance=ExtResource("8_0sgqs")]
 position = Vector2(3380, 2477)
-
-[node name="Gold2" parent="WorldObjects" instance=ExtResource("8_0sgqs")]
-position = Vector2(3364, 2448)
 
 [node name="Gold6" parent="WorldObjects" instance=ExtResource("8_0sgqs")]
 position = Vector2(3864, 2150)
@@ -463,40 +461,7 @@ position = Vector2(3832, 2166)
 position = Vector2(3856, 2171)
 
 [node name="Gold10" parent="WorldObjects" instance=ExtResource("8_0sgqs")]
-position = Vector2(3932, 2134)
-
-[node name="Gold11" parent="WorldObjects" instance=ExtResource("8_0sgqs")]
-position = Vector2(3900, 2150)
-
-[node name="Gold12" parent="WorldObjects" instance=ExtResource("8_0sgqs")]
-position = Vector2(3924, 2155)
-
-[node name="Gold9" parent="WorldObjects" instance=ExtResource("8_0sgqs")]
-position = Vector2(3840, 2142)
-
-[node name="Gold13" parent="WorldObjects" instance=ExtResource("8_0sgqs")]
-position = Vector2(3909, 2187)
-
-[node name="Gold14" parent="WorldObjects" instance=ExtResource("8_0sgqs")]
-position = Vector2(3877, 2203)
-
-[node name="Gold15" parent="WorldObjects" instance=ExtResource("8_0sgqs")]
-position = Vector2(3901, 2208)
-
-[node name="Gold20" parent="WorldObjects" instance=ExtResource("8_0sgqs")]
-position = Vector2(3928, 2208)
-
-[node name="Gold16" parent="WorldObjects" instance=ExtResource("8_0sgqs")]
-position = Vector2(3940, 2179)
-
-[node name="Gold17" parent="WorldObjects" instance=ExtResource("8_0sgqs")]
-position = Vector2(3834, 2187)
-
-[node name="Gold18" parent="WorldObjects" instance=ExtResource("8_0sgqs")]
-position = Vector2(3856, 2192)
-
-[node name="Gold19" parent="WorldObjects" instance=ExtResource("8_0sgqs")]
-position = Vector2(3885, 2179)
+position = Vector2(3884, 2165)
 
 [node name="Goblin4" parent="WorldObjects" node_paths=PackedStringArray("pathfollower") instance=ExtResource("9_34d3p")]
 position = Vector2(3798, 2208)
@@ -511,21 +476,6 @@ state_action = 6
 [node name="Goblin6" parent="WorldObjects" node_paths=PackedStringArray("pathfollower") instance=ExtResource("9_34d3p")]
 position = Vector2(3916, 2242)
 pathfollower = NodePath("../../Path2D3/PathFollow2D")
-state_action = 6
-
-[node name="Goblin7" parent="WorldObjects" node_paths=PackedStringArray("pathfollower") instance=ExtResource("9_34d3p")]
-position = Vector2(3976, 2280)
-pathfollower = NodePath("../../Path2D2/PathFollow2D3")
-state_action = 6
-
-[node name="Goblin8" parent="WorldObjects" node_paths=PackedStringArray("pathfollower") instance=ExtResource("9_34d3p")]
-position = Vector2(3885, 2291)
-pathfollower = NodePath("../../Path2D2/PathFollow2D2")
-state_action = 6
-
-[node name="Goblin9" parent="WorldObjects" node_paths=PackedStringArray("pathfollower") instance=ExtResource("9_34d3p")]
-position = Vector2(3798, 2266)
-pathfollower = NodePath("../../Path2D2/PathFollow2D")
 state_action = 6
 
 [node name="Goblin" parent="WorldObjects" node_paths=PackedStringArray("pathfollower") instance=ExtResource("9_34d3p")]
@@ -544,6 +494,7 @@ pathfollower = NodePath("../../Path2D/PathFollow2D")
 state_action = 6
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_cpjdj")
 navigation_layers = 16
 metadata/_edit_lock_ = true

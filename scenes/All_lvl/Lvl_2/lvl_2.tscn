@@ -46,6 +46,7 @@ metadata/_edit_group_ = true
 
 [node name="ПакетЛеса" parent="." node_paths=PackedStringArray("where_scene") instance=ExtResource("2_24sti")]
 where_scene = NodePath("../Obj")
+metadata/_edit_lock_ = true
 
 [node name="Tree48" parent="ПакетЛеса" instance=ExtResource("2_4s3u0")]
 position = Vector2(984, 737)
@@ -417,22 +418,16 @@ position = Vector2(64, 136)
 y_sort_enabled = true
 
 [node name="Gold6" parent="Obj" instance=ExtResource("5_klmpd")]
-position = Vector2(578, 831)
-
-[node name="Gold7" parent="Obj" instance=ExtResource("5_klmpd")]
-position = Vector2(611, 800)
+position = Vector2(576, 798)
 
 [node name="Gold8" parent="Obj" instance=ExtResource("5_klmpd")]
 position = Vector2(611, 859)
-
-[node name="Gold9" parent="Obj" instance=ExtResource("5_klmpd")]
-position = Vector2(542, 799)
 
 [node name="Gold10" parent="Obj" instance=ExtResource("5_klmpd")]
 position = Vector2(542, 860)
 
 [node name="Gold" parent="Obj" instance=ExtResource("5_klmpd")]
-position = Vector2(-680, 263)
+position = Vector2(-773, 200)
 
 [node name="Gold22" parent="Obj" instance=ExtResource("5_klmpd")]
 position = Vector2(2056, 113)
@@ -453,13 +448,7 @@ position = Vector2(-808, 798)
 position = Vector2(-864, 841)
 
 [node name="Gold2" parent="Obj" instance=ExtResource("5_klmpd")]
-position = Vector2(-576, 193)
-
-[node name="Gold3" parent="Obj" instance=ExtResource("5_klmpd")]
-position = Vector2(-640, 135)
-
-[node name="Gold4" parent="Obj" instance=ExtResource("5_klmpd")]
-position = Vector2(-712, 194)
+position = Vector2(-640, 138)
 
 [node name="Gold14" parent="Obj" instance=ExtResource("5_klmpd")]
 position = Vector2(-1992, -217)
@@ -512,11 +501,39 @@ position = Vector2(2608, 258)
 [node name="GoblinTower4" parent="Obj" instance=ExtResource("6_c1733")]
 position = Vector2(3184, 554)
 
+[node name="Goblin" parent="Obj" instance=ExtResource("11_ynkd0")]
+position = Vector2(-600, 791)
+
+[node name="Goblin2" parent="Obj" instance=ExtResource("11_ynkd0")]
+position = Vector2(-720, 729)
+
+[node name="Goblin3" parent="Obj" instance=ExtResource("11_ynkd0")]
+position = Vector2(-714, 834)
+
+[node name="Goblin9" parent="Obj" instance=ExtResource("11_ynkd0")]
+position = Vector2(-1488, 326)
+
+[node name="Goblin10" parent="Obj" instance=ExtResource("11_ynkd0")]
+position = Vector2(-1384, 321)
+
+[node name="Goblin4" parent="Obj" instance=ExtResource("11_ynkd0")]
+position = Vector2(1968, 191)
+
+[node name="Goblin5" parent="Obj" instance=ExtResource("11_ynkd0")]
+position = Vector2(1928, 121)
+
+[node name="Goblin6" parent="Obj" instance=ExtResource("11_ynkd0")]
+position = Vector2(1848, 185)
+
+[node name="Goblin7" parent="Obj" instance=ExtResource("11_ynkd0")]
+position = Vector2(2576, 844)
+
+[node name="Goblin8" parent="Obj" instance=ExtResource("11_ynkd0")]
+position = Vector2(2464, 785)
+
 [node name="Player" parent="Obj" node_paths=PackedStringArray("node_to_spawn") instance=ExtResource("7_xysi3")]
 position = Vector2(496, 397)
 node_to_spawn = NodePath("../Castle")
-
-[node name="GameUi" parent="." instance=ExtResource("9_iweqp")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
@@ -524,32 +541,4 @@ navigation_polygon = SubResource("NavigationPolygon_y7j1q")
 navigation_layers = 16
 metadata/_edit_lock_ = true
 
-[node name="Goblin" parent="." instance=ExtResource("11_ynkd0")]
-position = Vector2(-600, 791)
-
-[node name="Goblin2" parent="." instance=ExtResource("11_ynkd0")]
-position = Vector2(-720, 729)
-
-[node name="Goblin3" parent="." instance=ExtResource("11_ynkd0")]
-position = Vector2(-714, 834)
-
-[node name="Goblin9" parent="." instance=ExtResource("11_ynkd0")]
-position = Vector2(-1488, 326)
-
-[node name="Goblin10" parent="." instance=ExtResource("11_ynkd0")]
-position = Vector2(-1384, 321)
-
-[node name="Goblin4" parent="." instance=ExtResource("11_ynkd0")]
-position = Vector2(1968, 191)
-
-[node name="Goblin5" parent="." instance=ExtResource("11_ynkd0")]
-position = Vector2(1928, 121)
-
-[node name="Goblin6" parent="." instance=ExtResource("11_ynkd0")]
-position = Vector2(1848, 185)
-
-[node name="Goblin7" parent="." instance=ExtResource("11_ynkd0")]
-position = Vector2(2576, 844)
-
-[node name="Goblin8" parent="." instance=ExtResource("11_ynkd0")]
-position = Vector2(2464, 785)
+[node name="GameUi" parent="." instance=ExtResource("9_iweqp")]
