@@ -15,6 +15,7 @@ func _ready():
 
 func _process(delta):
 	if progress == 0:
+		$InfoText.hide()
 		$GoblinTower.process_mode = Node.PROCESS_MODE_DISABLED
 		camera.position = Player.position
 		camera.to_player = false
