@@ -94,8 +94,8 @@ func move_velocity():
 		anim.animation = 'Walk'
 		prev_pos = position
 		move_and_slide()
-		position.x = clamp(position.x, 0, 10000)
-		position.y = clamp(position.y, 0, 10000)
+		position.x = clamp(position.x, -10000, 10000)
+		position.y = clamp(position.y, -10000, 10000)
 		
 		var pos = position
 		$DebugInfo.text += "\nDist_to: " + str(pos.distance_to(prev_pos))
