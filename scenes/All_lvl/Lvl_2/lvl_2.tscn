@@ -513,7 +513,7 @@ position = Vector2(-320, 398)
 state_build = 0
 
 [node name="Tower2" parent="Obj" instance=ExtResource("5_4w73h")]
-position = Vector2(1528, 630)
+position = Vector2(1600, 688)
 state_build = 0
 
 [node name="GoblinTower" parent="Obj" instance=ExtResource("6_c1733")]
@@ -583,8 +583,11 @@ position = Vector2(496, 397)
 node_to_spawn = NodePath("../Castle")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_y7j1q")
 navigation_layers = 16
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="GameUi" parent="." instance=ExtResource("9_iweqp")]
 
