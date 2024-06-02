@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://711omouq3dvn"]
+
+[ext_resource type="Script" path="res://objs/Resourse/muhamor.gd" id="1_u8g0o"]
+[ext_resource type="Texture2D" uid="uid://bqqgk0272rm2m" path="res://assets/Рыцари/Tiny Swords (Update 010)/Deco/03.png" id="1_u12ld"]
+[ext_resource type="Texture2D" uid="uid://bnku7uhf7e0pi" path="res://assets/Рыцари/Tiny Swords (Update 010)/Deco/02.png" id="2_ei0yo"]
+[ext_resource type="Texture2D" uid="uid://dynxdhwn680p4" path="res://assets/Рыцари/Tiny Swords (Update 010)/Deco/01.png" id="3_5fe4l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_idodo"]
+radius = 13.0
+
+[node name="Muhamor" type="Node2D"]
+script = ExtResource("1_u8g0o")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1, 0)
+texture = ExtResource("1_u12ld")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-2, 0)
+texture = ExtResource("2_ei0yo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = ExtResource("3_5fe4l")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_idodo")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
