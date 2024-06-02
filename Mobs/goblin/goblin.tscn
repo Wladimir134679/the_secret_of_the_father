@@ -166,7 +166,7 @@ length = 0.001
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:modulate:r")
+tracks/0/path = NodePath("Anim:modulate:r")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -177,7 +177,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:modulate:g")
+tracks/1/path = NodePath("Anim:modulate:g")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -188,7 +188,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:modulate:b")
+tracks/2/path = NodePath("Anim:modulate:b")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -199,54 +199,10 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AnimatedSprite2D:modulate:a")
+tracks/3/path = NodePath("Anim:modulate:a")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Anim:modulate:r")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Anim:modulate:g")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Anim:modulate:b")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Anim:modulate:a")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
@@ -310,9 +266,6 @@ script = ExtResource("2_gqrvn")
 chance_of_coin_drop = 0.5
 drop_scene = ExtResource("3_0fx2v")
 
-[node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(2, 11)
-
 [node name="HealthBar" parent="." index="1"]
 position = Vector2(-57, -57)
 
@@ -323,10 +276,6 @@ scale = Vector2(0.571615, 0.552083)
 sprite_frames = SubResource("SpriteFrames_fqohs")
 animation = &"Idle"
 autoplay = "Idle"
-
-[node name="AnimatedSprite2D" parent="." index="3"]
-position = Vector2(2, 5)
-scale = Vector2(0.571615, 0.552083)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="4"]
 navigation_layers = 16
@@ -368,12 +317,12 @@ shape = SubResource("CircleShape2D_bvof4")
 [node name="TimerAtackKD" type="Timer" parent="." index="9"]
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="11"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="10"]
 libraries = {
 "": SubResource("AnimationLibrary_4oxyy")
 }
 
-[node name="Atack" type="AudioStreamPlayer2D" parent="." index="12"]
+[node name="Atack" type="AudioStreamPlayer2D" parent="." index="11"]
 stream = ExtResource("5_lwe1x")
 volume_db = -15.0
 max_distance = 500.0

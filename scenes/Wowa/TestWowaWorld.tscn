@@ -721,6 +721,7 @@ pathfollower = NodePath("../../Path2D/PathFollow2D")
 state_action = 6
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_hde8o")
 navigation_layers = 16
 script = ExtResource("8_rh5fu")

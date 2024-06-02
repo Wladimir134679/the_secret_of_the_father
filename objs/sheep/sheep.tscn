@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://by18vglgpr3ry"]
+
+[ext_resource type="PackedScene" uid="uid://bkldnsyj7ttcb" path="res://Mobs/mob_obj.tscn" id="1_34ty0"]
+[ext_resource type="Script" path="res://objs/sheep/sheep.gd" id="2_c8g0y"]
+
+[node name="Sheep" instance=ExtResource("1_34ty0")]
+collision_mask = 54
+script = ExtResource("2_c8g0y")

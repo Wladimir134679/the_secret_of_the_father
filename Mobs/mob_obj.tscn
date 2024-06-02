@@ -1,28 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkldnsyj7ttcb"]
+[gd_scene load_steps=4 format=3 uid="uid://bkldnsyj7ttcb"]
 
 [ext_resource type="Script" path="res://Mobs/mob_obj.gd" id="1_ikund"]
 [ext_resource type="PackedScene" uid="uid://dhv8pdcy4svl8" path="res://element/health_bar/health_bar.tscn" id="3_lximq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_66hky"]
-radius = 4.99034
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_w1o2m"]
+radius = 3.44467
 
 [node name="MobObj" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 55
 script = ExtResource("1_ikund")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="BodyObj" type="CollisionShape2D" parent="."]
 scale = Vector2(2.61273, 2.61273)
 shape = SubResource("CircleShape2D_66hky")
 
 [node name="HealthBar" parent="." instance=ExtResource("3_lximq")]
-position = Vector2(-62, -116)
+position = Vector2(-57, -117)
 scale = Vector2(0.33227, 0.33227)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_w1o2m")
 
 [node name="InvulnerabilityTimer" type="Timer" parent="."]
 wait_time = 0.1
