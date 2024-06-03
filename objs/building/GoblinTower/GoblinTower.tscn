@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://d1n0dx7k8naud" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Goblins/Buildings/Wood_Tower/Wood_Tower_Destroyed.png" id="2_a7buj"]
 [ext_resource type="Script" path="res://objs/building/GoblinTower/GoblinTower.gd" id="2_d4oh3"]
 [ext_resource type="Texture2D" uid="uid://bh52koxf56g3" path="res://assets/Рыцари/Tiny Swords (Update 010)/Factions/Goblins/Buildings/Wood_Tower/Wood_Tower_Red.png" id="2_q2fgm"]
-[ext_resource type="PackedScene" uid="uid://3kdgtxjy1xbp" path="res://Mobs/spawner/spawner.tscn" id="3_kbmfw"]
-[ext_resource type="PackedScene" uid="uid://pvyn7gdlrx0n" path="res://Mobs/goblin/goblin.tscn" id="4_u1v5v"]
+[ext_resource type="PackedScene" uid="uid://3kdgtxjy1xbp" path="res://objs/spawner/spawner.tscn" id="5_wkgax"]
+[ext_resource type="PackedScene" uid="uid://pvyn7gdlrx0n" path="res://objs/mobs/goblin/goblin.tscn" id="6_8n31i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h1x18"]
 atlas = ExtResource("2_a7buj")
@@ -77,14 +77,14 @@ sprite_frames = SubResource("SpriteFrames_147il")
 animation = &"crash"
 autoplay = "default"
 
-[node name="Spawner" parent="." index="5" node_paths=PackedStringArray("to_node") instance=ExtResource("3_kbmfw")]
+[node name="Spawner" parent="." index="5" node_paths=PackedStringArray("to_node") instance=ExtResource("5_wkgax")]
 position = Vector2(-3, 73)
 spawn_to_start = true
 time_package = 0.3
 count_package = 3
 time = 10.0
 time_rnd = 1.0
-spawn_scene = ExtResource("4_u1v5v")
+spawn_scene = ExtResource("6_8n31i")
 to_node = NodePath("..")
 up_parent = true
 

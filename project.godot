@@ -89,6 +89,7 @@ open_pause={
 2d_physics/layer_5="building"
 2d_navigation/layer_5="мир"
 2d_physics/layer_6="arrow"
+2d_physics/layer_7="МирныйМирРазрушение"
 
 [rendering]
 

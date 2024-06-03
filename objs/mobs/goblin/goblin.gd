@@ -1,6 +1,5 @@
-extends "res://Mobs/mob_obj.gd"
+extends "res://objs/Mobs/mob_obj.gd"
 
-var SPEED = 130
 const ZONE_DISTANCE_ATACK = Vector2(15, 0)
 #var destination = Vector2()
 var target_position: Vector2 = Vector2.ZERO
@@ -19,65 +18,63 @@ var is_atack_processing = false
 @export var pathfollower: PathFollow2D
 
 func _ready():
-	SPEED = 100
 	auto_dead_queue = false
-	#player = get_tree().root.find_child('Player', true, false)
 	
-#func _physics_process(delta: float) -> void:
+	
+func on_the_invulnerability(delta):
+	move_velocity()
+	velocity /= 1.3
+	anim.flip_h = velocity.x < 0
 
-func _process(delta):
-	$DebugInfo.text = "HP: " + str(health.current) + "\nState: " + STATE_ACTION.keys()[state_action] + "\nLen: " + str(velocity.length())
+func on_the_patrolling(delta):
+	anim.animation = 'Walk'
+	if _find_target(false, false):
+		return
+	if not pathfollower:
+		return
+	$DebugInfo.text += "\nOfH: " + str(pathfollower.h_offset) + "\nOfV: " + str(pathfollower.v_offset);
+	pathfollower.progress += speed * delta
+	_navigation_to(pathfollower.global_position)
+	_move_to_target()
+	anim.flip_h = velocity.x < 0
+	#position = pathfollower.position
+	#anim.flip_h = pathfollower.get_h_offset() < 0
+
+func on_the_target(delta):
+	anim.flip_h = velocity.x < 0
+	if _find_target_atack():
+		return
+	_move_to_target()
+
+func on_the_dead(delta):
+	# тут завершаем смерть гоблина
+	end_dead()
+	queue_free()
+
+func on_the_stand(delta):
+	anim.flip_h = velocity.x < 0
+	# Когда стоит без дела, искать куда идти, если он не в стане от своей атаки
+	if not is_atack_processing:
+		_find_target()
+
+func on_the_atack(delta):
+	anim.flip_h = velocity.x < 0
+	# процесс атаки, тут найти цель на 50% атаки и снять ХП у здания\игрока
+	anim.animation = 'atack'
 	
-	_update_zone_atack_angle()
-	match state_action:
-		STATE_ACTION.INVULNERABILITY:
-			move_velocity()
-			velocity /= 1.3
-			anim.flip_h = velocity.x < 0
-		STATE_ACTION.TARGET:
-			anim.flip_h = velocity.x < 0
-			if _find_target_atack():
-				return
-			_move_to_target()
-		STATE_ACTION.PATROLLING:
-			anim.animation = 'Walk'
-			if _find_target(false, false):
-				return
-			if not pathfollower:
-				return
-			$DebugInfo.text += "\nOfH: " + str(pathfollower.h_offset) + "\nOfV: " + str(pathfollower.v_offset);
-			pathfollower.progress += SPEED * delta
-			_navigation_to(pathfollower.global_position)
-			_move_to_target()
-			anim.flip_h = velocity.x < 0
-			#position = pathfollower.position
-			#anim.flip_h = pathfollower.get_h_offset() < 0
-		STATE_ACTION.ATACK:
-			anim.flip_h = velocity.x < 0
-			# процесс атаки, тут найти цель на 50% атаки и снять ХП у здания\игрока
-			anim.animation = 'atack'
-			
-			var size = anim.sprite_frames.get_frame_count("atack")
-			if anim.frame >= size - 1:
-				if is_atack_processing || not _find_target_atack():
-					anim.animation = 'Idle'
-					state_action = STATE_ACTION.STAND
-			elif anim.frame >= (size - 1) / 2 && not is_atack_processing:
-				is_atack_processing = true
-				timer_atack_kd.start()
-				var objs = atack_zone.get_overlapping_bodies()
-				for o_enemy in objs:
-					to_damage(1, o_enemy)
-				
-		STATE_ACTION.STAND:
-			anim.flip_h = velocity.x < 0
-			# Когда стоит без дела, искать куда идти, если он не в стане от своей атаки
-			if not is_atack_processing:
-				_find_target()
-		STATE_ACTION.DEAD:
-			# тут завершаем смерть гоблина
-			end_dead()
-			queue_free()
+	var size = anim.sprite_frames.get_frame_count("atack")
+	if anim.frame >= size - 1:
+		if is_atack_processing || not _find_target_atack():
+			anim.animation = 'Idle'
+			state_action = STATE_ACTION.STAND
+	elif anim.frame >= (size - 1) / 2 && not is_atack_processing:
+		is_atack_processing = true
+		timer_atack_kd.start()
+		var objs = atack_zone.get_overlapping_bodies()
+		for o_enemy in objs:
+			to_damage(1, o_enemy)
+		
+
 
 func _move_to_target():
 	# Если мы достигли цель, то ищем цель, если нет цели рядом, отменяем движение
@@ -86,7 +83,7 @@ func _move_to_target():
 	else:
 		# если есть движение, то есть движение, ауф
 		var next_point_pos = nav.get_next_path_position()
-		velocity = global_position.direction_to(next_point_pos) * SPEED
+		velocity = global_position.direction_to(next_point_pos) * speed
 		move_velocity()
 
 func move_velocity():

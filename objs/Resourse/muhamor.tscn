@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://711omouq3dvn"]
 
-[ext_resource type="Script" path="res://objs/Resourse/muhamor.gd" id="1_u8g0o"]
+[ext_resource type="Script" path="res://objs/resourse/muhamor.gd" id="1_u8g0o"]
 [ext_resource type="Texture2D" uid="uid://bqqgk0272rm2m" path="res://assets/Рыцари/Tiny Swords (Update 010)/Deco/03.png" id="1_u12ld"]
 [ext_resource type="Texture2D" uid="uid://bnku7uhf7e0pi" path="res://assets/Рыцари/Tiny Swords (Update 010)/Deco/02.png" id="2_ei0yo"]
 [ext_resource type="Texture2D" uid="uid://dynxdhwn680p4" path="res://assets/Рыцари/Tiny Swords (Update 010)/Deco/01.png" id="3_5fe4l"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bkldnsyj7ttcb"]
 
-[ext_resource type="Script" path="res://Mobs/mob_obj.gd" id="1_ikund"]
-[ext_resource type="PackedScene" uid="uid://dhv8pdcy4svl8" path="res://element/health_bar/health_bar.tscn" id="3_lximq"]
+[ext_resource type="Script" path="res://objs/mobs/mob_obj.gd" id="1_jrwpk"]
+[ext_resource type="PackedScene" uid="uid://dhv8pdcy4svl8" path="res://element/health_bar/health_bar.tscn" id="2_04hbm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_66hky"]
 radius = 3.44467
@@ -9,17 +9,25 @@ radius = 3.44467
 [node name="MobObj" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 55
-script = ExtResource("1_ikund")
+script = ExtResource("1_jrwpk")
 
 [node name="BodyObj" type="CollisionShape2D" parent="."]
 scale = Vector2(2.61273, 2.61273)
 shape = SubResource("CircleShape2D_66hky")
 
-[node name="HealthBar" parent="." instance=ExtResource("3_lximq")]
+[node name="HealthBar" parent="." instance=ExtResource("2_04hbm")]
 position = Vector2(-57, -117)
 scale = Vector2(0.33227, 0.33227)
 
 [node name="InvulnerabilityTimer" type="Timer" parent="."]
 wait_time = 0.1
+one_shot = true
+
+[node name="DebugInfo" type="Label" parent="."]
+visible = false
+offset_left = -20.0
+offset_top = -120.0
+offset_right = 20.0
+offset_bottom = -97.0
 
 [connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_invulnerability_timer_timeout"]

@@ -289,7 +289,7 @@ debug_color = Color(0.227451, 0.635294, 0.180392, 0.419608)
 [node name="AtackZone" type="Area2D" parent="."]
 scale = Vector2(0.805254, -9.3268)
 collision_layer = 2
-collision_mask = 4
+collision_mask = 68
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AtackZone"]
 position = Vector2(-4.96738, -3.04732e-15)

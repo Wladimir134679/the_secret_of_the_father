@@ -5,12 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://rsho2m156sr0" path="res://objs/auto_packet/auto_packet.tscn" id="2_24sti"]
 [ext_resource type="PackedScene" uid="uid://dsg44bqc7yvuy" path="res://objs/building/Castle/castle.tscn" id="4_jmx1j"]
 [ext_resource type="PackedScene" uid="uid://cqq6iph345rdb" path="res://objs/building/tower/tower.tscn" id="5_4w73h"]
-[ext_resource type="PackedScene" uid="uid://cssb781x4gm31" path="res://objs/Resourse/gold.tscn" id="5_klmpd"]
+[ext_resource type="PackedScene" uid="uid://cssb781x4gm31" path="res://objs/resourse/gold.tscn" id="5_klmpd"]
 [ext_resource type="PackedScene" uid="uid://qttxpr3mpare" path="res://objs/building/GoblinTower/GoblinTower.tscn" id="6_c1733"]
 [ext_resource type="PackedScene" uid="uid://csbidcltw6m7" path="res://player/player.tscn" id="7_xysi3"]
 [ext_resource type="PackedScene" uid="uid://dv4glsilnynn7" path="res://player/PlayerCamera.tscn" id="8_ga0at"]
 [ext_resource type="PackedScene" uid="uid://pjyuitpmmpe2" path="res://scenes/game_ui.tscn" id="9_iweqp"]
-[ext_resource type="PackedScene" uid="uid://pvyn7gdlrx0n" path="res://Mobs/goblin/goblin.tscn" id="11_ynkd0"]
+[ext_resource type="PackedScene" uid="uid://pvyn7gdlrx0n" path="res://objs/mobs/goblin/goblin.tscn" id="11_ynkd0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_y7j1q"]
 vertices = PackedVector2Array(-1638, 111, -1639, 110, -1601, 147, 1014, 540, 946, 591, 947, 590, -1586, 315, -1631, 360, -1631, 359, -1546, 689, -1546, 808, -1625, 736, -937, 160, -966, 113, -28, 120, -873, 200, -432, 759, -796, 328, -321, 725, 1758, 105, 1920, 105, 2081, 112, 1996, 338, 1713, 212, 3278, 361, 3278, 420, 2846, 413, 2891, 361, 718, 862, 718, 916, 15, 909, -7, 833, -1494, 516, -1494, 209, -1437, 209, -1343, 319, 3074, 1037, 2930, 1037, 2930, 833, 3058, 833, 3153, 903, -2025, 597, -2078, 597, -2078, 544, -1888, 537, -1881, 593, -1708, 661, -2001, 653, -1830, 593, -1663, 593, -1655, 529, -1525, 537, -1443, 637, 2998, 665, 3055, 566, 3185, 505, 3269, 512, 3262, 864, 3058, 733, 2847, 733, 2823, 908, 2385, 901, 2370, 682, 2838, 665, -1229, 392, -1343, 629, 1114, 565, 1066, 322, 1134, 276, 1282, 439, 1115, 565, 2517, 121, 2707, 121, 2343, 383, 734, 772, -75, 782, 230, 265, 321, 273, 473, 302, 524, 345, -1983, 244, -2040, 260, -2062, 255, -2062, 84, -2023, 61, -1832, -1, -466, 845, -480, 901, -907, 901, -977, 816, -957, 473, -841, 382, -1830, 405, -1872, 405, -1903, 288, -1725, 39, -1586, 202, 1834, 909, 1279, 916, 1251, 824, 1306, 755, 1961, 743, 1314, 641, 1351, 474, 1549, 400, -1682, 593, 2164, 622, 1648, 310, 2150, 458, -2014, -24, -1993, -87, -1863, -87, -1690, 411, -1228, 662, -1050, 465, -1091, 726, 622, 345, 645, 297, 701, 304, 784, 346, 835, 654, 834, 655, 776, 696, 2267, 596, 427, 250, -465, 843, -190, 741, 34, 175, 132, 224, 874, 305, 982, 305, 1228, 598)
